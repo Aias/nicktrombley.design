@@ -22,8 +22,8 @@
 <section class="flow boxed">
 	<p>
 		If you’re deciding whether you want to hire me, you should start with my
-		<a href="/resume">resumé</a>. I worked at Epic Systems for about 6
-		years, most of which as a UX designer / developer.
+		<a href="/files/trombley_resume.pdf">resumé</a>. I worked at Epic
+		Systems for about 6 years, most of which as a UX designer / developer.
 	</p>
 	<p>
 		For an idea of the kinds of things I’ve done over the years, check out

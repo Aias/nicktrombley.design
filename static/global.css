@@ -138,6 +138,9 @@ html {
 
 body {
 	padding: var(--body-padding);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	font-size: 1rem;
 	line-height: var(--line-height);
 	font-family: var(--font-stack-serif);
@@ -145,6 +148,11 @@ body {
 	color: var(--clr-text-primary);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
 strong,
 .strong {
 	font-weight: var(--font-weight-bold);
