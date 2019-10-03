@@ -1,13 +1,14 @@
 {
 	"name": "nicktrombley.design",
 	"description": "Web-based CV",
-	"version": "0.0.1",
+	"version": "0.2.0",
 	"license": "MIT",
 	"scripts": {
 		"dev": "sapper dev",
 		"build": "sapper build",
 		"export": "sapper export",
-		"start": "node __sapper__/build"
+		"serve": "node __sapper__/build",
+		"netlify:build": "sapper export"
 	},
 	"dependencies": {
 		"compression": "^1.7.1",
