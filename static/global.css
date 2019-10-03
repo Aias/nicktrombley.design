@@ -1,3 +1,7 @@
+/* ---------------------------------------- */
+/* CSS Reset */
+/* ---------------------------------------- */
+
 /* Box sizing rules */
 *,
 *::before,
@@ -72,4 +76,81 @@ select {
 		transition: none !important;
 		scroll-behavior: auto !important;
 	}
+}
+
+/* ---------------------------------------- */
+/* Variables */
+/* ---------------------------------------- */
+
+:root {
+	--font-stack-serif: 'Quattrocento', 'Palatino Linotype', Palatino, Palladio,
+		'URW Palladio L', 'Book Antiqua', Baskerville, 'Bookman Old Style',
+		'Bitstream Charter', 'Nimbus Roman No9 L', Garamond, 'Apple Garamond',
+		'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook',
+		'Century Schoolbook L', Georgia, serif;
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+
+	--clr-theme-primary: #1f0066;
+	--clr-theme-light: #c6c1ff;
+	--clr-bg: #fcfbf7;
+
+	--clr-text-inverted: rgba(255, 251, 240, 0.9);
+	--clr-text-primary: rgba(8, 6, 13, 0.9);
+	--clr-text-theme: var(--clr-theme-primary);
+
+	--border: 2px solid var(--clr-text-primary);
+
+	--body-padding: 2rem;
+}
+
+/* ---------------------------------------- */
+/* Layout */
+/* ---------------------------------------- */
+
+html,
+body {
+	background-color: var(--clr-bg);
+}
+
+/* ---------------------------------------- */
+/* Typography */
+/* ---------------------------------------- */
+
+html {
+	font-size: 100%;
+}
+
+body {
+	padding: var(--body-padding);
+	font-size: 1.125rem;
+	line-height: calc(30 / 18);
+	font-family: var(--font-stack-serif);
+	font-weight: var(--font-weight-normal);
+	color: var(--clr-text-primary);
+}
+
+strong,
+.strong {
+	font-weight: var(--font-weight-bold);
+}
+
+a {
+	color: var(--clr-text-theme);
+	fill: currentColor;
+}
+
+/* ---------------------------------------- */
+/* Helpers */
+/* ---------------------------------------- */
+
+.boxed {
+	border: var(--border);
+}
+
+.inverted {
+	background-color: var(--clr-text-primary);
+	color: var(--clr-text-inverted);
+
+	--clr-text-theme: var(--clr-theme-light);
 }
