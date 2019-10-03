@@ -3,7 +3,7 @@
 </script>
 
 <header class="layout-main">
-	<h1 class="site-title">Nick Trombley . Design</h1>
+	<h1 class="site-title"><a href="/">Nick Trombley . Design</a></h1>
 	<nav>
 		<ul class="nav-links nav-links--internal">
 			<li><a href="/files/trombley_resume.pdf">Resumé</a></li>
@@ -38,6 +38,11 @@
 		grid-column: span 1;
 		border-bottom: var(--border);
 		text-align: center;
+	}
+
+	.site-title > a {
+		color: inherit;
+		text-decoration: none;
 	}
 
 	nav {
