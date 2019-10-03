@@ -25,6 +25,7 @@ h1,
 h2,
 h3,
 h4,
+h5,
 p,
 ul,
 ol,
@@ -59,6 +60,7 @@ img {
 article > * + *,
 .flow > * + * {
 	margin-top: 1em;
+	/* margin-top: calc(1em * var(--line-height)); */
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -91,6 +93,8 @@ select {
 	--font-weight-normal: 400;
 	--font-weight-bold: 700;
 
+	--line-height: 1.7;
+
 	--clr-theme-primary: #1f0066;
 	--clr-theme-light: #c6c1ff;
 	--clr-bg: #fcfbf7;
@@ -113,6 +117,17 @@ body {
 	background-color: var(--clr-bg);
 }
 
+.layout-main {
+	display: grid;
+	grid-template-columns: [all-start] repeat(3, 1fr) [all-end];
+	grid-column-gap: 2rem;
+}
+
+.layout-main > * {
+	/* Set up the grid above, but by default its children should flow normally. Items should only go in columns if they are placed explicitly. */
+	grid-column: all;
+}
+
 /* ---------------------------------------- */
 /* Typography */
 /* ---------------------------------------- */
@@ -123,8 +138,8 @@ html {
 
 body {
 	padding: var(--body-padding);
-	font-size: 1.125rem;
-	line-height: calc(30 / 18);
+	font-size: 1rem;
+	line-height: var(--line-height);
 	font-family: var(--font-stack-serif);
 	font-weight: var(--font-weight-normal);
 	color: var(--clr-text-primary);
@@ -136,6 +151,7 @@ strong,
 }
 
 a {
+	font-weight: var(--font-weight-bold);
 	color: var(--clr-text-theme);
 	fill: currentColor;
 }
