@@ -1,8 +1,11 @@
 <script>
 	import Nav from '../components/Nav.svelte';
+	import SEO from '../components/SEO.svelte';
 
 	export let segment;
 </script>
+
+<SEO />
 
 <Nav {segment}/>
 

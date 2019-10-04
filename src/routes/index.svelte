@@ -1,7 +1,3 @@
-<svelte:head>
-	<title>nick trombley . design</title>
-</svelte:head>
-
 <section class="layout__primary flow boxed inverted">
 	<p>
 		These pages outline the professional experience of
