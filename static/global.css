@@ -117,15 +117,53 @@ body {
 	background-color: var(--clr-bg);
 }
 
-.layout-main {
-	display: grid;
-	grid-template-columns: [all-start] repeat(3, 1fr) [all-end];
-	grid-column-gap: 2rem;
+.app {
+	margin-top: 2rem;
 }
 
-.layout-main > * {
-	/* Set up the grid above, but by default its children should flow normally. Items should only go in columns if they are placed explicitly. */
+.layout-main {
+	display: grid;
+	grid-template-columns:
+		[all-start primary-start] 1fr [primary-end secondary-start] repeat(
+			2,
+			1fr
+		)
+		[secondary-end all-end];
+	grid-gap: var(--body-padding);
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.layout__all {
 	grid-column: all;
+}
+
+.layout__primary {
+	grid-column: primary;
+}
+
+@media (max-width: 1064px) {
+	.layout-main {
+		grid-template-columns:
+			[all-start primary-start secondary-start] repeat(2, 1fr)
+			[ all-end primary-end secondary-end];
+		max-width: 600px;
+	}
+}
+
+@media (max-width: 664px) {
+	:root {
+		--body-padding: 1rem;
+	}
+
+	.app {
+		margin-top: 0;
+	}
+
+	.layout-main {
+		grid-template-columns: [all-start primary-start secondary-start] 1fr [all-end primary-end secondary-end];
+	}
 }
 
 /* ---------------------------------------- */
@@ -177,4 +215,12 @@ a {
 	color: var(--clr-text-inverted);
 
 	--clr-text-theme: var(--clr-theme-light);
+}
+
+.centered {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	justify-self: center;
+	text-align: center;
 }

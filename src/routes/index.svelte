@@ -2,7 +2,7 @@
 	<title>nick trombley . design</title>
 </svelte:head>
 
-<section class="flow boxed inverted">
+<section class="layout__primary flow boxed inverted">
 	<p>
 		These pages represent the professional experience of
 		<strong>Nick Trombley</strong>.
@@ -55,6 +55,5 @@
 <style>
 	section {
 		padding: 2rem;
-		grid-column: span 1;
 	}
 </style>

@@ -9,10 +9,12 @@
 	<title>{status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<div class="layout__primary centered">
+	<h1>{status}</h1>
 
-<p>{error.message}</p>
+	<p>{error.message}</p>
 
-{#if dev && error.stack}
-<pre>{error.stack}</pre>
-{/if}
+	{#if dev && error.stack}
+	<pre>{error.stack}</pre>
+	{/if}
+</div>

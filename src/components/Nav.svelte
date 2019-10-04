@@ -1,21 +1,24 @@
 <script>
 	export let segment;
+
+	import Github from './icons/Github.svelte';
+	import LinkedIn from './icons/LinkedIn.svelte';
 </script>
 
 <header class="layout-main">
-	<h1 class="site-title"><a href="/">Nick Trombley . Design</a></h1>
+	<h1 class="site-title layout__primary"><a href="/">Nick Trombley . Design</a></h1>
 	<nav>
-		<ul class="nav-links nav-links--internal">
+		<ul class="nav-links">
 			<li><a href="/files/trombley_resume.pdf">Resumé</a></li>
 			<li><a href="/projects">Projects</a></li>
 			<li><a href="/writing">Writing</a></li>
-		</ul>
-		<span class="dot" role="presentation"><strong>·</strong></span>
-		<ul class="nav-links nav-links--external">
-			<li><a href="https://github.com/Aias">Github</a></li>
+			<li class="dot" role="presentation">
+				<span><strong>·</strong></span>	
+			</li>
+			<li><a title="Github" href="https://github.com/Aias"><Github /></a></li>
 			<li>
-				<a href="https://www.linkedin.com/in/nick-trombley/"
-					>LinkedIn</a
+				<a title="LinkedIn" href="https://www.linkedin.com/in/nick-trombley/"
+					><LinkedIn /></a
 				>
 			</li>
 		</ul>
@@ -27,6 +30,7 @@
 		margin-bottom: 2rem;
 		text-transform: lowercase;
 		justify-content: center;
+		grid-row-gap: 0;
 	}
 
 	header > * {
@@ -35,7 +39,7 @@
 
 	.site-title {
 		font-size: 1rem;
-		grid-column: span 1;
+		grid-column: primary;
 		border-bottom: var(--border);
 		text-align: center;
 	}
@@ -46,17 +50,29 @@
 	}
 
 	nav {
-		grid-column: span 2;
+		grid-column: secondary;
 		border-bottom: var(--border);
-		display: flex;
-		justify-content: center;
 	}
 
 	.nav-links {
 		display: flex;
+		justify-content: space-between;
+		max-width: 375px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
-	li {
-		margin: 0 1rem;
+	@media (max-width: 1064px) {
+		.layout__primary {
+			margin-bottom: 1rem;
+		}
+
+		header {
+			margin-bottom: 0.5rem;
+		}
+
+		nav {
+			border-bottom: none;
+		}
 	}
 </style>
