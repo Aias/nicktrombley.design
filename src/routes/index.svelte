@@ -4,30 +4,31 @@
 
 <section class="layout__primary flow boxed inverted">
 	<p>
-		These pages represent the professional experience of
-		<strong>Nick Trombley</strong>.
+		These pages outline the professional experience of
+		<strong>Nick Trombley</strong>, a web designer / developer based in New
+		York.
 	</p>
 	<p>
-		Elevator pitch: <strong>I make things for the web</strong>. Whether that
-		means designing enterprise-grade tools and applications, or developing
-		small sites with a personal touch, I care about bringing to my work a
-		sense of craft, purpose, and – on the good days – beauty.
+		Whether I am designing enterprise-grade tools and applications, or
+		developing small sites with a personal touch, I care about bringing to
+		my work a sense of craft, purpose, and – on the good days – beauty.
 	</p>
 	<p>
-		I currently live in New York, and am
+		I am
 		<strong>available for hire</strong>.
 	</p>
 </section>
 
 <section class="flow boxed">
 	<p>
-		If you’re deciding whether you want to hire me, you should start with my
-		<a href="/files/trombley_resume.pdf">resumé</a>. I worked at Epic
-		Systems for about 6 years, most of which as a UX designer / developer.
+		If you’re deciding whether to hire me, my
+		<a href="/files/trombley_resume.pdf">resumé</a> would be a good start.
+		The bulk of my work has been done at Epic Systems, where I was on the UX
+		design team for about five years.
 	</p>
 	<p>
-		For an idea of the kinds of things I’ve done over the years, check out
-		the <a href="/projects">projects list</a>. (List-ish. List-esque.)
+		For an idea of where my talents lie, I maintain a running
+		<a href="/projects">projects list</a>. (List-ish. List-esque.)
 	</p>
 	<p>
 		For samples of my work, contact me directly at
@@ -54,6 +55,6 @@
 
 <style>
 	section {
-		padding: 2rem;
+		padding: var(--body-padding);
 	}
 </style>

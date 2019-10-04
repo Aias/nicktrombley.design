@@ -27,7 +27,7 @@
 
 <style>
 	header {
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 		text-transform: lowercase;
 		justify-content: center;
 		grid-row-gap: 0;
