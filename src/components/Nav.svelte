@@ -1,26 +1,17 @@
 <script>
 	export let segment;
-
-	import Github from './icons/Github.svelte';
-	import LinkedIn from './icons/LinkedIn.svelte';
 </script>
 
 <header class="layout-main">
-	<h1 class="site-title layout__primary"><a href="/">Nick Trombley . Design</a></h1>
+	<h1 class="site-title layout__primary">
+		<a href="/">nick trombley . design</a>
+	</h1>
 	<nav>
 		<ul class="nav-links">
-			<li><a href="/files/trombley_resume.pdf">Resumé</a></li>
-			<li><a rel=prefetch href="/projects">Projects</a></li>
-			<li><a rel=prefetch href="/writing">Writing</a></li>
-			<li class="dot" role="presentation" aria-hidden="true">
-				<span><strong>·</strong></span>	
-			</li>
-			<li><a title="Github" href="https://github.com/Aias"><Github /></a></li>
-			<li>
-				<a title="LinkedIn" href="https://www.linkedin.com/in/nick-trombley/"
-					><LinkedIn /></a
-				>
-			</li>
+			<li><a rel="prefetch" href="/cv">CV</a></li>
+			<li><a rel="prefetch" href="/projects">Projects</a></li>
+			<li><a rel="prefetch" href="/writing">Writing</a></li>
+			<li><a rel="prefetch" href="/contact">Contact</a></li>
 		</ul>
 	</nav>
 </header>
@@ -56,8 +47,8 @@
 
 	.nav-links {
 		display: flex;
-		justify-content: space-between;
-		max-width: 375px;
+		justify-content: space-evenly;
+		max-width: 350px;
 		margin-left: auto;
 		margin-right: auto;
 	}
