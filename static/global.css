@@ -201,6 +201,11 @@ h2 {
 	font-weight: var(--font-weight-normal);
 }
 
+h3 {
+	font-size: 1rem;
+	font-weight: var(--font-weight-bold);
+}
+
 strong,
 .strong {
 	font-weight: var(--font-weight-bold);
