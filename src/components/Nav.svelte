@@ -10,9 +10,9 @@
 	<nav>
 		<ul class="nav-links">
 			<li><a href="/files/trombley_resume.pdf">Resumé</a></li>
-			<li><a href="/projects">Projects</a></li>
-			<li><a href="/writing">Writing</a></li>
-			<li class="dot" role="presentation">
+			<li><a rel=prefetch href="/projects">Projects</a></li>
+			<li><a rel=prefetch href="/writing">Writing</a></li>
+			<li class="dot" role="presentation" aria-hidden="true">
 				<span><strong>·</strong></span>	
 			</li>
 			<li><a title="Github" href="https://github.com/Aias"><Github /></a></li>

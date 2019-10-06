@@ -1,5 +1,9 @@
-import * as sapper from '@sapper/app';
+import { start, prefetch } from '@sapper/app';
 
-sapper.start({
+start({
 	target: document.querySelector('#🖌️')
 });
+
+const routesToLoad = ['/projects', '/writing'];
+
+routesToLoad.forEach(route => prefetch(route));
