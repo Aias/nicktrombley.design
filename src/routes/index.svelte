@@ -18,20 +18,22 @@
 <section class="flow boxed">
 	<p>
 		If you’re deciding whether to hire me, my
-		<a href="/cv">cv</a> would be a good start. The bulk of my work has been
-		done at Epic Systems, where I was on the UX design team for about five
-		years.
+		<a rel="prefetch" href="/cv">cv</a> would be a good start. The bulk of
+		my work has been done at Epic Systems, where I was on the UX design team
+		for about five years.
 	</p>
 	<p>
 		For an idea of where my talents lie, I maintain a running
-		<a href="/projects">projects list</a>. (List-ish. List-esque.)
+		<a rel="prefetch" href="/projects">projects list</a>. (List-ish.
+		List-esque.)
 	</p>
 	<p>
 		Much of my work is no longer my own
 		<abbr
 			title="Intellectual Property – sadly signed away to the Epic code farm"
 			>IP</abbr
-		>, but I'm happy to provide samples <a href="/contact">on request</a>.
+		>, but I'm happy to provide samples
+		<a rel="prefetch" href="/contact">on request</a>.
 	</p>
 </section>
 
