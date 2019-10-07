@@ -1,9 +1,3 @@
-<script>
-	import PageTitle from '../components/PageTitle.svelte';
-</script>
-
-<PageTitle>Contact</PageTitle>
-
 <article class="layout__all">
 	<iframe
 		title="Contact form via Airtable"

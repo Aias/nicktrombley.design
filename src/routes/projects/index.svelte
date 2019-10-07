@@ -23,7 +23,6 @@
 </script>
 
 <script>
-	import PageTitle from '../../components/PageTitle.svelte';
 	import CheckboxGroup from './CheckboxGroup.svelte';
 
 	export let projects = undefined;
@@ -70,8 +69,6 @@
 		};
 	}
 </script>
-
-<PageTitle>The Work List</PageTitle>
 
 <article class="layout__all">
 	<CheckboxGroup items="{objToArr(groups.roles)}" title="If you're looking for a..." onChange="{handleChecked.bind(undefined, 'roles')}" />

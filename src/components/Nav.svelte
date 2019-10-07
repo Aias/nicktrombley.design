@@ -1,5 +1,10 @@
 <script>
-	export let segment;
+	export let segment = '';
+	export let pages = [];
+
+	$: {
+		console.log(segment);
+	}
 </script>
 
 <header class="layout-main">
@@ -8,10 +13,11 @@
 	</h1>
 	<nav>
 		<ul class="nav-links">
-			<li><a rel="prefetch" href="/cv">CV</a></li>
-			<li><a rel="prefetch" href="/projects">Projects</a></li>
-			<li><a rel="prefetch" href="/writing">Writing</a></li>
-			<li><a rel="prefetch" href="/contact">Contact</a></li>
+			{#each pages as {url, label}}
+			<li class:selected="{segment === url}">
+				<a rel="prefetch" href="/{url}">{label}</a>
+			</li>
+			{/each}
 		</ul>
 	</nav>
 </header>
@@ -51,6 +57,11 @@
 		max-width: 350px;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.selected > a {
+		color: inherit;
+		text-decoration: none;
 	}
 
 	@media (max-width: 1064px) {

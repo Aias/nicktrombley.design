@@ -1,5 +1,13 @@
+<script>
+	export let page = {
+		url: undefined,
+		label: '404',
+		title: '404'
+	};
+</script>
+
 <h2 class="page-title layout__primary">
-	<slot></slot>
+	{page.title}
 </h2>
 
 <style>
