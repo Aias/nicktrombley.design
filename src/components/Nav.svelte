@@ -1,10 +1,6 @@
 <script>
 	export let segment = '';
 	export let pages = [];
-
-	$: {
-		console.log(segment);
-	}
 </script>
 
 <header class="layout-main">

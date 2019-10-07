@@ -5,9 +5,9 @@
 </script>
 
 <section>
-	<h3>
+	<h4>
 		{title}
-	</h3>
+	</h4>
 	<div class="fieldset" role="group">
 		{#each items as item}
 		<label class:checked="{item[1].checked}">
@@ -42,6 +42,7 @@
 		margin-top: 2px;
 		margin-left: 2px;
 		transition: all 0.1s;
+		white-space: nowrap;
 	}
 
 	label:hover {

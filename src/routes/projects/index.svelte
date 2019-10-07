@@ -36,19 +36,22 @@
 
 	$: {
 		projects.forEach((project, i) => {
-			mapProperty(project, 'roles', 'role');
-			mapProperty(project, 'technologies', 'technologies');
-			mapProperty(project, 'fields', 'field');
-			mapProperty(project, 'tags', 'tags');
+			Object.keys(groups).forEach(key => mapProperty(project, key));
 		});
 	}
 
-	const mapProperty = (source, target, prop) => {
+	$: projectsFiltered = filterProjects(projects, groups);
+
+	$: {
+		console.log(projectsFiltered);
+	}
+
+	const mapProperty = (source, prop) => {
 		source[prop].forEach(item => {
-			if (typeof groups[target][item] === 'object') {
-				groups[target][item].count++;
+			if (typeof groups[prop][item] === 'object') {
+				groups[prop][item].count++;
 			} else {
-				groups[target][item] = { count: 1, checked: false };
+				groups[prop][item] = { count: 1, checked: false };
 			}
 		});
 	};
@@ -68,6 +71,11 @@
 			[group]: newGroup
 		};
 	}
+
+	const filterProjects = (projects = [], groups) => {
+		const maxListed = 10;
+		return projects.slice(0, maxListed);
+	}
 </script>
 
 <article class="layout__all">
@@ -77,20 +85,56 @@
 	<CheckboxGroup items="{objToArr(groups.tags)}" title="on projects related to..." onChange="{handleChecked.bind(undefined, 'tags')}" />
 	<section class="flow">
 		<header>
-			<h3>We should talk.</h3>
+			<h4>We should talk.</h4>
 			<span><a title="Contact" href="/contact">Send me a message</a> and I can tell you how the following projects might be similar to what you're working on:</span>
 		</header>
-		<table>
-
-		</table>		
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Project name</th>
+						<th>Roles</th>
+						<th>Technologies</th>
+						<th>Fields</th>
+						<th>Tags</th>
+					</tr>
+				</thead>
+				<tbody>
+					{#each projectsFiltered as {name, fields, roles, technologies, tags, starred, description, images, link}}
+					<tr>
+						<td>{name}</td>
+						<td>{roles.join(', ')}</td>
+						<td>{technologies.join(', ')}</td>
+						<td>{fields.join(', ')}</td>
+						<td>{tags.join(', ')}</td>
+					</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
 	</section>
 </article>
 
 <style>
 	section {
-		margin-top: 1.5rem;
+		margin-top: 2rem;
 	}
-	h3 {
+
+	h4 {
 		display: inline;
+	}
+
+	.table-container {
+		max-width: 100%;
+		overflow-x: scroll;		
+	}
+
+	table {
+		margin-top: 1.5rem;
+
+	}
+
+	td:first-child {
+		font-weight: var(--font-weight-bold);
 	}
 </style>

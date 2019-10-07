@@ -9,7 +9,7 @@
 	<title>{status}</title>
 </svelte:head>
 
-<div class="layout__primary centered">
+<div class="layout__all">
 	<h1>{status}</h1>
 
 	<p>{error.message}</p>

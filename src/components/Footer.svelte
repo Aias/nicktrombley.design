@@ -7,15 +7,12 @@
 <footer class="layout-main">
 	<div class="layout__all centered">
 		<div class="sep symbol" role="presentation" title="Trees provided by Katie Holten (https://www.katieholten.com/) – plant one today."><Messages /></div>
-		<ul class="external-links">
-			<li><small>© Nick Trombley. Find me on:</small></li>
-			<li><a title="Github" href="https://github.com/Aias"><Github /></a></li>
-			<li>
-				<a title="LinkedIn" href="https://www.linkedin.com/in/nick-trombley/"
-					><LinkedIn /></a
-				>
-			</li>			
-		</ul>	
+		<div class="copyright">
+			<small>© Nick Trombley. Find me on:</small>
+			<span class="external-links">
+				<a title="Github" href="https://github.com/Aias"><Github /></a>&nbsp;&nbsp;
+				<a title="LinkedIn" href="https://www.linkedin.com/in/nick-trombley/"><LinkedIn /></a></span>
+		</div>
 	</div>
 </footer>
 
@@ -29,12 +26,11 @@
 		text-align: center;
 	}
 
-	.external-links {
-		display: flex;
-		justify-content: center;
+	.copyright > * {
+		padding: 0 2px;
 	}
 
-	.external-links > li {
-		margin: 0 0.5rem;
+	.external-links {
+		white-space: nowrap;
 	}
 </style>

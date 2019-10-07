@@ -105,6 +105,7 @@ select {
 	--font-stack-glyph: Trees, Wingdings, Webdings, Symbol, monospace;
 	--font-weight-normal: 400;
 	--font-weight-bold: 700;
+	--font-size-smaller: 0.875em;
 
 	--line-height: 1.7;
 
@@ -156,6 +157,8 @@ html {
 
 .layout__all {
 	grid-column: all;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 .layout__primary {
@@ -212,8 +215,44 @@ h2 {
 }
 
 h3 {
+	font-size: 1.3rem;
+	font-weight: var(--font-weight-normal);
+}
+
+h4 {
 	font-size: 1rem;
 	font-weight: var(--font-weight-bold);
+}
+
+table {
+	border-collapse: collapse;
+	line-height: 1.5;
+}
+
+tr {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+th {
+	vertical-align: bottom;
+	font-weight: var(--font-weight-normal);
+	font-size: var(--font-size-smaller);
+	color: var(--clr-text-secondary);
+}
+
+td {
+	vertical-align: baseline;
+}
+
+th,
+td {
+	padding: 6px 0.75rem 6px 0;
+	text-align: left;
+}
+
+th:last-child,
+td:last-child {
+	padding-right: 0;
 }
 
 strong,
@@ -223,8 +262,7 @@ strong,
 
 small,
 .small {
-	font-size: 0.875em;
-	/* color: var(--clr-text-secondary); */
+	font-size: var(--font-size-smaller);
 }
 
 a {
