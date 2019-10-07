@@ -46,7 +46,7 @@
 	}
 
 	label:hover {
-		background-color: rgba(0, 0, 0, 0.1);
+		background-color: var(--clr-faint-2);
 	}
 
 	label.checked {
