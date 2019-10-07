@@ -8,8 +8,8 @@
 </script>
 
 <header class="layout-main">
-	<h1 class="site-title layout__primary">
-		<a href="/">nick trombley . design</a>
+	<h1 class="site-title layout__primary symbol">
+		<a href="/">netdotdesign</a>
 	</h1>
 	<nav>
 		<ul class="nav-links">

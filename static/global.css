@@ -114,6 +114,7 @@ select {
 
 	--clr-text-inverted: rgba(255, 251, 240, 0.9);
 	--clr-text-primary: rgba(8, 6, 13, 0.9);
+	--clr-text-secondary: rgba(8, 6, 13, 0.7);
 	--clr-text-theme: var(--clr-theme-primary);
 
 	--border: 2px solid var(--clr-text-primary);
@@ -218,6 +219,12 @@ h3 {
 strong,
 .strong {
 	font-weight: var(--font-weight-bold);
+}
+
+small,
+.small {
+	font-size: 0.875em;
+	/* color: var(--clr-text-secondary); */
 }
 
 a {

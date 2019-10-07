@@ -5,7 +5,7 @@
 		// 'made with love',
 		// 'thanks for visiting',
 		// 'secret message here',
-		'n'
+		'n e t'
 	];
 
 	let seed = messages.length;

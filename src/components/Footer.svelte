@@ -6,8 +6,9 @@
 
 <footer class="layout-main">
 	<div class="layout__all centered">
-		<div class="sep symbol" role="presentation"><Messages /></div>
+		<div class="sep symbol" role="presentation" title="Trees provided by Katie Holten (https://www.katieholten.com/) – plant one today."><Messages /></div>
 		<ul class="external-links">
+			<li><small>© Nick Trombley. Find me on:</small></li>
 			<li><a title="Github" href="https://github.com/Aias"><Github /></a></li>
 			<li>
 				<a title="LinkedIn" href="https://www.linkedin.com/in/nick-trombley/"
