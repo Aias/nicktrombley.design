@@ -18,9 +18,9 @@
 <section class="flow boxed">
 	<p>
 		If you’re deciding whether to hire me, my
-		<a rel="prefetch" href="/cv">cv</a> would be a good start. The bulk of
-		my work has been done at Epic Systems, where I was on the UX design team
-		for about five years.
+		<a rel="prefetch" href="/about">cv</a> would be a good start. The bulk
+		of my work has been done at Epic Systems, where I was on the UX design
+		team for about five years.
 	</p>
 	<p>
 		For an idea of where my talents lie, I maintain a running
