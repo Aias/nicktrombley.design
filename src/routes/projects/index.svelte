@@ -23,16 +23,20 @@
 </script>
 
 <script>
-	import CheckboxGroup from './CheckboxGroup.svelte';
+	import CheckboxGroup from './_CheckboxGroup.svelte';
 
 	export let projects = [];
 
-	let groups = {
-		'roles': {},
-		'technologies': {},
-		'fields': {},
-		'tags': {}
-	};
+	const fields = ['roles', 'technologies', 'fields', 'tags'];
+
+	$: groups = fields.reduce((obj, key) => {
+		obj[key] = {
+			byKey: {},
+			filtered: []
+		};
+
+		return obj;
+	}, {});
 
 	$: {
 		projects.forEach((project, i) => {
@@ -44,23 +48,19 @@
 
 	const mapProperty = (source, prop) => {
 		source[prop].forEach(item => {
-			if (typeof groups[prop][item] === 'object') {
-				groups[prop][item].count++;
+			let itemByKey = groups[prop]["byKey"][item];
+			if (typeof itemByKey === 'object') {
+				itemByKey.count++;
 			} else {
-				groups[prop][item] = { count: 1, checked: false };
+				itemByKey = { count: 1, checked: false };
 			}
-		});
-	};
-
-	const groupObjToSortedArr = obj => {
-		return Object.entries(obj).sort((a, b) => {
-			return b[1].count - a[1].count;
+			groups[prop]["byKey"][item] = itemByKey;
 		});
 	};
 
 	const handleChecked = (group = '', key = '', checked = false) => {
 		let newGroup = { ...groups[group] };
-		newGroup[key].checked = checked;
+		newGroup["byKey"][key].checked = checked;
 
 		groups = {
 			...groups,
@@ -75,13 +75,13 @@
 </script>
 
 <article class="layout__all">
-	<CheckboxGroup title="If you're looking for a..." items="{groupObjToSortedArr(groups.roles)}" onChange="{handleChecked.bind(undefined, 'roles')}" />
-	<CheckboxGroup title="with experience working with..." items="{groupObjToSortedArr(groups.technologies)}" onChange="{handleChecked.bind(undefined, 'technologies')}" />
-	<CheckboxGroup title="in the field of..." items="{groupObjToSortedArr(groups.fields)}" onChange="{handleChecked.bind(undefined, 'fields')}" />
-	<CheckboxGroup title="on projects related to..." items="{groupObjToSortedArr(groups.tags)}" onChange="{handleChecked.bind(undefined, 'tags')}" />
+	<CheckboxGroup title="If you're looking for a..." group="{groups.roles}" onChange="{handleChecked.bind(undefined, 'roles')}" />
+	<CheckboxGroup title="who's worked with..." group="{groups.technologies}" onChange="{handleChecked.bind(undefined, 'technologies')}" />
+	<CheckboxGroup title="in the field of..." group="{groups.fields}" onChange="{handleChecked.bind(undefined, 'fields')}" />
+	<CheckboxGroup title="on projects related to..." group="{groups.tags}" onChange="{handleChecked.bind(undefined, 'tags')}" />
 	<section class="flow">
 		<header>
-			<h4>We should talk.</h4>
+			<h4>Let's talk.</h4>
 			<span><a title="Contact" href="/contact">Send me a message</a> and I can tell you how the following projects might be similar to what you're working on:</span>
 		</header>
 		<div class="table-container">

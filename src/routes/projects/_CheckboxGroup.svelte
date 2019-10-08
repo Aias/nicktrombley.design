@@ -1,7 +1,13 @@
 <script>
-	export let items = [];
+	export let group = {};
 	export let onChange = (item, val) => console.log(item, val);
 	export let title = '';
+
+	const groupObjToSortedArr = obj => {
+		return Object.entries(obj).sort((a, b) => {
+			return b[1].count - a[1].count;
+		});
+	};
 </script>
 
 <section>
@@ -9,7 +15,7 @@
 		{title}
 	</h4>
 	<div class="fieldset" role="group">
-		{#each items as item}
+		{#each groupObjToSortedArr(group.byKey) as item}
 		<label class:checked="{item[1].checked}">
 			<input
 				type="checkbox"
