@@ -8,11 +8,6 @@
 
 	const pages = [
 		{
-			url: 'cv',
-			label: 'CV',
-			title: 'Curriculum Vitae'
-		},
-		{
 			url: 'projects',
 			label: 'Projects',
 			title: 'The Work List'
@@ -21,6 +16,11 @@
 			url: 'writing',
 			label: 'Writing',
 			title: 'Writing'
+		},
+		{
+			url: 'about',
+			label: 'About',
+			title: 'About / CV'
 		},
 		{
 			url: 'contact',

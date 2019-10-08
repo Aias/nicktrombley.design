@@ -25,7 +25,7 @@
 <script>
 	import CheckboxGroup from './CheckboxGroup.svelte';
 
-	export let projects = undefined;
+	export let projects = [];
 
 	let groups = {
 		'roles': {},
@@ -40,11 +40,7 @@
 		});
 	}
 
-	$: projectsFiltered = filterProjects(projects, groups);
-
-	$: {
-		console.log(projectsFiltered);
-	}
+	$: projectsFiltered = getListedProjects(projects, groups);
 
 	const mapProperty = (source, prop) => {
 		source[prop].forEach(item => {
@@ -56,7 +52,7 @@
 		});
 	};
 
-	const objToArr = obj => {
+	const groupObjToSortedArr = obj => {
 		return Object.entries(obj).sort((a, b) => {
 			return b[1].count - a[1].count;
 		});
@@ -72,17 +68,17 @@
 		};
 	}
 
-	const filterProjects = (projects = [], groups) => {
+	const getListedProjects = (projects = [], groups) => {
 		const maxListed = 10;
 		return projects.slice(0, maxListed);
 	}
 </script>
 
 <article class="layout__all">
-	<CheckboxGroup items="{objToArr(groups.roles)}" title="If you're looking for a..." onChange="{handleChecked.bind(undefined, 'roles')}" />
-	<CheckboxGroup items="{objToArr(groups.technologies)}" title="with experience working with..." onChange="{handleChecked.bind(undefined, 'technologies')}" />
-	<CheckboxGroup items="{objToArr(groups.fields)}" title="in the field of..." onChange="{handleChecked.bind(undefined, 'fields')}" />
-	<CheckboxGroup items="{objToArr(groups.tags)}" title="on projects related to..." onChange="{handleChecked.bind(undefined, 'tags')}" />
+	<CheckboxGroup title="If you're looking for a..." items="{groupObjToSortedArr(groups.roles)}" onChange="{handleChecked.bind(undefined, 'roles')}" />
+	<CheckboxGroup title="with experience working with..." items="{groupObjToSortedArr(groups.technologies)}" onChange="{handleChecked.bind(undefined, 'technologies')}" />
+	<CheckboxGroup title="in the field of..." items="{groupObjToSortedArr(groups.fields)}" onChange="{handleChecked.bind(undefined, 'fields')}" />
+	<CheckboxGroup title="on projects related to..." items="{groupObjToSortedArr(groups.tags)}" onChange="{handleChecked.bind(undefined, 'tags')}" />
 	<section class="flow">
 		<header>
 			<h4>We should talk.</h4>
