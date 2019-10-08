@@ -4,6 +4,7 @@
 	import { quintInOut } from 'svelte/easing';
 
 	export let projects = [];
+	export let groups = {};
 </script>
 
 <ol class="layout-main projects-container">
@@ -11,7 +12,6 @@
 	description, images, link} (key)}
 	<li
 		class="project inverted small"
-		transition:fade="{{duration: 500, easing: quintInOut}}"
 		animate:flip="{{duration: 750, easing: quintInOut}}"
 	>
 		<h3>{name}</h3>
