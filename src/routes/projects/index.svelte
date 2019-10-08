@@ -62,6 +62,13 @@
 		let newGroup = { ...groups[group] };
 		newGroup["byKey"][key].checked = checked;
 
+		if(checked) {
+			newGroup["filtered"].push(key);
+		}
+		else {
+			newGroup["filtered"] = newGroup["filtered"].filter(k => k !== key);
+		}
+
 		groups = {
 			...groups,
 			[group]: newGroup
@@ -70,7 +77,35 @@
 
 	const getListedProjects = (projects = [], groups) => {
 		const maxListed = 10;
-		return projects.slice(0, maxListed);
+
+		let ratedProjects = projects.map((project, i) => {
+			let rating = 0;
+			if(project.starred) { rating++; }
+
+			Object.keys(groups).forEach(key => {
+				let { filtered } = groups[key];
+				let projectItems = project[key] || [];
+
+				filtered.forEach(filter => {
+					if(projectItems.indexOf(filter) >= 0) {
+						rating = rating + 2;
+					}
+				})
+			})
+
+			return {
+				...project,
+				_rating: rating,
+				_order: i
+			};
+		});
+
+		return ratedProjects.sort((a,b) => {
+			if(b._rating > a._rating) { return 1; } // First by rating, desc.
+			else if(b._rating < a._rating) { return -1; }
+			else if(a._order > b._order) { return 1; } // Then by original order, asc.
+			else { return -1; }
+		}).slice(0, maxListed);
 	}
 </script>
 
