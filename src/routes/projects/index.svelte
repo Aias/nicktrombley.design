@@ -24,6 +24,7 @@
 
 <script>
 	import CheckboxGroup from './_CheckboxGroup.svelte';
+	import ProjectsList from './_ProjectsList.svelte';
 
 	export let projects = [];
 
@@ -76,7 +77,7 @@
 	}
 
 	const getListedProjects = (projects = [], groups) => {
-		const maxListed = 10;
+		const maxListed = 12;
 
 		let ratedProjects = projects.map((project, i) => {
 			let rating = 0;
@@ -119,30 +120,7 @@
 			<h4>Let's talk.</h4>
 			<span><a title="Contact" href="/contact">Send me a message</a> and I can tell you how the following projects might be similar to what you're working on:</span>
 		</header>
-		<div class="table-container">
-			<table>
-				<thead>
-					<tr>
-						<th>Project name</th>
-						<th>Roles</th>
-						<th>Technologies</th>
-						<th>Fields</th>
-						<th>Tags</th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each projectsFiltered as {name, fields, roles, technologies, tags, starred, description, images, link}}
-					<tr>
-						<td>{name}</td>
-						<td>{roles.join(', ')}</td>
-						<td>{technologies.join(', ')}</td>
-						<td>{fields.join(', ')}</td>
-						<td>{tags.join(', ')}</td>
-					</tr>
-					{/each}
-				</tbody>
-			</table>
-		</div>
+		<ProjectsList projects="{projectsFiltered}" />
 	</section>
 </article>
 
@@ -153,19 +131,5 @@
 
 	h4 {
 		display: inline;
-	}
-
-	.table-container {
-		max-width: 100%;
-		overflow-x: scroll;		
-	}
-
-	table {
-		margin-top: 1.5rem;
-
-	}
-
-	td:first-child {
-		font-weight: var(--font-weight-bold);
 	}
 </style>
