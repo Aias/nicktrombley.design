@@ -1,44 +1,40 @@
 <script>
+	import { flip } from 'svelte/animate';
+	import { fade } from 'svelte/transition';
+	import { quintInOut } from 'svelte/easing';
+
 	export let projects = [];
 </script>
 
-<div class="table-container">
-	<table>
-		<thead>
-			<tr>
-				<th>Project name</th>
-				<th>Roles</th>
-				<th>Technologies</th>
-				<th>Fields</th>
-				<th>Tags</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each projects as {name, fields, roles, technologies, tags,
-			starred, description, images, link}}
-			<tr>
-				<td>{name}</td>
-				<td>{roles.join(', ')}</td>
-				<td>{technologies.join(', ')}</td>
-				<td>{fields.join(', ')}</td>
-				<td>{tags.join(', ')}</td>
-			</tr>
-			{/each}
-		</tbody>
-	</table>
-</div>
+<ol class="layout-main projects-container">
+	{#each projects as {key, name, fields, roles, technologies, tags, starred,
+	description, images, link} (key)}
+	<li
+		class="project inverted small"
+		transition:fade="{{duration: 500, easing: quintInOut}}"
+		animate:flip="{{duration: 750, easing: quintInOut}}"
+	>
+		<h3>{name}</h3>
+		<p><em>I was...</em> {roles.join(', ')}</p>
+		<p><em>I used...</em> {technologies.join(', ')}</p>
+		<p><em>It was for...</em> {fields.join(', ')}</p>
+		<p><em>It was about...</em> {tags.join(', ')}</p>
+	</li>
+	{/each}
+</ol>
 
 <style>
-	.table-container {
-		max-width: 100%;
-		overflow-x: scroll;
+	.projects-container {
+		margin-top: 1rem;
+		grid-gap: 2px;
 	}
 
-	table {
-		margin-top: 1.5rem;
+	.project {
+		grid-column: span 1;
+		padding: 1rem;
 	}
 
-	td:first-child {
-		font-weight: var(--font-weight-bold);
+	.project > * + * {
+		margin-top: 0.5em;
 	}
 </style>

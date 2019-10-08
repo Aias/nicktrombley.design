@@ -116,7 +116,7 @@ select {
 	--clr-faint-2: rgba(0, 0, 0, 0.1);
 	--clr-faint-3: rgba(0, 0, 0, 0.15);
 
-	--clr-text-inverted: rgba(255, 251, 240, 0.9);
+	--clr-text-inverted: rgba(255, 251, 240, 0.95);
 	--clr-text-primary: rgba(8, 6, 13, 0.9);
 	--clr-text-secondary: rgba(8, 6, 13, 0.7);
 	--clr-text-theme: var(--clr-theme-primary);
@@ -208,22 +208,26 @@ body {
 }
 
 h1 {
-	font-size: 2.5rem;
+	font-size: 2.5em;
+	line-height: 1.3;
 	font-weight: var(--font-weight-bold);
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 2em;
+	line-height: 1.4;
 	font-weight: var(--font-weight-normal);
 }
 
 h3 {
-	font-size: 1.3rem;
+	font-size: 1.3em;
+	line-height: 1.4;
 	font-weight: var(--font-weight-normal);
 }
 
 h4 {
-	font-size: 1rem;
+	font-size: 1em;
+	line-height: 1.5;
 	font-weight: var(--font-weight-bold);
 }
 
@@ -292,7 +296,7 @@ a {
 	background-color: var(--clr-text-primary);
 	color: var(--clr-text-inverted);
 	/* On dark backgrounds, antialised text looks better. */
-	-webkit-font-smoothing: antialised;
+	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
 	--clr-text-theme: var(--clr-theme-light);
