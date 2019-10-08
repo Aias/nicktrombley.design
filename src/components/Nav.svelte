@@ -1,26 +1,19 @@
 <script>
-	export let segment;
-
-	import Github from './icons/Github.svelte';
-	import LinkedIn from './icons/LinkedIn.svelte';
+	export let segment = '';
+	export let pages = [];
 </script>
 
 <header class="layout-main">
-	<h1 class="site-title layout__primary"><a href="/">Nick Trombley . Design</a></h1>
+	<h1 class="site-title layout__primary symbol">
+		<a href="/">netdotdesign</a>
+	</h1>
 	<nav>
 		<ul class="nav-links">
-			<li><a href="/files/trombley_resume.pdf">Resumé</a></li>
-			<li><a rel=prefetch href="/projects">Projects</a></li>
-			<li><a rel=prefetch href="/writing">Writing</a></li>
-			<li class="dot" role="presentation" aria-hidden="true">
-				<span><strong>·</strong></span>	
+			{#each pages as {url, label}}
+			<li class:selected="{segment === url}">
+				<a rel="prefetch" href="/{url}">{label}</a>
 			</li>
-			<li><a title="Github" href="https://github.com/Aias"><Github /></a></li>
-			<li>
-				<a title="LinkedIn" href="https://www.linkedin.com/in/nick-trombley/"
-					><LinkedIn /></a
-				>
-			</li>
+			{/each}
 		</ul>
 	</nav>
 </header>
@@ -56,10 +49,15 @@
 
 	.nav-links {
 		display: flex;
-		justify-content: space-between;
-		max-width: 375px;
+		justify-content: space-evenly;
+		max-width: 350px;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.selected > a {
+		color: inherit;
+		text-decoration: none;
 	}
 
 	@media (max-width: 1064px) {

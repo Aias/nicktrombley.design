@@ -1,5 +1,5 @@
 /* ---------------------------------------- */
-/* CSS Reset */
+/* CSS reset */
 /* ---------------------------------------- */
 
 /* Box sizing rules */
@@ -85,8 +85,16 @@ select {
 }
 
 /* ---------------------------------------- */
-/* Variables */
+/* Variables and declarations */
 /* ---------------------------------------- */
+
+@font-face {
+	font-family: 'Trees';
+	src: url('fonts/trees.woff2') format('woff2'),
+		url('fonts/trees.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 
 :root {
 	--font-stack-serif: 'Quattrocento', 'Palatino Linotype', Palatino, Palladio,
@@ -94,17 +102,23 @@ select {
 		'Bitstream Charter', 'Nimbus Roman No9 L', Garamond, 'Apple Garamond',
 		'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook',
 		'Century Schoolbook L', Georgia, serif;
+	--font-stack-glyph: Trees, Wingdings, Webdings, Symbol, monospace;
 	--font-weight-normal: 400;
 	--font-weight-bold: 700;
+	--font-size-smaller: 0.875em;
 
 	--line-height: 1.7;
 
 	--clr-theme-primary: #1f0066;
 	--clr-theme-light: #c6c1ff;
 	--clr-bg: #f3f1e9;
+	--clr-faint-1: rgba(0, 0, 0, 0.05);
+	--clr-faint-2: rgba(0, 0, 0, 0.1);
+	--clr-faint-3: rgba(0, 0, 0, 0.15);
 
 	--clr-text-inverted: rgba(255, 251, 240, 0.9);
 	--clr-text-primary: rgba(8, 6, 13, 0.9);
+	--clr-text-secondary: rgba(8, 6, 13, 0.7);
 	--clr-text-theme: var(--clr-theme-primary);
 
 	--border: 2px solid var(--clr-text-primary);
@@ -146,6 +160,8 @@ html {
 
 .layout__all {
 	grid-column: all;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 .layout__primary {
@@ -201,15 +217,67 @@ h2 {
 	font-weight: var(--font-weight-normal);
 }
 
+h3 {
+	font-size: 1.3rem;
+	font-weight: var(--font-weight-normal);
+}
+
+h4 {
+	font-size: 1rem;
+	font-weight: var(--font-weight-bold);
+}
+
+table {
+	border-collapse: collapse;
+	line-height: 1.5;
+}
+
+tr {
+	border-bottom: 1px solid var(--clr-faint-2);
+}
+
+th {
+	vertical-align: bottom;
+	font-weight: var(--font-weight-normal);
+	font-size: var(--font-size-smaller);
+	color: var(--clr-text-secondary);
+}
+
+td {
+	vertical-align: baseline;
+}
+
+th,
+td {
+	padding: 6px 0.75rem 6px 0;
+	text-align: left;
+}
+
+th:last-child,
+td:last-child {
+	padding-right: 0;
+}
+
 strong,
 .strong {
 	font-weight: var(--font-weight-bold);
+}
+
+small,
+.small {
+	font-size: var(--font-size-smaller);
 }
 
 a {
 	font-weight: var(--font-weight-bold);
 	color: var(--clr-text-theme);
 	fill: currentColor;
+}
+
+.symbol {
+	font-family: var(--font-stack-glyph);
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
 
 /* ---------------------------------------- */
