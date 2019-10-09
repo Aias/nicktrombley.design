@@ -16,4 +16,4 @@
 [[redirects]]
   from = "/reading"
   to = "/"
-  status = 404
+  status = 301
