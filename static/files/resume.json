@@ -2,17 +2,17 @@
 	"basics": {
 		"name": "Nick Trombley",
 		"label": "Web Designer / Developer",
-		"image": "https://barnsworthburning.net/images/tricknombley.png",
+		"image": "https://nicktrombley.design/images/me.png",
 		"email": "trombley.nick@gmail.com",
 		"phone": "(518) 572-7310",
-		"url": "https://barnsworthburning.net",
+		"url": "https://nicktrombley.design",
 		"summary": "Creative self-teacher, passionate about learning, making, and living.",
 		"location": {
 			"address": "",
 			"postalCode": "",
-			"city": "Tokyo",
-			"countryCode": "JP",
-			"region": "Tsurumi"
+			"city": "Plattsburgh",
+			"countryCode": "USA",
+			"region": "New York"
 		},
 		"profiles": [
 			{
