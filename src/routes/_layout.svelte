@@ -20,7 +20,7 @@
 		{
 			url: 'about',
 			label: 'About',
-			title: 'About / CV'
+			title: 'About'
 		},
 		{
 			url: 'contact',

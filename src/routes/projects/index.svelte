@@ -1,6 +1,5 @@
 <script context="module">
-	const API_URL =
-		'https://barnsworthburning-api.netlify.com/.netlify/functions';
+	import { API_URL } from '../../config.js';
 
 	export async function preload(page, session) {
 		let options = {

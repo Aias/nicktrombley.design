@@ -136,6 +136,7 @@ html {
 
 @media print {
 	body {
+		color: #000;
 		background-color: #fff;
 	}
 }
@@ -260,6 +261,11 @@ td {
 th:last-child,
 td:last-child {
 	padding-right: 0;
+}
+
+blockquote {
+	font-style: italic;
+	padding-left: 1.5rem;
 }
 
 strong,
