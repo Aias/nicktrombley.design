@@ -162,7 +162,6 @@ html {
 .layout__all {
 	grid-column: all;
 	max-width: 100%;
-	overflow-x: hidden;
 }
 
 .layout__primary {

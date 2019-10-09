@@ -96,6 +96,28 @@
 		margin-top: 2px;
 	}
 
+	@media (max-width: 664px) {
+		.qa {
+			transform: none;
+			top: calc(100% + var(--body-padding));
+			left: calc(-1 * var(--body-padding));
+			right: calc(-1 * var(--body-padding));
+		}
+
+		.qa > * {
+			padding: 0.5rem var(--body-padding);
+			margin-top: 0;
+		}
+
+		.qa > *:first-child {
+			padding-top: 1rem;
+		}
+
+		.qa > *:last-child {
+			padding-bottom: 1rem;
+		}
+	}
+
 	li:hover > img,
 	li:active > img {
 		filter: none !important;
