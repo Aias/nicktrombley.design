@@ -89,10 +89,11 @@
 		pointer-events: none;
 		opacity: 0;
 		transition: all 0.5s;
+		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
 	}
 
 	.qa > * {
-		padding: 0.25rem 0.5rem;
+		padding: 0.5rem 1rem;
 		margin-top: 2px;
 	}
 
@@ -112,7 +113,7 @@
 	@media (max-width: 664px) {
 		.qa {
 			transform: none;
-			top: calc(100% + var(--body-padding));
+			top: 100%;
 			left: 0;
 			right: 0;
 		}

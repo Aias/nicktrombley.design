@@ -112,6 +112,7 @@ select {
 	--clr-theme-primary: #1f0066;
 	--clr-theme-light: #c6c1ff;
 	--clr-bg: #f3f1e9;
+	--clr-me: #f88379;
 	--clr-faint-1: rgba(0, 0, 0, 0.05);
 	--clr-faint-2: rgba(0, 0, 0, 0.1);
 	--clr-faint-3: rgba(0, 0, 0, 0.15);
@@ -174,6 +175,7 @@ html {
 			[all-start primary-start secondary-start] repeat(2, 1fr)
 			[ all-end primary-end secondary-end];
 		max-width: 600px;
+		grid-gap: 1rem;
 	}
 }
 
