@@ -96,12 +96,25 @@
 		margin-top: 2px;
 	}
 
+	@media (max-width: 1064px) {
+		/* Courtesy of https://css-tricks.com/full-width-containers-limited-width-parents/
+		
+		Assumes the parent is centered within the whole window. (It is.) */
+		.corpse {
+			width: 100vw;
+			left: 50%;
+			right: 50;
+			margin-left: -50vw;
+			margin-right: -50vw;
+		}
+	}
+
 	@media (max-width: 664px) {
 		.qa {
 			transform: none;
 			top: calc(100% + var(--body-padding));
-			left: calc(-1 * var(--body-padding));
-			right: calc(-1 * var(--body-padding));
+			left: 0;
+			right: 0;
 		}
 
 		.qa > * {
