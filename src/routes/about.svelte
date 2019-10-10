@@ -22,6 +22,7 @@
 </script>
 
 <script>
+	import markdown from '../helpers/markdown';
 	export let corpse = [];
 
 	$: {
@@ -42,7 +43,7 @@
 				<div class="qa">
 					<h4 class="inverted"><strong>Q:</strong> {question}</h4>
 					<div class="inverted flow">
-						{@html response}
+						{@html markdown.render(response)}
 					</div>
 				</div>
 			</li>
