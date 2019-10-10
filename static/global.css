@@ -304,6 +304,7 @@ a {
 }
 
 .inverted {
+	--clr-bg: var(--clr-text-primary);
 	background-color: var(--clr-text-primary);
 	color: var(--clr-text-inverted);
 	/* On dark backgrounds, antialised text looks better. */
