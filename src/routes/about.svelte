@@ -97,6 +97,12 @@
 		margin-top: 2px;
 	}
 
+	.qa :global(svg) {
+		min-width: 300px;
+		max-width: 500px;
+		opacity: 0.9;
+	}
+
 	@media (max-width: 1064px) {
 		/* Courtesy of https://css-tricks.com/full-width-containers-limited-width-parents/
 		

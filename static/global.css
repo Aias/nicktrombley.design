@@ -60,6 +60,10 @@ img {
 	display: block;
 }
 
+svg {
+	fill: currentColor;
+}
+
 /* Natural flow and rhythm in articles by default */
 article > * + *,
 .flow > * + * {
