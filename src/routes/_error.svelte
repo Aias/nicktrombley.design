@@ -10,7 +10,7 @@
 </svelte:head>
 
 <div class="layout__all">
-	<h1>{status}</h1>
+	<h2>{status}</h2>
 
 	<p>{error.message}</p>
 

@@ -4,9 +4,9 @@
 </script>
 
 <header class="layout-main">
-	<h1 class="site-title layout__primary symbol">
+	<strong class="site-title layout__primary symbol">
 		<a href="/">netdotdesign</a>
-	</h1>
+	</strong>
 	<nav>
 		<ul class="nav-links">
 			{#each pages as {url, label}}
@@ -32,6 +32,7 @@
 
 	.site-title {
 		font-size: 1rem;
+		line-height: inherit;
 		grid-column: primary;
 		border-bottom: var(--border);
 		text-align: center;

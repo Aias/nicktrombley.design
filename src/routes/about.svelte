@@ -41,7 +41,7 @@
 					src="{corpse_image[0].thumbnails.large.url}"
 				/>
 				<div class="qa">
-					<h4 class="inverted"><strong>Q:</strong> {question}</h4>
+					<h3 class="inverted"><strong>Q:</strong> {question}</h3>
 					<div class="inverted flow">
 						{@html markdown.render(response)}
 					</div>

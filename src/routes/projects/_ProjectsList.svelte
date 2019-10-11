@@ -14,7 +14,7 @@
 		class="project inverted small"
 		animate:flip="{{duration: 750, easing: quintInOut}}"
 	>
-		<h3>{name}</h3>
+		<h2>{name}</h2>
 		<p><em>I was...</em> {roles.join(', ')}</p>
 		<p><em>I used...</em> {technologies.join(', ')}</p>
 		<p><em>It was for...</em> {fields.join(', ')}</p>

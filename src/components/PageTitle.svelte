@@ -9,9 +9,9 @@
 </script>
 
 <!-- TODO: There is something funky going on with the grid layout during an out: transition. I think it has to do with the grid gap remaining even though the element is absolutely positioned. -->
-<h2 in:slide class="page-title layout__primary">
+<h1 in:slide class="page-title layout__primary">
 	{page.title}
-</h2>
+</h1>
 
 <style>
 	.page-title {

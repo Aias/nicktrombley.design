@@ -11,9 +11,9 @@
 </script>
 
 <section>
-	<h4>
+	<h3>
 		{title}
-	</h4>
+	</h3>
 	<div class="fieldset" role="group">
 		{#each groupObjToSortedArr(group.byKey) as item}
 		<label class:checked="{item[1].checked}">
