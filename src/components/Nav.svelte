@@ -31,9 +31,9 @@
 	}
 
 	.site-title {
+		align-self: flex-end;
 		font-size: 1rem;
 		line-height: inherit;
-		grid-column: primary;
 		border-bottom: var(--border);
 		text-align: center;
 	}
@@ -62,7 +62,7 @@
 	}
 
 	@media (max-width: 1064px) {
-		.layout__primary {
+		.site-title {
 			margin-bottom: 1rem;
 		}
 
