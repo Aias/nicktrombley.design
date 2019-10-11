@@ -39,15 +39,16 @@
 </script>
 
 <article class="layout__all h-resume">
-	<section id="bio">
+	<!-- <section id="bio">
 		<h2>Nick Trombley</h2>
 		<img class="profile-image"
 			src="{basics.image}"
 			alt="A photo of me on Christopher Alexander's Eishin school campus."
 		/>
-	</section>
+	</section> -->
 	<section id="skills">
 		<h2>Skills</h2>
+		<p>See the <a href="/projects">projects list</a> for more information on my skills and strengths.</p>
 	</section>
 	<section id="experience">
 		<h2>Experience</h2>
@@ -87,6 +88,10 @@
 </article>
 
 <style>
+	article {
+		margin-top: var(--flow);
+	}
+
 	.profile-image {
 		border-radius: 50%;
 		border: var(--border);
@@ -96,6 +101,7 @@
 
 	.section-personal > h2 {
 		border-top: var(--border);
-		padding-top: 1em;
+		padding-top: 1.5em;
+		margin-bottom: 1em;
 	}
 </style>
