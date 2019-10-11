@@ -159,6 +159,7 @@ html {
 		)
 		[secondary-end all-end];
 	grid-gap: var(--body-padding);
+	align-items: baseline;
 	max-width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
@@ -287,6 +288,17 @@ a {
 	font-weight: var(--font-weight-bold);
 	color: var(--clr-text-theme);
 	fill: currentColor;
+}
+
+a.button {
+	padding: 1px 0.75rem;
+	display: inline-block;
+	white-space: nowrap;
+	background-color: var(--clr-theme-primary);
+	color: var(--clr-text-inverted);
+	font-weight: var(--font-weight-normal);
+	text-decoration: none;
+	box-shadow: 0 0 0.5rem var(--clr-faint-2);
 }
 
 .symbol {

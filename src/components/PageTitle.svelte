@@ -4,7 +4,8 @@
 	export let page = {
 		url: undefined,
 		label: '404',
-		title: '404'
+		title: '404',
+		subnav: undefined
 	};
 </script>
 
@@ -13,6 +14,19 @@
 	{page.title}
 </h1>
 
+{#if page.subnav}
+<div in:slide class="page-subnav layout__secondary">
+	<label for="subnav">Jump to:</label>
+	<ul id="subnav" class="subnav-links">
+		{#each page.subnav as {section, label}}
+		<li>
+			<a class="button" href="/{page.url}#{section}">{label}</a>
+		</li>
+		{/each}
+	</ul>
+</div>
+{/if}
+
 <style>
 	.page-title {
 		text-transform: lowercase;
@@ -20,6 +34,33 @@
 		padding-bottom: 1rem;
 		border-bottom: var(--border);
 		overflow: hidden;
+	}
+
+	.page-subnav {
+		justify-self: center;
+	}
+
+	label {
+		margin-right: 4px;
+	}
+
+	.subnav-links {
+		display: inline-flex;
+		flex-wrap: wrap;
+	}
+
+	.subnav-links > li {
+		margin: 1px;
+	}
+
+	a::before {
+		content: '# ';
+		opacity: 0.65;
+		transition: all 0.2s;
+	}
+
+	a:hover::before {
+		opacity: 1;
 	}
 
 	@media (max-width: 1064px) {
