@@ -3,7 +3,7 @@
 		What Makes Software Good?
 	</h2>
 	<p class="subtitle">10 principles for effective digital design.</p>
-	<section class="intro flow">
+	<section class="intro">
 		<p>
 			I've conducted a lot of heuristic evaluations over the years. Almost
 			all of them were done using Nielsen's
@@ -25,7 +25,6 @@
 				>The Design of Design</a
 			>. I have this list permanently pinned to the wall, in my periphery.
 		</p>
-		<p></p>
 	</section>
 	<ol class="principles">
 		<li id="principle-consistency">
@@ -184,11 +183,6 @@
 
 	.doc-title {
 		margin-top: 0.5rem;
-	}
-
-	.subtitle {
-		margin-top: 0.5em;
-		margin-bottom: 1.5em;
 	}
 
 	.intro {

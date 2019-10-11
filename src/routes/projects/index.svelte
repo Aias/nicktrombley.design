@@ -114,7 +114,7 @@
 	<CheckboxGroup title="who's worked with..." group="{groups.technologies}" onChange="{handleChecked.bind(undefined, 'technologies')}" />
 	<CheckboxGroup title="in the field of..." group="{groups.fields}" onChange="{handleChecked.bind(undefined, 'fields')}" />
 	<CheckboxGroup title="on projects related to..." group="{groups.tags}" onChange="{handleChecked.bind(undefined, 'tags')}" />
-	<section class="flow">
+	<section>
 		<header>
 			<h3>Let's talk.</h3>
 			<span><a title="Contact" href="/contact">Send me a message</a> and I can tell you how the following projects might be similar to what you're working on:</span>

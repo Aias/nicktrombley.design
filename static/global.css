@@ -42,11 +42,17 @@ dd {
 	margin: 0;
 }
 
-/* Natural flow and rhythm in articles by default */
+/* Natural flow and rhythm in articles/sections by default */
 article > * + *,
+section > * + *,
 .flow > * + * {
-	margin-top: 1em;
+	margin-top: var(--flow);
 	/* margin-top: calc(1em * var(--line-height)); */
+}
+
+/* This is possibly the most absurd selector I've ever written. All this work just to get a *little* bit of extra space in the situation where you have something like article > section > h2. Please do not take this as reflective of my ability. I'm sorry. */
+article > section:not(:first-child) > *:first-child {
+	margin-top: var(--flow);
 }
 
 /* Remove list styles and padding on ul, ol elements with a class attribute */
@@ -112,6 +118,7 @@ select {
 	--font-size-smaller: 0.875em;
 
 	--line-height: 1.7;
+	--flow: 1em;
 
 	--clr-theme-primary: #1f0066;
 	--clr-theme-light: #c6c1ff;
@@ -225,6 +232,7 @@ h1 {
 }
 
 h2 {
+	--flow: 2em;
 	font-size: 1.5em;
 	line-height: 1.4;
 	font-weight: var(--font-weight-normal);
@@ -232,9 +240,14 @@ h2 {
 
 h3,
 h4 {
+	--flow: 2em;
 	font-size: 1em;
 	line-height: 1.5;
 	font-weight: var(--font-weight-bold);
+}
+
+.subtitle {
+	margin-top: 0;
 }
 
 table {

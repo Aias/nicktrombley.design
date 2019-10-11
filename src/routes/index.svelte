@@ -1,4 +1,4 @@
-<section class="layout__primary flow boxed inverted">
+<section class="layout__primary boxed inverted">
 	<p>
 		These pages outline the professional experience of
 		<strong>Nick Trombley</strong>, a web designer / developer based in New
@@ -15,7 +15,7 @@
 	</p>
 </section>
 
-<section class="flow boxed">
+<section class="boxed">
 	<p>
 		If you’re deciding whether to hire me, my
 		<a rel="prefetch" href="/about">cv</a> would be a good start. The bulk
@@ -37,7 +37,7 @@
 	</p>
 </section>
 
-<section class="flow boxed">
+<section class="boxed">
 	<p>
 		If you’re a colleague, you may be more interested in my personal
 		websites:
