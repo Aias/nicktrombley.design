@@ -10,7 +10,7 @@
 	<nav>
 		<ul class="nav-links">
 			{#each pages as {url, label}}
-			<li class:selected="{segment === url}">
+			<li class:selected="{segment === url.split('/')[0]}">
 				<a rel="prefetch" href="/{url}">{label}</a>
 			</li>
 			{/each}

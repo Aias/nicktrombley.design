@@ -173,6 +173,10 @@ html {
 	grid-column: primary;
 }
 
+.layout__secondary {
+	grid-column: secondary;
+}
+
 @media (max-width: 1064px) {
 	.layout-main {
 		grid-template-columns:
@@ -214,13 +218,13 @@ body {
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 2.1em;
 	line-height: 1.4;
 	font-weight: var(--font-weight-normal);
 }
 
 h2 {
-	font-size: 1.3em;
+	font-size: 1.5em;
 	line-height: 1.4;
 	font-weight: var(--font-weight-normal);
 }
@@ -235,6 +239,7 @@ h4 {
 table {
 	border-collapse: collapse;
 	line-height: 1.5;
+	font-variant-numeric: tabular-nums;
 }
 
 tr {

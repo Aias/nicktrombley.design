@@ -13,7 +13,7 @@
 			title: 'The Work List'
 		},
 		{
-			url: 'writing',
+			url: 'writing/principles',
 			label: 'Writing',
 			title: 'Writing'
 		},
@@ -29,10 +29,11 @@
 		}
 	];
 
-	$: selectedPage = pages.find(page => page.url === segment);
+	$: selectedPage = pages.find(page => page.url.split('/')[0] === segment);
+	$: siteTitle = selectedPage ? selectedPage.label.toLowerCase() : 'nick trombley . design';
 </script>
 
-<SEO />
+<SEO title="{siteTitle}" />
 
 <Nav {segment} {pages} />
 
