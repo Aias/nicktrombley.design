@@ -23,45 +23,124 @@
 
 <script>
 	import markdown from '../helpers/markdown';
+	import resume from '../../static/files/resume.json';
 	export let corpse = [];
 
+	const mapDates = arr =>
+		arr.map(obj => {
+			let startDate = obj.startDate
+				? new Date(obj.startDate)
+				: new Date();
+			let endDate = obj.endDate ? new Date(obj.endDate) : undefined;
+
+			return {
+				...obj,
+				startDate,
+				endDate
+			};
+		});
+
+	const sortByDate = (a, b) => {
+		if (!b.endDate) {
+			if (!a.endDate) {
+				// If both are null, sort by start date.
+				return b.startDate > a.startDate;
+			}
+			// If just b has no end, then b is most recent.
+			return 1;
+		} else if (!a.endDate) {
+			// If a has no end, then a is most recent.
+			return -1;
+		} else {
+			// If both have end dates, sort by end date.
+			return b.endDate > a.endDate;
+		}
+	};
+
+	let { basics, skills, references, interests } = resume;
+	let work = mapDates(resume.work).sort(sortByDate);
+	let education = mapDates(resume.education).sort(sortByDate);
+
 	$: {
-		// console.log(corpse);
+		console.log(work, education);
 	}
 </script>
 
-<article class="layout__all">
-	<figure class="flow">
-		<ol class="corpse">
-			{#each corpse as {id, row, column, question, response, corpse_image}
-			(id)}
-			<li>
-				<img
-					alt="Row {row}, column {column} of the full image."
-					src="{corpse_image[0].thumbnails.large.url}"
-				/>
-				<div class="qa">
-					<h3 class="inverted"><strong>Q:</strong> {question}</h3>
-					<div class="inverted flow">
-						{@html markdown.render(response)}
-					</div>
-				</div>
-			</li>
+<article class="layout__all h-resume">
+	<section id="bio">
+		<h2>bio</h2>
+		<div>
+			<img
+				src="{basics.image}"
+				alt="A photo of me on Christopher Alexander's Eishin school campus."
+			/>
+		</div>
+	</section>
+	<section id="skills">
+		<h2>skills</h2>
+	</section>
+	<section id="experience">
+		<h2>experience</h2>
+		<h3>references</h3>
+		{#each references as {name, reference, source}}
+		<blockquote>
+			<p>"{reference}"</p>
+			<footer>— <a href="{source}">{name}</a></footer>
+		</blockquote>
+		{/each} {#each work as {name, location, description, position, url,
+		startDate, endDate, summary, highlights}}
+		<h3>{name}</h3>
+		<p>{summary}</p>
+		<ul>
+			{#each highlights as highlight}
+			<li>{highlight}</li>
 			{/each}
-		</ol>
-		<figcaption class="small">
-			When I left Epic, my coworkers put together a beautifully touching
-			<a href="https://en.wikipedia.org/wiki/Exquisite_corpse"
-				>exquisite corpse</a
-			>
-			for me to take into the next chapter of my life. On the back of each
-			tile was a question about me for them to think about – their answers
-			capture who I am better than I ever could.
-		</figcaption>
-	</figure>
+		</ul>
+		{/each}
+	</section>
+	<section id="education">
+		<h2>education</h2>
+	</section>
+	<section id="personal" class="section-personal flow">
+		<h2>something more personal</h2>
+		<figure class="flow">
+			<figcaption>
+				When I left Epic, my coworkers put together a beautifully
+				touching
+				<a href="https://en.wikipedia.org/wiki/Exquisite_corpse"
+					>exquisite corpse</a
+				>
+				for me to take into the next chapter of my life. On the back of
+				each tile was a question about me for them to think about –
+				their answers capture who I am better than I ever could.
+			</figcaption>
+			<ol class="corpse">
+				{#each corpse as {id, row, column, question, response,
+				corpse_image} (id)}
+				<li>
+					<img
+						alt="Row {row}, column {column} of the full image."
+						src="{corpse_image[0].thumbnails.large.url}"
+					/>
+					<div class="qa">
+						<h3 class="inverted"><strong>Q:</strong> {question}</h3>
+						<div class="inverted flow">
+							{@html markdown.render(response)}
+						</div>
+					</div>
+				</li>
+				{/each}
+			</ol>
+		</figure>
+	</section>
 </article>
 
 <style>
+	.section-personal {
+		border-top: var(--border);
+		padding-top: 1.5em;
+	}
+
 	.corpse {
 		display: grid;
 		position: relative;

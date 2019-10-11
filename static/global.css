@@ -42,6 +42,13 @@ dd {
 	margin: 0;
 }
 
+/* Natural flow and rhythm in articles by default */
+article > * + *,
+.flow > * + * {
+	margin-top: 1em;
+	/* margin-top: calc(1em * var(--line-height)); */
+}
+
 /* Remove list styles and padding on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
@@ -62,13 +69,6 @@ img {
 
 svg {
 	fill: currentColor;
-}
-
-/* Natural flow and rhythm in articles by default */
-article > * + *,
-.flow > * + * {
-	margin-top: 1em;
-	/* margin-top: calc(1em * var(--line-height)); */
 }
 
 /* Inherit fonts for inputs and buttons */
