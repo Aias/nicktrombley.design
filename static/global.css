@@ -134,6 +134,7 @@ select {
 	--clr-text-theme: var(--clr-theme-primary);
 
 	--border: 2px solid var(--clr-text-primary);
+	--shadow: 0 0 0.5rem var(--clr-faint-2);
 
 	--body-padding: 2rem;
 }
@@ -311,7 +312,7 @@ a.button {
 	color: var(--clr-text-inverted);
 	font-weight: var(--font-weight-normal);
 	text-decoration: none;
-	box-shadow: 0 0 0.5rem var(--clr-faint-2);
+	box-shadow: var(--shadow);
 }
 
 .symbol {

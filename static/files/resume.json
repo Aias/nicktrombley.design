@@ -48,10 +48,10 @@
 	},
 	"work": [
 		{
-			"name": "Active Sabbatical",
+			"name": "Unaffiliated",
 			"location": "New York, Tokyo, London, Boston",
 			"description": "",
-			"position": "Student / Traveler",
+			"position": "Active Sabbatical",
 			"url": null,
 			"startDate": "2019-05-24",
 			"endDate": null,
@@ -104,9 +104,10 @@
 			"institution": "Boston College",
 			"area": "Math",
 			"studyType": "Bachelor of Science",
+			"program": "Arts and Sciences Honors Program",
 			"startDate": "2009-09-01",
 			"endDate": "2013-06-01",
-			"gpa": "3.7",
+			"gpa": "3.7 (cum laude)",
 			"courses": ["Arts & Sciences Honors Program"]
 		}
 	],

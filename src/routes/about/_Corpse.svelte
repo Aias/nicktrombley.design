@@ -62,7 +62,7 @@
 		pointer-events: none;
 		opacity: 0;
 		transition: all 0.5s;
-		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+		box-shadow: var(--shadow);
 	}
 
 	.qa > * {

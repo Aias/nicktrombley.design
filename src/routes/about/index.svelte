@@ -41,12 +41,10 @@
 <article class="layout__all h-resume">
 	<section id="bio">
 		<h2>Nick Trombley</h2>
-		<div>
-			<img
-				src="{basics.image}"
-				alt="A photo of me on Christopher Alexander's Eishin school campus."
-			/>
-		</div>
+		<img class="profile-image"
+			src="{basics.image}"
+			alt="A photo of me on Christopher Alexander's Eishin school campus."
+		/>
 	</section>
 	<section id="skills">
 		<h2>Skills</h2>
@@ -62,7 +60,7 @@
 		startDate, endDate, summary, highlights}}
 		<h3>{position}</h3>
 		<div class="subtitle">
-			{name}, {formatDate(startDate)}—{formatDate(endDate)}
+			{name}, {formatDate(startDate)}&nbsp;—&nbsp;{formatDate(endDate)}
 		</div>
 		<p>{summary}</p>
 		<ul>
@@ -74,6 +72,13 @@
 	</section>
 	<section id="education">
 		<h2>Education</h2>
+		{#each education as {institution, area, courses, startDate, endDate, gpa, studyType, program}}
+		<h3>{institution} Class of {endDate.getFullYear()}</h3>
+		<div class="subtitle">
+			<p>{studyType}, {area}, GPA {gpa}</p>
+			<p>{program}</p>
+		</div>
+		{/each}
 	</section>
 	<section id="personal" class="section-personal">
 		<h2>Something More Personal</h2>
@@ -82,6 +87,13 @@
 </article>
 
 <style>
+	.profile-image {
+		border-radius: 50%;
+		border: var(--border);
+		box-shadow: var(--shadow);
+		grid-column: 3;
+	}
+
 	.section-personal > h2 {
 		border-top: var(--border);
 		padding-top: 1em;
