@@ -34,7 +34,7 @@
 	let education = mapDates(resume.education).sort(sortByDate);
 
 	$: {
-		console.log(work, education);
+		// console.log(work, education);
 	}
 </script>
 
@@ -92,12 +92,12 @@
 		margin-top: var(--flow);
 	}
 
-	.profile-image {
+	/* .profile-image {
 		border-radius: 50%;
 		border: var(--border);
 		box-shadow: var(--shadow);
 		grid-column: 3;
-	}
+	} */
 
 	.section-personal > h2 {
 		border-top: var(--border);
