@@ -50,9 +50,11 @@
 					<p>
 						Do not introduce what is immaterial. The opposite of
 						propriety is <em>extraneousness</em>.
-						<a href="#principle-elegance">Elegance</a> is a subset
-						of propriety, but important enough to be elevated to its
-						own principle.
+						<a href="/writing/principles#principle-elegance"
+							>Elegance</a
+						>
+						is a subset of propriety, but important enough to be
+						elevated to its own principle.
 					</p>
 				</li>
 				<li>
@@ -76,7 +78,9 @@
 						The basic structural concept of a design should be
 						plainly evident and, if not logically straightforward,
 						easily explained (in which case, refer to
-						<a href="#principle-communication">Communication</a>).
+						<a href="/writing/principles#principle-communication"
+							>Communication</a
+						>).
 					</p>
 				</li>
 				<li>
@@ -111,7 +115,9 @@
 						be made during design, they should be made the same way
 						each time, even in different contexts. Style has a large
 						impact on a design's overall
-						<a href="#principle-consistency">Consistency</a>.
+						<a href="/writing/principles#principle-consistency"
+							>Consistency</a
+						>.
 					</p>
 				</li>
 				<li>
