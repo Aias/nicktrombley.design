@@ -10,8 +10,8 @@
 		<div class="copyright">
 			<small>© Nick Trombley. Find me on:</small>
 			<span class="external-links">
-				<a title="Github" href="https://github.com/Aias"><Github /></a>&nbsp;&nbsp;
-				<a title="LinkedIn" href="https://www.linkedin.com/in/nick-trombley/"><LinkedIn /></a></span>
+				<a title="Github" aria-label="Github" href="https://github.com/Aias"><Github /></a>&nbsp;&nbsp;
+				<a title="LinkedIn" aria-label="LinkedIn" href="https://www.linkedin.com/in/nick-trombley/"><LinkedIn /></a></span>
 		</div>
 	</div>
 </footer>
