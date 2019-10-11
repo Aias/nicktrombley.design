@@ -31,6 +31,7 @@
 
 	.project {
 		grid-column: span 1;
+		place-self: stretch;
 		padding: 1rem;
 	}
 
