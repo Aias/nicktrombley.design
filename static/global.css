@@ -42,6 +42,19 @@ dd {
 	margin: 0;
 }
 
+/* Natural flow and rhythm in articles/sections by default */
+article > * + *,
+section > * + *,
+.flow > * + * {
+	margin-top: var(--flow);
+	/* margin-top: calc(1em * var(--line-height)); */
+}
+
+/* This is possibly the most absurd selector I've ever written. All this work just to get a *little* bit of extra space in the situation where you have something like article > section > h2. Please do not take this as reflective of my ability. I'm sorry. */
+article > section:not(:first-child) > *:first-child {
+	margin-top: var(--flow);
+}
+
 /* Remove list styles and padding on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
@@ -62,13 +75,6 @@ img {
 
 svg {
 	fill: currentColor;
-}
-
-/* Natural flow and rhythm in articles by default */
-article > * + *,
-.flow > * + * {
-	margin-top: 1em;
-	/* margin-top: calc(1em * var(--line-height)); */
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -112,6 +118,7 @@ select {
 	--font-size-smaller: 0.875em;
 
 	--line-height: 1.7;
+	--flow: 1em;
 
 	--clr-theme-primary: #1f0066;
 	--clr-theme-light: #c6c1ff;
@@ -127,6 +134,7 @@ select {
 	--clr-text-theme: var(--clr-theme-primary);
 
 	--border: 2px solid var(--clr-text-primary);
+	--shadow: 0 0 0.5rem var(--clr-faint-2);
 
 	--body-padding: 2rem;
 }
@@ -225,6 +233,7 @@ h1 {
 }
 
 h2 {
+	--flow: 2em;
 	font-size: 1.5em;
 	line-height: 1.4;
 	font-weight: var(--font-weight-normal);
@@ -232,9 +241,14 @@ h2 {
 
 h3,
 h4 {
+	--flow: 2em;
 	font-size: 1em;
 	line-height: 1.5;
 	font-weight: var(--font-weight-bold);
+}
+
+.subtitle {
+	margin-top: 0;
 }
 
 table {
@@ -271,7 +285,7 @@ td:last-child {
 
 blockquote {
 	font-style: italic;
-	padding-left: 1.5rem;
+	padding: 0 calc(2 * var(--body-padding));
 }
 
 strong,
@@ -298,7 +312,7 @@ a.button {
 	color: var(--clr-text-inverted);
 	font-weight: var(--font-weight-normal);
 	text-decoration: none;
-	box-shadow: 0 0 0.5rem var(--clr-faint-2);
+	box-shadow: var(--shadow);
 }
 
 .symbol {

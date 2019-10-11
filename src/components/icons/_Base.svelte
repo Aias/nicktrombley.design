@@ -1,6 +1,7 @@
 <script>
 	export let viewBox = '0 0 160 160';
 	export let className = null;
+	export let title = null;
 </script>
 
 <svg
@@ -11,6 +12,9 @@
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="{viewBox}"
 >
+	{#if title}
+	<title>{title}</title>
+	{/if}
 	<slot></slot>
 </svg>
 

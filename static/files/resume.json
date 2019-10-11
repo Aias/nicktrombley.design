@@ -48,14 +48,21 @@
 	},
 	"work": [
 		{
-			"name": "Active Sabbatical",
+			"name": "Unaffiliated",
 			"location": "New York, Tokyo, London, Boston",
 			"description": "",
-			"position": "Student / Traveler",
+			"position": "Active Sabbatical",
 			"url": null,
 			"startDate": "2019-05-24",
 			"endDate": null,
-			"summary": "I made the difficult decision to leave Epic in the spring of 2019. While I enjoyed the work, it felt like I had started to stagnate, and over time I saw less and less of a future for myself either at Epic or in Madison. Luckily, I had the luxury of a savings that has enabled me to take a good amount of time off, and I haven't wasted it: I spent a bit of time living abroad, worked on personal projects (including this website), and just generally tried to come to an understanding of who I am and how I want my work to fit into the world. It has been a necessary and successful change."
+			"summary": "I made the difficult decision to leave Epic in the spring of 2019. While I enjoyed the work, it felt like I had started to stagnate, and over time I saw less and less of a future for myself either at Epic or in Madison. Luckily, I had the luxury of a savings that has enabled me to take a good amount of time off, and I haven't wasted it: I spent a bit of time living abroad, worked on personal projects (including this website), and just generally tried to come to an understanding of who I am and how I want my work to fit into the world. It has been a necessary and successful change.",
+			"highlights": [
+				"Designed and built https://barnsworthburning.net",
+				"Designed and built https://the-innocent-i.net",
+				"Designed and built https://nicktrombley.design",
+				"Designed and built https://155-217-155.com",
+				"Traveled to Japan, Singapore, and London"
+			]
 		},
 		{
 			"name": "Epic",
@@ -97,13 +104,90 @@
 			"institution": "Boston College",
 			"area": "Math",
 			"studyType": "Bachelor of Science",
+			"program": "Arts and Sciences Honors Program",
 			"startDate": "2009-09-01",
 			"endDate": "2013-06-01",
-			"gpa": "3.7",
+			"gpa": "3.7 (cum laude)",
 			"courses": ["Arts & Sciences Honors Program"]
 		}
 	],
-	"skills": [],
+	"skills": [
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		},
+		{
+			"name": "Web Development",
+			"category": "design",
+			"keywords": []
+		}
+	],
 	"languages": [
 		{
 			"language": "English",
@@ -142,8 +226,9 @@
 	],
 	"references": [
 		{
-			"name": "Allison Schedin",
-			"reference": "Nick was an invaluable member of our team at Epic. On top of his normal high quality design work, he proactively helped code and design internal tools (one of which was so successful and helpful that Epic opened it up to customers too). His knowledge of data visualization principles and techniques were of constant help, and the various educational design presentations he made to hundreds of our staff (including both designers and non-designers) were some of their favorites. Nick would be a strong asset to any user-centered team."
+			"name": "A.S.",
+			"reference": "Nick was an invaluable member of our team at Epic. On top of his normal high quality design work, he proactively helped code and design internal tools (one of which was so successful and helpful that Epic opened it up to customers too). His knowledge of data visualization principles and techniques were of constant help, and the various educational design presentations he made to hundreds of our staff (including both designers and non-designers) were some of their favorites. Nick would be a strong asset to any user-centered team.",
+			"source": "https://www.linkedin.com/in/nick-trombley/"
 		}
 	],
 	"projects": [],

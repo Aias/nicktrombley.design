@@ -21,24 +21,28 @@
 			url: 'about',
 			label: 'About',
 			title: 'About',
-			// subnav: [
-			// 	{
-			// 		section: 'bio',
-			// 		label: 'bio'
-			// 	},
-			// 	{
-			// 		section: 'skills',
-			// 		label: 'skills'
-			// 	},
-			// 	{
-			// 		section: 'experience',
-			// 		label: 'experience'
-			// 	},
-			// 	{
-			// 		section: 'education',
-			// 		label: 'education'
-			// 	}
-			// ]
+			subnav: [
+				// {
+				// 	section: 'bio',
+				// 	label: 'bio'
+				// },
+				// {
+				// 	section: 'skills',
+				// 	label: 'skills'
+				// },
+				{
+					section: 'experience',
+					label: 'experience'
+				},
+				{
+					section: 'education',
+					label: 'education'
+				},
+				{
+					section: 'personal',
+					label: 'corpse'
+				}
+			]
 		},
 		{
 			url: 'contact',
