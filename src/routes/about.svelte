@@ -57,6 +57,16 @@
 		}
 	};
 
+	const formatDate = d => {
+		if (!d) return 'present';
+
+		let day = d.getDate();
+		let month = d.getMonth() + 1;
+		let year = d.getFullYear();
+
+		return `${month}/${year}`;
+	};
+
 	let { basics, skills, references, interests } = resume;
 	let work = mapDates(resume.work).sort(sortByDate);
 	let education = mapDates(resume.education).sort(sortByDate);
@@ -81,7 +91,6 @@
 	</section>
 	<section id="experience">
 		<h2>experience</h2>
-		<h3>references</h3>
 		{#each references as {name, reference, source}}
 		<blockquote>
 			<p>"{reference}"</p>
@@ -89,7 +98,10 @@
 		</blockquote>
 		{/each} {#each work as {name, location, description, position, url,
 		startDate, endDate, summary, highlights}}
-		<h3>{name}</h3>
+		<h3>{position}</h3>
+		<div class="subtitle">
+			{name}, {formatDate(startDate)}—{formatDate(endDate)}
+		</div>
 		<p>{summary}</p>
 		<ul>
 			{#each highlights as highlight}
@@ -101,7 +113,7 @@
 	<section id="education">
 		<h2>education</h2>
 	</section>
-	<section id="personal" class="section-personal flow">
+	<section id="personal" class="section-personal">
 		<h2>something more personal</h2>
 		<figure class="flow">
 			<figcaption>
@@ -136,9 +148,9 @@
 </article>
 
 <style>
-	.section-personal {
+	.section-personal > h2 {
 		border-top: var(--border);
-		padding-top: 1.5em;
+		padding-top: 1em;
 	}
 
 	.corpse {
