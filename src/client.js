@@ -4,11 +4,6 @@ start({
 	target: document.querySelector('#🖌️')
 });
 
-const routesToLoad = [
-	'/projects'
-	// '/writing',
-	// '/contact',
-	// '/about'
-];
+const routesToLoad = ['/projects', '/about'];
 
 routesToLoad.forEach(route => prefetch(route));
