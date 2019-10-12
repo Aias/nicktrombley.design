@@ -52,7 +52,7 @@
 	];
 
 	$: selectedPage = pages.find(page => page.url.split('/')[0] === segment);
-	$: siteTitle = selectedPage ? selectedPage.label.toLowerCase() : 'nick trombley . design';
+	$: siteTitle = selectedPage ? selectedPage.label.toLowerCase() + ' · netdotdesign' : 'nick trombley . design';
 </script>
 
 <SEO title="{siteTitle}" />
