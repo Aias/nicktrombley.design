@@ -57,10 +57,10 @@
 			"endDate": null,
 			"summary": "I made the difficult decision to leave Epic in the spring of 2019. While I enjoyed the work, it felt like I had started to stagnate, and over time I saw less and less of a future for myself either at Epic or in Madison. Luckily, I had the luxury of a savings that has enabled me to take a good amount of time off, and I haven't wasted it: I spent a bit of time living abroad, worked on personal projects (including this website), and just generally tried to come to an understanding of who I am and how I want my work to fit into the world. It has been a necessary and successful change.",
 			"highlights": [
-				"Designed and built https://barnsworthburning.net",
-				"Designed and built https://the-innocent-i.net",
-				"Designed and built https://nicktrombley.design",
-				"Designed and built https://155-217-155.com",
+				"Designed and built [barnsworthburning.net](https://barnsworthburning.net)",
+				"Designed and built [the-innocent-i.net](https://the-innocent-i.net)",
+				"Designed and built [nicktrombley.design](https://nicktrombley.design)",
+				"Designed and built [155-217-155.com](https://155-217-155.com)",
 				"Saw some cool places."
 			]
 		},
@@ -69,10 +69,11 @@
 			"location": "Verona, WI",
 			"description": "With the patient at the heart.",
 			"position": "UX Designer / Software Developer",
+			"teams": ["Tapestry", "Cogito", "Healthy Planet"],
 			"url": "https://www.epic.com/",
 			"startDate": "2015-03-01",
 			"endDate": "2019-05-24",
-			"summary": "Epic's User Experience Design team is a small, but highly visible group of exceptionally talented individuals, who work as the lead interaction and visual designers for several development teams. We met with, interviewed, and shadowed end users to understand their needs, responded to technical constraints, and worked alongside developers to create intuitive enterprise applications that make life better for patients and healthcare professionals everywhere. As one of only two designer-developer 'slashies', I also had the opportunity not just to design, but to code many of the projects I worked on, often focused on improving design tools and processes.",
+			"summary": "If you're sick of the cliché of \"wearing a lot of different hats\", then you're probably familiar with the kind of UX team this was. On any given day, I might be conducting design reviews, making mockups, shadowing end users, teaching classes, or refining our pattern library. As one of only two designer-developer 'slashies', I also had the opportunity not just to design, but to code many of the projects I worked on, often focused on improving internal design tools and processes.",
 			"highlights": [
 				"Guided design direction of Epic's products.",
 				"Designed and developed tools for designers and developers.",
@@ -85,11 +86,12 @@
 			"name": "Epic",
 			"location": "Verona, WI",
 			"description": "With the patient at the heart.",
-			"position": "Technical Solutions Engineer",
+			"position": "\"Technical Solutions Engineer\"",
+			"teams": ["Cogito Analytics Infrastructure"],
 			"url": "https://www.epic.com/",
 			"startDate": "2013-08-06",
 			"endDate": "2015-03-01",
-			"summary": "At Epic, Technical Solutions Engineers go far beyond 'turn it off an on again' tech support. As the main point of contact for a focused set of some of the best hospitals in the world, we're relied on to diagnose problems, identify solutions, and manage the implementation of those solutions, often across multiple physical locations and stakeholders.",
+			"summary": "I usually like to tell people that Epic's Technical Services role is like tech support on steroids. We were the primary point of contact for a small number of analytics and database administration teams at some of the best hospitals in the world. On my own time, I cultivated a growing interest in design and development, and eventually applied for an internal transfer to the UX team.",
 			"highlights": [
 				"Provided tech support for our analytics toolset.",
 				"Optimized SQL queries and data transfer performance.",

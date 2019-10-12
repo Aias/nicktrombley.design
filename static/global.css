@@ -100,6 +100,7 @@ select {
 
 @font-face {
 	font-family: 'Trees';
+	font-display: swap;
 	src: url('fonts/trees.woff2') format('woff2'),
 		url('fonts/trees.woff') format('woff');
 	font-weight: normal;

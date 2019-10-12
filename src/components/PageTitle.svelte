@@ -41,8 +41,9 @@
 		text-align: center;
 	}
 
-	label {
-		margin-right: 4px;
+	label,
+	ul {
+		margin: 0 2px;
 	}
 
 	.subnav-links {

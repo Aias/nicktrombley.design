@@ -57,7 +57,7 @@
 			<p>"{reference}"</p>
 			<footer>— <a href="{source}">{name}</a></footer>
 		</blockquote>
-		{/each} {#each work as {name, location, description, position, url,
+		{/each} {#each work as {name, location, description, position, teams, url,
 		startDate, endDate, summary, highlights}}
 		<h3>{position}</h3>
 		<div class="subtitle">
@@ -66,7 +66,7 @@
 		<p>{summary}</p>
 		<ul>
 			{#each highlights as highlight}
-			<li>{highlight}</li>
+			<li>{@html markdown.render(highlight)}</li>
 			{/each}
 		</ul>
 		{/each}
