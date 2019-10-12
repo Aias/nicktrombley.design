@@ -1,27 +1,6 @@
-<script context="module">
-	import { API_URL } from '../../config.js';
-
-	export async function preload(page, session) {
-		let options = {
-			view: 'Grid view'
-		};
-
-		let corpse = await this.fetch(
-			`${API_URL}/airtableGet?base=portfolio&table=corpse&options=${JSON.stringify(
-				options
-			)}`
-		)
-			.then(data => data.json())
-			.catch(error => {
-				console.log(error);
-				return [];
-			});
-
-		return { corpse };
-	}
-</script>
-
 <script>
+	import { onMount } from 'svelte';
+	import { API_URL } from '../../config.js';
 	import markdown from '../../helpers/markdown';
 	import resume from '../../../static/files/resume.json';
 	import Corpse from './_Corpse.svelte';
@@ -32,6 +11,23 @@
 	let { basics, skills, references, interests } = resume;
 	let work = mapDates(resume.work).sort(sortByDate);
 	let education = mapDates(resume.education).sort(sortByDate);
+
+	onMount(async () => {
+		let options = {
+			view: 'Grid view'
+		};
+
+		corpse = await fetch(
+			`${API_URL}/airtableGet?base=portfolio&table=corpse&options=${JSON.stringify(
+				options
+			)}`
+		)
+			.then(data => data.json())
+			.catch(error => {
+				console.log(error);
+				return [];
+			});
+	})
 
 	$: {
 		// console.log(work, education);
@@ -81,10 +77,12 @@
 		</div>
 		{/each}
 	</section>
+	{#if corpse.length > 0}
 	<section id="personal" class="section-personal">
 		<h2>Something More Personal</h2>
 		<Corpse {corpse} />
 	</section>
+	{/if}
 </article>
 
 <style>
