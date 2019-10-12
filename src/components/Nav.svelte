@@ -31,6 +31,7 @@
 	}
 
 	.site-title {
+		display: block;
 		align-self: flex-end;
 		font-size: 1rem;
 		line-height: inherit;
@@ -50,10 +51,15 @@
 
 	.nav-links {
 		display: flex;
+		flex-flow: row wrap;
 		justify-content: space-evenly;
 		max-width: 350px;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.nav-links > li {
+		margin: 0 4px;
 	}
 
 	.selected > a {
