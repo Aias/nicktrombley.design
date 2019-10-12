@@ -38,6 +38,7 @@
 
 	.page-subnav {
 		justify-self: center;
+		text-align: center;
 	}
 
 	label {
@@ -47,6 +48,7 @@
 	.subnav-links {
 		display: inline-flex;
 		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	.subnav-links > li {
