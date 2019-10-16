@@ -35,7 +35,7 @@
 </script>
 
 <article class="layout__all h-resume">
-	<!-- <section id="bio">
+	<!-- <section class="p-summary" id="bio">
 		<h2>Nick Trombley</h2>
 		<img class="profile-image"
 			src="{basics.image}"
@@ -46,7 +46,7 @@
 		<h2>Skills</h2>
 		<p>See the <a href="/projects">projects list</a> for more information on my skills and strengths.</p>
 	</section>
-	<section id="experience">
+	<section class="p-experience" id="experience">
 		<h2>Experience</h2>
 		{#each references as {name, reference, source}}
 		<blockquote>
@@ -67,7 +67,7 @@
 		</ul>
 		{/each}
 	</section>
-	<section id="education">
+	<section class="p-education" id="education">
 		<h2>Education</h2>
 		{#each education as {institution, area, courses, startDate, endDate, gpa, studyType, program}}
 		<h3>{institution} Class of {endDate.getFullYear()}</h3>
