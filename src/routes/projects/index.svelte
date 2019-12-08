@@ -119,7 +119,7 @@
 			<h3>Let's talk.</h3>
 			<span><a title="Contact" href="/contact">Send me a message</a> and I can tell you how the following projects might be similar to what you're working on:</span>
 		</header>
-		<ProjectsList projects="{projectsFiltered}" {groups} />
+		<ProjectsList projects="{projectsFiltered}" groups={groups} />
 	</section>
 </article>
 
