@@ -1,8 +1,8 @@
 <section class="layout__primary boxed inverted">
 	<p>
-		These pages outline the professional experience of
-		<strong>Nick Trombley</strong>, a web designer / developer based in New
-		York.
+		This site serves as a kind of portfolio for
+		<strong>Nick Trombley</strong>, a web designer / developer based in
+		Boston.
 	</p>
 	<p>
 		Whether I am designing enterprise-grade tools and applications, or
