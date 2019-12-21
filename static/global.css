@@ -285,6 +285,8 @@ td:last-child {
 }
 
 blockquote {
+	--flow: 2em;
+
 	font-style: italic;
 	padding: 0 calc(2 * var(--body-padding));
 }

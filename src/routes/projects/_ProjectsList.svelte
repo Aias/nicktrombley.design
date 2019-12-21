@@ -5,6 +5,8 @@
 
 	export let projects = [];
 	export let groups = {};
+
+	groups = groups; // This doesn't do anything yet. Just suppress Sapper's warning.
 </script>
 
 <ol class="layout-main projects-container">

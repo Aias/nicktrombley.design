@@ -48,20 +48,28 @@
 	},
 	"work": [
 		{
+			"name": "Genospace",
+			"location": "Boston",
+			"description": "",
+			"position": "UX Designer",
+			"url": "https://www.genospace.com/",
+			"startDate": "2019-12-09",
+			"endDate": null,
+			"summary": "I started my current position at Genospace over the 2019 holiday season, and I'm looking forward to working with this small but brilliant team to shape the future of personalized medicine.",
+			"highlights": []
+		},
+		{
 			"name": "Unaffiliated",
 			"location": "New York, Tokyo, Singapore, London, Boston",
 			"description": "",
 			"position": "Sabbatical",
 			"url": null,
 			"startDate": "2019-05-24",
-			"endDate": null,
-			"summary": "I made the difficult decision to leave Epic in the spring of 2019. While I enjoyed the work, it felt like I had started to stagnate, and over time I saw less and less of a future for myself either at Epic or in Madison. Luckily, I had the luxury of a savings that has enabled me to take a good amount of time off, and I haven't wasted it: I spent a bit of time living abroad, worked on personal projects (including this website), and just generally tried to come to an understanding of who I am and how I want my work to fit into the world. It has been a necessary and successful change.",
+			"endDate": "2019-12-09",
+			"summary": "After almost 6 years at Epic, I decided to take some time off and look elsewhere for my next role. Over the next 6 months or so, I spent a bit of time living abroad, worked on personal projects (including this website), and just generally tried to come to an understanding of who I am and how I want my work to fit into the world. It was a necessary and successful change.",
 			"highlights": [
-				"Designed and built [barnsworthburning.net](https://barnsworthburning.net)",
-				"Designed and built [the-innocent-i.net](https://the-innocent-i.net)",
-				"Designed and built [nicktrombley.design](https://nicktrombley.design)",
-				"Designed and built [155-217-155.com](https://155-217-155.com)",
-				"Saw some cool places."
+				"Designed and built [barnsworthburning](https://barnsworthburning.net), [the-innocent-i](https://the-innocent-i.net), [nicktrombley.design](https://nicktrombley.design), and [155-217-155](https://155-217-155.com).",
+				"Did what I could to extend [the tail end](https://waitbutwhy.com/2015/12/the-tail-end.html) of my experiences."
 			]
 		},
 		{
@@ -230,6 +238,11 @@
 		{
 			"name": "A.S.",
 			"reference": "Nick was an invaluable member of our team at Epic. On top of his normal high quality design work, he proactively helped code and design internal tools (one of which was so successful and helpful that Epic opened it up to customers too). His knowledge of data visualization principles and techniques were of constant help, and the various educational design presentations he made to hundreds of our staff (including both designers and non-designers) were some of their favorites. Nick would be a strong asset to any user-centered team.",
+			"source": "https://www.linkedin.com/in/nick-trombley/"
+		},
+		{
+			"name": "A.B.",
+			"reference": "One of the keys to Nick's success is his ability to articulate and teach. As he worked with his teams to find the best solution he would take the time to explain why he favored one choice over another. He invites conversation about his decisions and does well with critique. He delivered multiple talks at Epic that were philosophical in nature - a potentially dangerous area when talking to a room of hundreds of skeptical software engineers. His talks were might be high ratings, and the highest honor: being quoted between engineers later that week. Nick understands that design decisions do not exist in a vacuum and that great solutions come from iterative, inclusive work.",
 			"source": "https://www.linkedin.com/in/nick-trombley/"
 		}
 	],

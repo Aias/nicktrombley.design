@@ -9,30 +9,23 @@
 		developing small sites with a personal touch, I care about bringing to
 		my work a sense of craft, purpose, and – on the good days – beauty.
 	</p>
-	<p>
-		I am
-		<strong>available for hire</strong>.
-	</p>
+	<p>I'm currently at <a href="https://www.genospace.com/">Genospace</a>.</p>
 </section>
 
 <section class="boxed">
 	<p>
-		If you’re deciding whether to hire me, my
+		I'm available on a limited basis for
+		<strong>interesting projects or speaking opportunities</strong>.
+	</p>
+	<p>
+		If you’re deciding whether you'd like to work with me, my
 		<a rel="prefetch" href="/about">cv</a> would be a good start. The bulk
-		of my work has been done at Epic Systems, where I was on the UX design
-		team for about five years.
+		of my work has been done at Epic Systems, where I worked with the UX
+		design team for about 5 years.
 	</p>
 	<p>
-		For an idea of where my talents lie, I maintain a running
-		<a rel="prefetch" href="/projects">projects list</a>. (List-ish.
-		List-esque.)
-	</p>
-	<p>
-		Much of my work is no longer my own
-		<abbr
-			title="Intellectual Property – sadly signed away to the Epic code farm"
-			>IP</abbr
-		>, but I'm happy to provide samples
+		Most of what I've worked on can't be shared publicly, but I'm happy to
+		provide samples
 		<a rel="prefetch" href="/contact">on request</a>.
 	</p>
 </section>
