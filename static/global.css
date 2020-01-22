@@ -168,7 +168,7 @@ html {
 		)
 		[secondary-end all-end];
 	grid-gap: var(--body-padding);
-	align-items: baseline;
+	align-items: stretch;
 	max-width: 1000px;
 	margin-left: auto;
 	margin-right: auto;

@@ -14,26 +14,24 @@
 
 <section class="boxed">
 	<p>
-		I'm available on a limited basis for
-		<strong>interesting projects or speaking opportunities</strong>.
+		Though I'm happily employed, I could probably be convinced to tackle
+		small and interesting side projects, or better yet – speaking, teaching,
+		or mentoring opportunities.
 	</p>
 	<p>
 		If you’re deciding whether you'd like to work with me, my
-		<a rel="prefetch" href="/about">cv</a> would be a good start. The bulk
-		of my work has been done at Epic Systems, where I worked with the UX
-		design team for about 5 years.
+		<a rel="prefetch" href="/about">cv</a> would be a good start. It'll you
+		what you need to know.
 	</p>
 	<p>
-		Most of what I've worked on can't be shared publicly, but I'm happy to
-		provide samples
-		<a rel="prefetch" href="/contact">on request</a>.
+		For everything I can't share here, feel free to
+		<a rel="prefetch" href="/contact">reach out and ask</a>.
 	</p>
 </section>
 
 <section class="boxed">
 	<p>
-		If you’re a colleague, you may be more interested in my personal
-		websites:
+		If you’re a colleague, you may be more interested in my other projects:
 	</p>
 	<p>
 		At <a href="https://barnsworthburning.net">barnsworthburning</a> I keep
@@ -42,8 +40,8 @@
 	</p>
 	<p>
 		And there’s <a href="https://the-innocent-i.net">the-innocent-i</a>,
-		where you might find incomplete thoughts, experiments in design and
-		code, and other oddities.
+		where you'll find half-formed thoughts, little experiments, and more
+		personal things.
 	</p>
 </section>
 

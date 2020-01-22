@@ -34,7 +34,7 @@
 		margin-top: 0.5rem;
 	}
 
-	.intro {
+	:global(.longform .intro) {
 		font-style: italic;
 	}
 </style>
