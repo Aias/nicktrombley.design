@@ -5,7 +5,7 @@
 		Boston.
 	</p>
 	<p>
-		Whether I am designing enterprise-grade tools and applications, or
+		Whether I'm designing enterprise-grade tools and applications, or
 		developing small sites with a personal touch, I care about bringing to
 		my work a sense of craft, purpose, and – on the good days – beauty.
 	</p>
@@ -20,12 +20,12 @@
 	</p>
 	<p>
 		If you’re deciding whether you'd like to work with me, my
-		<a rel="prefetch" href="/about">cv</a> would be a good start. It'll you
-		what you need to know.
+		<a rel="prefetch" href="/about">cv</a> would be a good start. It'll tell
+		you most of what you need to know.
 	</p>
 	<p>
 		For everything I can't share here, feel free to
-		<a rel="prefetch" href="/contact">reach out and ask</a>.
+		<a rel="prefetch" href="/contact">reach out</a>.
 	</p>
 </section>
 
