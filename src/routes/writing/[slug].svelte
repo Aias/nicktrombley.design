@@ -28,7 +28,8 @@
 </article>
 
 <style>
-	:global(.slides img) {
+	:global(.slides img, .slides video) {
+		display: block;
 		margin: 2rem 0;
 		border: var(--border);
 	}

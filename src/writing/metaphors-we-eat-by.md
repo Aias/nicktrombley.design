@@ -52,7 +52,13 @@ And he’s talking here about UX more generally of course, but I think in terms 
 
 Mandatory viewing is a strong statement, but the show really is that good.
 
-![Samin talking about the subtleties of salt][5]
+<video 
+	controls="controls" 
+	width="100%" 
+	name="Samin talking about the subtleties of salt">
+	<source src="https://res.cloudinary.com/aias/video/upload/v1581954687/metaphors-we-eat-by/Variance720p.mov"  />
+	<img src="https://res.cloudinary.com/aias/image/upload/v1581952202/metaphors-we-eat-by/Metaphors_We_Eat_By.005.png" title="Your browser does not support the <video> tag">
+</video>
 
 But still, even though it’s very inspirational, Chef’s Table does at times lack the kind of practical advice that you might want if you were someone who was really trying to learn from it. And when it comes to cooking, the thing that most people look to in order to learn how to make better food, of course, is the cookbook. And cookbooks lead us to believe that if you can follow a recipe, you can create good food. If you can get the right ingredients together in these particular proportions, and combine them in this particular order, for this amount of time, you’ll be good to go.
 
@@ -88,7 +94,13 @@ So that’s what I want to discover today. And I hope that in the process of thi
 
 Jane Grigson was an English cooking writer, long-time food columnist for the Observer, and a respected teacher. She understood that good cooking started simply with an appreciation of good eating. Today, I hope to convince you of something similar – if you can appreciate a beautiful painting, or a well-designed book, or an engaging website, then you too can learn to design well.
 
-![Fat][11]
+<video 
+	controls="controls" 
+	width="100%" 
+	name="Fat">
+	<source src="https://res.cloudinary.com/aias/video/upload/v1581954665/metaphors-we-eat-by/Fat720p.mov"  />
+	<img src="https://res.cloudinary.com/aias/image/upload/v1581952202/metaphors-we-eat-by/Metaphors_We_Eat_By.011.png" title="Your browser does not support the <video> tag">
+</video>
 
 The first element of good cooking is fat.
 
@@ -168,7 +180,13 @@ Space, has a greater impact on beauty than any other element of design. On its o
 
 Probably the most important quality that space and salt have in common is this: you can almost always use more of them than you think.
 
-![More than you think you need][23]
+<video 
+	controls="controls" 
+	width="100%" 
+	name="More than you think you need">
+	<source src="https://res.cloudinary.com/aias/video/upload/v1581954714/metaphors-we-eat-by/Salt720p.mov"  />
+	<img src="https://res.cloudinary.com/aias/image/upload/v1581952202/metaphors-we-eat-by/Metaphors_We_Eat_By.023.png" title="Your browser does not support the <video> tag">
+</video>
 
 That’s Samin’s mom, literally spooning salt in huge scoops into the water that they’re going to use to cook rice. When I watched this I thought this was absolutely insane, especially since this is rice that they’re making, which is going to absorb a ton of that water, unlike something like pasta.
 
@@ -184,7 +202,7 @@ On the design team we talk a lot about negative space, and how the empty areas o
 
 But like salt, I find that a design can almost always benefit from space. Almost inevitably, when I get a design to review, my first reaction is that it needs better spacing, and that almost always mean more of it, at every level.
 
-![Alt][26]
+![Japan, salt, and space][26]
 
 If we want to learn more about effective use of both space and salt, there are few places we could look that would have more to say than Japan. In the episode on Salt, Samin visits a store in Japan which is 100% dedicated to selling different varieties of salt, and salt only. The man she talks to tells her that in Japan, they have over 4,000 varieties of salt. And salt is the key component of two quintessential Japanese condiments: soy sauce and miso, which are both basically fermented combinations of soy beans and salt.
 
@@ -226,7 +244,13 @@ But of course, acidity needs to be used wisely. In most cases, it’s best when 
 
 Samin tells us that this is the most important role that acid can play. “Acid brightens food and creates contrast. And it does the absolutely indispensable job of *balancing* flavors.”
 
-![Thanksgiving at Samin's host parents'][33]
+<video 
+	controls="controls" 
+	width="100%" 
+	name="Thanksgiving at Samin's host parents'">
+	<source src="https://res.cloudinary.com/aias/video/upload/v1581954676/metaphors-we-eat-by/Acid720p.mov"  />
+	<img src="https://res.cloudinary.com/aias/image/upload/v1581952202/metaphors-we-eat-by/Metaphors_We_Eat_By.033.png" title="Your browser does not support the <video> tag">
+</video>
 
 In that clip you may have noticed how dull looking most of the foods on the Thanksgiving table are — compared to the brown turkey, white mashed potatoes, and off-yellow biscuits, the cranberry sauce uniquely stands out. And I think this is incredibly telling, because back in the visual world, the element which brightens screens, creates contrast, and balances a design is clear — it’s color.
 
@@ -318,7 +342,13 @@ In the kitchen, it doesn’t matter if the recipe says to roast your chicken at 
 
 The last video clip I’m going to show you is an example of thinking with your eyes and not your head.
 
-![The food and not the fire][49]
+<video 
+	controls="controls" 
+	width="100%" 
+	name="The food and not the fire">
+	<source src="https://res.cloudinary.com/aias/video/upload/v1581954718/metaphors-we-eat-by/Heat720p.mov"  />
+	<img src="https://res.cloudinary.com/aias/image/upload/v1581952202/metaphors-we-eat-by/Metaphors_We_Eat_By.049.png" title="Your browser does not support the <video> tag">
+</video>
 
 > “At first, the kitchen intimidated me. The numbers on the oven dials had worn away, and people cooked on a giant hearth over an open fire. That just seemed crazy. It took me some time to learn to pay attention to the food and not the fire, and to use my senses, to look, listen, smell, taste. To master the final element in good cooking: heat.”
 
