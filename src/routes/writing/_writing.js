@@ -14,7 +14,13 @@ export function getWriting() {
 		.filter(file => path.extname(file) === '.md')
 		.map(file => file.slice(0, -3));
 
-	return slugs.map(getOneDoc).filter(doc => doc.meta.published);
+	return slugs
+		.map(getOneDoc)
+		.map(doc => ({
+			slug: doc.slug,
+			meta: doc.meta,
+		}))
+		.filter(doc => doc.meta.published);
 }
 
 export function getOneDoc(slug) {
@@ -28,7 +34,6 @@ export function getOneDoc(slug) {
 	return {
 		slug,
 		html,
-		rawContent,
 		meta: markdown.meta,
 	};
 }
