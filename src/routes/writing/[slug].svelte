@@ -15,26 +15,21 @@
 	export let writing;
 </script>
 
-<article class="layout__all longform">
-	<h2 class="doc-title">
-		{writing.meta.title}
-	</h2>
-	{#if writing.meta.subtitle}
-	<p class="subtitle">{writing.meta.subtitle}</p>
-	{/if} {@html writing.html}
+<article class="layout__all longform" class:slides="{writing.meta.slides}">
+	<header>
+		<h2 class="doc-title">
+			{writing.meta.title}
+		</h2>
+		{#if writing.meta.subtitle}
+		<p class="subtitle">{writing.meta.subtitle}</p>
+		{/if}
+	</header>
+	{@html writing.html}
 </article>
 
 <style>
-	.longform {
-		max-width: 700px;
-		margin: 0 auto;
-	}
-
-	.doc-title {
-		margin-top: 0.5rem;
-	}
-
-	:global(.longform .intro) {
-		font-style: italic;
+	:global(.slides img) {
+		margin: 2rem 0;
+		border: var(--border);
 	}
 </style>

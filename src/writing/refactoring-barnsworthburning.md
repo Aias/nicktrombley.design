@@ -7,7 +7,7 @@ published: false
 I’m going to try and keep a semi-real-time journal of my design and development process, as I make some pretty significant structural changes to my open-source commonplace book, [barnsworthburning.net][barns].
 (And if you’re reading this and you’re not keeping your own [commonplace book][commonplace] in some form, I can only tell you how much the habit of recording new and interesting information has enriched my own life since first encountering the idea in Alan Fletcher’s *[The Art of Looking Sideways][sideways]* over ten years ago.)
 
-The site as it stands has evolved slowly and organically from what was originally a paper ritual, as I would hand-transcribe excerpts from books I read into a [Moleskine notebook][moleskine], with little structure beyond headings for the author and title, and sometimes page numbers (though I eventually stopped worrying about those too).
+The site as it stands has evolved slowly and organically from what was originally a paper ritual, as I would hand-transcribe excerpts from books I read into a [Moleskine notebook][moleskine], with little structure beyond headings for the author and title, and sometimes page numbers (and I eventually stopped worrying about those too).
 Though the handwritten process was more personal, and I suppose emotionally deeper, I eventually realized that it was just too much physical effort to do it for more than a few paragraphs per book, and decided to look for a digital solution.
 
 Which brought me to [Evernote][evernote].
@@ -16,7 +16,7 @@ The network part is important. Most people I talk to who use Evernote completely
 
 ![A screenshot of my ‘Tags’ page on Evernote, which lets me quickly jump to all the notes I’ve ever taken related to a particular idea. I didn’t notice until I took this screenshot that when you highlight a tag, it also highlights all other tags which have notes in common. Brilliant.][tags]
 
-I’ve gotten better (read: more obsessive) about tagging as the process has matured, but even with a lot of untagged notes from the early years, I believe my total number of tags easily tops the total number of notes. The relationships are as important as the ideas themselves.
+I’ve gotten better (read: more obsessive) about tagging as my process has matured, but even with a lot of untagged notes from the early years, I believe my total number of tags easily tops the total number of notes. The relationships are as important as the ideas themselves.
 
 Evernote has been a huge part of my intellectual, professional, and sometimes personal life for a long time now. It has provided a foundation of ideas for almost every lecture and essay I’ve written in the last five years.
 (On the other hand, sometimes I fear that I can’t think at all these days except in collections of pithy [fragments][fragments], loosely related.)
@@ -26,7 +26,7 @@ Which brings us to `barnsworthburning.net`.
 I’ve actually owned the domain since sometime around 2014, when it was home to a terrible little personal site – my first ventures into web development and design.
 The name is a reference to Haruki Murakami’s short story, *[Barn Burning][murakami]* (as part of his wonderful short story collection, *The Elephant Vanishes*), which used to be quite a bit more obscure than it is now, since Chang-dong Lee’s [film adaptation][burning] was released in 2018.
 (And the top-level domain of `.net` may seem an odd choice until you realize that those are also my initials: **N**icholas **E**dward **T**rombley. Given that I eventually ended up doing web design and development, does this count as an [aptronym][aptronym]?)
-Anyway, it wasn’t until 2019 that the site got its first major overhaul, when I totally gutted it to make room for the commonplace book it is today. As a design / development artifact, still terrible, but maybe a bit more refined form of terrible.
+Anyway, it wasn’t until 2019 that the site got its first major overhaul, when I totally gutted it to make room for the commonplace book it is today.
 The original idea was actually to have it be a kind of strange hybrid of portfolio site, personal blog, and commonplace book, but that goal was pretty quickly abandoned in favor of what are now [three][netdotdesign] [different][innocent] [sites][barns].
 
 ![An early mockup of barnsworthburning.net, with room for a blog, a projects list, and an About page][mockup]

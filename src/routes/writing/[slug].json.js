@@ -1,9 +1,9 @@
-import { getOneDoc } from './_writing.js';
+import { getWriting, getOneDoc } from './_writing.js';
 
 export function get(req, res, next) {
 	const { slug } = req.params;
 
-	let writing = getOneDoc(slug);
+	const writing = slug === 'all' ? getWriting() : getOneDoc(slug);
 
 	if (typeof writing === 'object') {
 		res.writeHead(200, {

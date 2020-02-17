@@ -248,8 +248,29 @@ h4 {
 	font-weight: var(--font-weight-bold);
 }
 
+.longform {
+	max-width: 700px;
+	margin: 1rem auto 0 auto;
+}
+
+.longform .doc-title {
+	margin-top: 0.5rem;
+}
+
+.longform .subtitle {
+	font-weight: var(--font-weight-bold);
+}
+
+.longform header {
+	margin-bottom: 2rem;
+}
+
+.longform .intro {
+	font-style: italic;
+}
+
 .subtitle {
-	margin-top: 0;
+	margin-top: 0.25rem;
 }
 
 table {
@@ -289,6 +310,7 @@ blockquote {
 
 	font-style: italic;
 	padding: 0 calc(2 * var(--body-padding));
+	margin-bottom: var(--flow);
 }
 
 strong,

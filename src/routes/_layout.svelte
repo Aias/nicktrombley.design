@@ -13,7 +13,7 @@
 			title: 'The Work List'
 		},
 		{
-			url: 'writing/principles',
+			url: 'writing',
 			label: 'Writing',
 			title: 'Writing'
 		},
