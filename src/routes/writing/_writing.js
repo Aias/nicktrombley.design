@@ -20,7 +20,8 @@ export function getWriting() {
 			slug: doc.slug,
 			meta: doc.meta,
 		}))
-		.filter(doc => doc.meta.published);
+		.filter(doc => doc.meta.published)
+		.sort((a, b) => b.meta.date - a.meta.date);
 }
 
 export function getOneDoc(slug) {

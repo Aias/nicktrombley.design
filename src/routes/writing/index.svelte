@@ -13,6 +13,8 @@
 
 <script>
 	export let writing;
+
+	// console.log(writing);
 </script>
 
 <article class="layout__all longform">

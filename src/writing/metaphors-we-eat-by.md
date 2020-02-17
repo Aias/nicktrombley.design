@@ -1,7 +1,7 @@
 ---
 title: Metaphors We Eat By
 subtitle: What visual design can learn from good cooking.
-date: 2020-02-17
+date: 2018-11-15
 published: true
 slides: true
 ---

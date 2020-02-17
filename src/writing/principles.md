@@ -1,7 +1,7 @@
 ---
 title: What Makes Software Good?
 subtitle: 10 principles for effective digital design.
-date: 2019-12-01
+date: 2019-01-01
 published: true
 ---
 
