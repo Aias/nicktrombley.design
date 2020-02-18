@@ -21,7 +21,7 @@
 	{#if subject}
 	<meta name="subject"			content="{subject}" />
 	{/if}
-	<meta name="monetization"		content="$pay.stronghold.co/1a18f752bd394de4172a951e38d6e6bc816">
+	<meta name="monetization"		content="$pay.stronghold.co/1a18f752bd394de4172a951e38d6e6bc816" />
 	<meta name="keywords"			content="{keywords}" />
 	<meta name="theme-color"		content="{themeColor}" />
 	<meta name="robots"				content="{robots}" />
