@@ -1,7 +1,14 @@
 <script>
+	import { flip } from 'svelte/animate';
+	// import { fade } from 'svelte/transition';
+	import { quintInOut } from 'svelte/easing';
+
 	export let group = {};
 	export let onChange = (item, val) => console.log(item, val);
 	export let title = '';
+
+	$: filtered = group.filtered;
+	$: sortedArr = groupObjToSortedArr(group.byKey);
 
 	const groupObjToSortedArr = obj => {
 		return Object.entries(obj).sort((a, b) => {
@@ -15,10 +22,14 @@
 		{title}
 	</h3>
 	<div class="fieldset" role="group">
-		{#each groupObjToSortedArr(group.byKey) as item}
-		<label class:checked="{item[1].checked}">
+		{#each sortedArr as item (item[0])}
+		<label
+			class:checked="{filtered.indexOf(item[0]) > -1}"
+			animate:flip="{{duration: 750, easing: quintInOut}}"
+		>
 			<input
 				type="checkbox"
+				checked="{filtered.indexOf(item[0]) > -1}"
 				on:change="{(e) => onChange(item[0], e.target.checked) }"
 			/>
 			{item[0]}

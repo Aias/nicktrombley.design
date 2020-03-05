@@ -26,10 +26,11 @@
 	import ProjectsList from './_ProjectsList.svelte';
 
 	export let projects = [];
+	let filteredProjects = [];
 
 	const fields = ['roles', 'technologies', 'fields', 'tags'];
 
-	$: groups = fields.reduce((obj, key) => {
+	let groups = fields.reduce((obj, key) => {
 		obj[key] = {
 			byKey: {},
 			filtered: []
@@ -39,22 +40,31 @@
 	}, {});
 
 	$: {
-		projects.forEach((project, i) => {
+		fields.forEach(field => {
+			groups[field].byKey = {}; // After each update, reset buttons for each group.
+		});
+
+		filteredProjects = getFilteredProjects(projects, groups);
+
+		filteredProjects.forEach((project, i) => {
 			fields.forEach(field => mapField(project, field));
 		});
 	}
 
-	$: projectsFiltered = getListedProjects(projects, groups);
+	$: displayedProjects = getRatedProjects(filteredProjects, groups);
 
-	const mapField = (source, field) => {
-		if(!source[field]) return null;
+	const mapField = (project, field) => {
+		if(!project[field]) return null;
+
+		// If a field is being filtered on, only map projects that map the filter.
 		
-		source[field].forEach(item => {
+
+		project[field].forEach(item => {
 			let itemByKey = groups[field]["byKey"][item];
 			if (typeof itemByKey === 'object') {
 				itemByKey.count++;
 			} else {
-				itemByKey = { count: 1, checked: false };
+				itemByKey = { count: 1 };
 			}
 			groups[field]["byKey"][item] = itemByKey;
 		});
@@ -62,7 +72,6 @@
 
 	const handleChecked = (group = '', key = '', checked = false) => {
 		let newGroup = { ...groups[group] };
-		newGroup["byKey"][key].checked = checked;
 
 		if(checked) {
 			newGroup["filtered"].push(key);
@@ -77,7 +86,23 @@
 		};
 	}
 
-	const getListedProjects = (projects = [], groups) => {
+	const getFilteredProjects = (projects = [], groups) => {
+		let newProjects = [...projects];
+
+		fields.forEach(field => {
+			const group = groups[field];
+			// For every filter currently applied, remove all projects that don't match that filter.
+			group.filtered.forEach(filter => {
+				newProjects = newProjects.filter(project => {
+					return project[field].indexOf(filter) > -1 ? true : false;
+				});
+			});
+		});
+
+		return newProjects;
+	}
+
+	const getRatedProjects = (projects = [], groups) => {
 		const maxListed = 12;
 
 		let ratedProjects = projects.map((project, i) => {
@@ -121,7 +146,7 @@
 			<h3>Let's talk.</h3>
 			<span><a title="Contact" href="/contact">Send me a message</a> and I can tell you how the following projects might be similar to what you're working on:</span>
 		</header>
-		<ProjectsList projects="{projectsFiltered}" {groups} />
+		<ProjectsList projects="{displayedProjects}" {groups} />
 	</section>
 </article>
 
