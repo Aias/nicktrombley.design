@@ -40,21 +40,23 @@
 
 	$: {
 		projects.forEach((project, i) => {
-			Object.keys(groups).forEach(key => mapProperty(project, key));
+			fields.forEach(field => mapField(project, field));
 		});
 	}
 
 	$: projectsFiltered = getListedProjects(projects, groups);
 
-	const mapProperty = (source, prop) => {
-		source[prop].forEach(item => {
-			let itemByKey = groups[prop]["byKey"][item];
+	const mapField = (source, field) => {
+		if(!source[field]) return null;
+		
+		source[field].forEach(item => {
+			let itemByKey = groups[field]["byKey"][item];
 			if (typeof itemByKey === 'object') {
 				itemByKey.count++;
 			} else {
 				itemByKey = { count: 1, checked: false };
 			}
-			groups[prop]["byKey"][item] = itemByKey;
+			groups[field]["byKey"][item] = itemByKey;
 		});
 	};
 
