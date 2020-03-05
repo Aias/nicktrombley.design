@@ -106,19 +106,16 @@
 		const maxListed = 12;
 
 		let ratedProjects = projects.map((project, i) => {
-			let rating = 0;
-			if(project.starred) { rating++; }
+			let rating = project.rating || 0;
+			if(project.starred) rating += 0.5;
+			/* TODO: Someday it would be nice to incorporate an idea of specificity into the rating system.
+				     The idea being that if a filter is applied, projects that *only* contain that filter
+					 should be weighted higher than projects with a big list that happen to contain it.
 
-			Object.keys(groups).forEach(key => {
-				let { filtered } = groups[key];
-				let projectItems = project[key] || [];
-
-				filtered.forEach(filter => {
-					if(projectItems.indexOf(filter) >= 0) {
-						rating = rating + 2;
-					}
-				})
-			})
+					 e.g., if I'm filtering on my role as a 'User Researcher', projects where that was the
+					 only thing I did should be weighted higher than projects where I also did design,
+					 development, project management, etc. The project was more "about" user research.
+			*/
 
 			return {
 				...project,
