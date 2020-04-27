@@ -23,7 +23,7 @@ published: true
 		list has been reordered, regrouped, and combined with what I'd say
 		is the other best set of principles I've come across: those from
 		Frederick P. Brooks, Jr.'s
-		<a href="https://barnsworthburning.net/works/recNVCwWWXPv4k3Mn"
+		<a href="https://barnsworthburning.net/works/the-design-of-design"
 			>The Design of Design</a
 		>. I have this list permanently pinned to the wall, in my periphery.
 	</p>
