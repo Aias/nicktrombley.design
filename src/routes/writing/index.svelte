@@ -26,8 +26,11 @@
 	<ul>
 		{#each writing as {meta, slug}}
 		<li>
+			{#if meta.link}
+			<a href="{meta.link}" target="_blank">{meta.title}</a>
+			{:else}
 			<a href="/writing/{slug}">{meta.title}</a>
-			{#if meta.subtitle}
+			{/if} {#if meta.subtitle}
 			<div>{meta.subtitle}</div>
 			{/if}
 		</li>
