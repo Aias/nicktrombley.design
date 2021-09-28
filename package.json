@@ -7,12 +7,13 @@
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
-		"export": "svelte-kit export",
+		"export": "svelte-kit build",
 		"serve": "node build"
 	},
 	"dependencies": {
 		"@rollup/plugin-url": "^6.0.0",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.31",
+		"@sveltejs/adapter-static": "^1.0.0-next.20",
 		"@sveltejs/kit": "^1.0.0-next.176",
 		"remarkable": "^2.0.1",
 		"remarkable-meta": "^1.0.1"
