@@ -3,20 +3,19 @@
 	"description": "Web-based CV",
 	"version": "0.2.0",
 	"license": "MIT",
+	"type": "module",
 	"scripts": {
-		"dev": "sapper dev",
-		"build": "sapper build",
-		"export": "sapper export",
-		"serve": "node __sapper__/build",
-		"netlify:build": "sapper export"
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"export": "svelte-kit export",
+		"serve": "node build"
 	},
 	"dependencies": {
 		"@rollup/plugin-url": "^6.0.0",
-		"compression": "^1.7.1",
-		"polka": "^0.5.2",
+		"@sveltejs/adapter-netlify": "^1.0.0-next.31",
+		"@sveltejs/kit": "^1.0.0-next.176",
 		"remarkable": "^2.0.1",
-		"remarkable-meta": "^1.0.1",
-		"sirv": "^1.0.11"
+		"remarkable-meta": "^1.0.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.14.0",
@@ -33,7 +32,6 @@
 		"rollup": "^2.47.0",
 		"rollup-plugin-svelte": "^7.1.0",
 		"rollup-plugin-terser": "^7.0.2",
-		"sapper": "^0.29.1",
-		"svelte": "^3.38.2"
+		"svelte": "^3.43.0"
 	}
 }
