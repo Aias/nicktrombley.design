@@ -1,5 +1,5 @@
 <section>
-	<p class="symbol">Hello</p>
+	<p class="symbol" aria-hidden="true" role="presentation">Hello</p>
 	<p>Nick Trombley is a software designer living in Boston.</p>
 	<p>This site is being recycled.</p>
 	<p>
@@ -8,7 +8,7 @@
 			>barnsworthburning.net</a
 		>.
 	</p>
-	<p class="symbol">Goodbye</p>
+	<p class="symbol" aria-hidden="true" role="presentation">Goodbye</p>
 </section>
 
 <style>
