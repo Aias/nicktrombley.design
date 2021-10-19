@@ -9,6 +9,7 @@
 	<title>{status}</title>
 </svelte:head>
 
+{#if error}
 <div class="layout__all">
 	<h2>{status}</h2>
 
@@ -18,3 +19,4 @@
 	<pre>{error.stack}</pre>
 	{/if}
 </div>
+{/if}
