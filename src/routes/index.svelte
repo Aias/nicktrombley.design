@@ -1,7 +1,7 @@
 <section>
 	<p class="symbol" aria-hidden="true" role="presentation">Hello</p>
 	<p>Nick Trombley is a software designer living in Boston.</p>
-	<p>This site is being recycled.</p>
+	<p>This site is in a state of suspension.</p>
 	<p>
 		For more current things, see
 		<a href="https://barnsworthburning.net/creators/nick-trombley"
