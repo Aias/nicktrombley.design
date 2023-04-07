@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@sveltejs/adapter-netlify": "^1.0.0-next.33",
 		"@sveltejs/adapter-static": "^1.0.0-next.21",
-		"@sveltejs/kit": "^1.0.0-next.186",
+		"@sveltejs/kit": "^1.15.2",
 		"remarkable": "^2.0.1",
 		"remarkable-meta": "^1.0.1",
 		"svelte": "^3.44.0",
