@@ -1,7 +1,2 @@
-.DS_Store
-/node_modules/
-yarn-error.log
-*.code-workspace
-build
-.svelte-kit
-.netlify
+node_modules
+.yarn
