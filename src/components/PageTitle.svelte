@@ -10,12 +10,12 @@
 </script>
 
 <!-- TODO: There is something funky going on with the grid layout during an out: transition. I think it has to do with the grid gap remaining even though the element is absolutely positioned. -->
-<h1 in:slide class="page-title layout__primary">
+<h1 in:slide|global class="page-title layout__primary">
 	{page.title}
 </h1>
 
 {#if page.subnav}
-<div in:slide class="page-subnav layout__secondary">
+<div in:slide|global class="page-subnav layout__secondary">
 	<label for="subnav">Jump to:</label>
 	<ul id="subnav" class="subnav-links">
 		{#each page.subnav as {section, label}}
