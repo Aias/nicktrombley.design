@@ -4,9 +4,7 @@
 	<p>This site is in a state of suspension.</p>
 	<p>
 		For more current things, see
-		<a href="https://barnsworthburning.net/creators/nick-trombley"
-			>barnsworthburning.net</a
-		>.
+		<a href="https://barnsworthburning.net/creators/nick-trombley">barnsworthburning.net</a>.
 	</p>
 	<p class="symbol" aria-hidden="true" role="presentation">Goodbye</p>
 </section>

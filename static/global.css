@@ -100,7 +100,8 @@ select {
 
 @font-face {
 	font-family: 'Trees';
-	src: url('fonts/trees.woff2') format('woff2'),
+	src:
+		url('fonts/trees.woff2') format('woff2'),
 		url('fonts/trees.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
@@ -108,11 +109,10 @@ select {
 }
 
 :root {
-	--font-stack-serif: 'Quattrocento', 'Palatino Linotype', Palatino, Palladio,
-		'URW Palladio L', 'Book Antiqua', Baskerville, 'Bookman Old Style',
-		'Bitstream Charter', 'Nimbus Roman No9 L', Garamond, 'Apple Garamond',
-		'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook',
-		'Century Schoolbook L', Georgia, serif;
+	--font-stack-serif: 'Quattrocento', 'Palatino Linotype', Palatino, Palladio, 'URW Palladio L',
+		'Book Antiqua', Baskerville, 'Bookman Old Style', 'Bitstream Charter', 'Nimbus Roman No9 L',
+		Garamond, 'Apple Garamond', 'ITC Garamond Narrow', 'New Century Schoolbook',
+		'Century Schoolbook', 'Century Schoolbook L', Georgia, serif;
 	--font-stack-glyph: Trees, Wingdings, Webdings, Symbol, monospace;
 	--font-weight-normal: 400;
 	--font-weight-bold: 700;
