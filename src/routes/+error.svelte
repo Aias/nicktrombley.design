@@ -1,22 +1,15 @@
-<script>
-	export let status;
-	export let error;
+<script lang="ts">
+	import { page } from '$app/stores';
 
-	const dev = process.env.NODE_ENV === 'development';
+	let { status, error } = $page;
 </script>
 
 <svelte:head>
 	<title>{status}</title>
 </svelte:head>
 
+<h1>{status}</h1>
+
 {#if error}
-<div class="layout__all">
-	<h2>{status}</h2>
-
 	<p>{error.message}</p>
-
-	{#if dev && error.stack}
-	<pre>{error.stack}</pre>
-	{/if}
-</div>
 {/if}
