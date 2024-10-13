@@ -118,7 +118,7 @@ select {
 	--font-weight-bold: 700;
 	--font-size-smaller: 0.875em;
 
-	--line-height: 1.7;
+	--line-height: 1.6;
 	--flow: 1em;
 
 	--clr-theme-primary: #1f0066;
@@ -262,7 +262,8 @@ a.button {
 	box-shadow: var(--shadow);
 }
 
-.symbol {
+.symbol,
+.trees {
 	font-family: var(--font-stack-glyph);
 	text-transform: uppercase;
 	letter-spacing: 2px;

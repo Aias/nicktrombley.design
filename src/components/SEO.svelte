@@ -15,17 +15,17 @@
 	}
 
 	let {
-		title = 'nick trombley . design',
-		description = 'a personal website',
+		title = 'Nick Trombley',
+		description = 'Digital designer-builder.',
 		image = '/logo-512.png',
-		siteName = 'nick trombley . design',
+		siteName = 'Nick Trombley',
 		type = 'website',
 		subject,
 		email = 'trombley.nick@gmail.com',
 		url = 'https://nicktrombley.design',
 		robots = 'index, follow',
 		themeColor = '#1f0066',
-		keywords = 'Nick Trombley, design, resume, CV, portfolio, work, development, front-end, web',
+		keywords = 'Nick Trombley, portfolio, software design, design-build, barnsworthburning',
 		author = 'Nick Trombley',
 	}: SEOProps = $props();
 </script>
