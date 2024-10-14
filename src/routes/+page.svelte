@@ -8,12 +8,12 @@
 </script>
 
 <section class="manifesto">
-	<p class="symbol" aria-hidden="true" role="presentation">Grow things</p>
-	<p>Make things.</p>
-	<p class="symbol" aria-hidden="true" role="presentation">All you can</p>
-	<p>Not too many.</p>
-	<p class="symbol" aria-hidden="true" role="presentation">Mostly trees</p>
-	<p>Mostly free.</p>
+	<p class="line two">Make things.</p>
+	<p class="line four">Not too many.</p>
+	<p class="line six">Mostly free.</p>
+	<p class="line symbol one" aria-hidden="true" role="presentation">Grow things</p>
+	<p class="line symbol three" aria-hidden="true" role="presentation">All you can</p>
+	<p class="line symbol five" aria-hidden="true" role="presentation">Mostly trees</p>
 </section>
 
 <ul class="links">
@@ -27,8 +27,32 @@
 		text-align: center;
 		height: 100%;
 		display: flex;
+		gap: var(--flow, 1em);
 		flex-direction: column;
 		justify-content: center;
+	}
+
+	.line {
+		margin: 0;
+	}
+
+	.one {
+		order: 1;
+	}
+	.two {
+		order: 2;
+	}
+	.three {
+		order: 3;
+	}
+	.four {
+		order: 4;
+	}
+	.five {
+		order: 5;
+	}
+	.six {
+		order: 6;
 	}
 
 	.links {
