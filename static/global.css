@@ -1,3 +1,35 @@
+@font-face {
+	font-family: 'ETBembo';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/fonts/ETBembo-Roman.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'ETBembo';
+	font-style: normal;
+	font-weight: bold;
+	src: url('/fonts/ETBembo-Bold.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'ETBembo';
+	font-style: italic;
+	font-weight: normal;
+	src: url('/fonts/ETBembo-Italic.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Trees';
+	src: url('/fonts/trees.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
 /* ---------------------------------------- */
 /* CSS reset */
 /* ---------------------------------------- */
@@ -21,6 +53,7 @@ body {
 	scroll-behavior: smooth;
 	/* text-rendering: optimizeSpeed; */
 	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 /* Remove default margin */
@@ -98,24 +131,13 @@ select {
 /* Variables and declarations */
 /* ---------------------------------------- */
 
-@font-face {
-	font-family: 'Trees';
-	src:
-		url('fonts/trees.woff2') format('woff2'),
-		url('fonts/trees.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-	font-display: auto;
-}
-
 :root {
-	--font-stack-serif: 'Quattrocento', 'Palatino Linotype', Palatino, Palladio, 'URW Palladio L',
-		'Book Antiqua', Baskerville, 'Bookman Old Style', 'Bitstream Charter', 'Nimbus Roman No9 L',
-		Garamond, 'Apple Garamond', 'ITC Garamond Narrow', 'New Century Schoolbook',
-		'Century Schoolbook', 'Century Schoolbook L', Georgia, serif;
+	--font-stack-serif:
+		ETBembo, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times,
+		Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 	--font-stack-glyph: Trees, Wingdings, Webdings, Symbol, monospace;
-	--font-weight-normal: 400;
-	--font-weight-bold: 700;
+	--font-weight-normal: normal;
+	--font-weight-bold: bold;
 	--font-size-smaller: 0.875em;
 
 	--line-height: 1.6;
@@ -167,11 +189,11 @@ main {
 
 body {
 	padding: var(--body-padding);
-	font-size: 1rem;
 	line-height: var(--line-height);
 	font-family: var(--font-stack-serif);
 	font-weight: var(--font-weight-normal);
 	color: var(--clr-text-primary);
+	letter-spacing: 0.01em;
 }
 
 h1 {
@@ -246,7 +268,6 @@ small,
 }
 
 a {
-	font-weight: var(--font-weight-bold);
 	color: var(--clr-text-theme);
 	fill: currentColor;
 }

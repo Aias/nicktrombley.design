@@ -5,16 +5,43 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge" />
 		%sveltekit.head%
-		<link rel="preload" href="/fonts/trees.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="stylesheet" href="global.css" />
+		<link rel="stylesheet" href="/global.css" />
 		<link
-			href="https://fonts.googleapis.com/css?family=Quattrocento:400,700&display=swap"
-			rel="stylesheet"
+			rel="preload"
+			href="/fonts/ETBembo-Roman.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+			fetchpriority="high"
 		/>
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link
+			rel="preload"
+			href="/fonts/ETBembo-Bold.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+			fetchpriority="high"
+		/>
+		<link
+			rel="preload"
+			href="/fonts/ETBembo-Italic.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+			fetchpriority="high"
+		/>
+		<link
+			rel="preload"
+			href="/fonts/trees.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+			fetchpriority="high"
+		/>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
-		<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 	</head>
 	<body>
 		<div style="display: contents">%sveltekit.body%</div>
