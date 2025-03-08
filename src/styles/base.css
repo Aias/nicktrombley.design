@@ -1,0 +1,140 @@
+@font-face {
+	font-family: 'ETBembo';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/fonts/ETBembo-Roman.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'ETBembo';
+	font-style: normal;
+	font-weight: bold;
+	src: url('/fonts/ETBembo-Bold.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'ETBembo';
+	font-style: italic;
+	font-weight: normal;
+	src: url('/fonts/ETBembo-Italic.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Trees';
+	src: url('/fonts/trees.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+/* ---------------------------------------- */
+/* Layout */
+/* ---------------------------------------- */
+
+html {
+	background-color: var(--clr-background);
+}
+
+@media print {
+	body {
+		color: #000;
+		background-color: #fff;
+	}
+}
+
+html,
+body {
+	height: 100%;
+}
+
+/* ---------------------------------------- */
+/* Typography */
+/* ---------------------------------------- */
+
+body {
+	padding: 2rem;
+	line-height: var(--line-height);
+	font-family: var(--font-stack-serif);
+	font-weight: var(--font-weight-normal);
+	color: var(--clr-primary);
+	letter-spacing: 0.01em;
+}
+
+h1 {
+	font-size: 2.1em;
+	line-height: 1.4;
+	font-weight: var(--font-weight-normal);
+}
+
+h2 {
+	--flow: 2em;
+	font-size: 1.5em;
+	line-height: 1.4;
+	font-weight: var(--font-weight-normal);
+}
+
+h3,
+h4 {
+	--flow: 2em;
+	font-size: 1em;
+	line-height: 1.5;
+	font-weight: var(--font-weight-bold);
+}
+
+table {
+	border-collapse: collapse;
+	line-height: 1.5;
+	font-variant-numeric: tabular-nums;
+}
+
+tr {
+	border-bottom: 1px solid var(--clr-faint-2);
+}
+
+th {
+	vertical-align: bottom;
+	font-weight: var(--font-weight-normal);
+	font-size: var(--font-size-smaller);
+	color: var(--clr-secondary);
+}
+
+td {
+	vertical-align: baseline;
+}
+
+th,
+td {
+	padding: 6px 0.75rem 6px 0;
+	text-align: left;
+}
+
+th:last-child,
+td:last-child {
+	padding-right: 0;
+}
+
+blockquote {
+	--flow: 2em;
+
+	font-style: italic;
+	padding: 0 calc(2 * var(--body-padding));
+	margin-bottom: var(--flow);
+}
+
+strong,
+.strong {
+	font-weight: var(--font-weight-bold);
+}
+
+small,
+.small {
+	font-size: var(--font-size-smaller);
+}
+
+a {
+	color: var(--clr-link);
+	fill: currentColor;
+}

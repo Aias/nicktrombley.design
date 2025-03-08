@@ -1,0 +1,18 @@
+.symbol,
+.trees {
+	font-family: var(--font-stack-glyph);
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.boxed {
+	border: var(--border);
+}
+
+.centered {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	justify-self: center;
+	text-align: center;
+}

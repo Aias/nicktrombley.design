@@ -1,0 +1,57 @@
+@import './tokens.css';
+
+:root {
+	--font-stack-serif:
+		ETBembo, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times,
+		Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	--font-stack-glyph: Trees, Wingdings, Webdings, Symbol, monospace;
+	--font-weight-normal: normal;
+	--font-weight-bold: bold;
+	--font-size-smaller: 0.875em;
+
+	--line-height: 1.6;
+
+	color-scheme: light dark;
+
+	--clr-neutral-primary: var(--olive-12);
+	--clr-neutral-secondary: color-mix(in oklch, var(--olive-11) 50%, var(--olive-12));
+	--clr-neutral-border: var(--olive-10);
+	--clr-neutral-background: var(--olive-3);
+	--clr-neutral-surface: var(--olive-3);
+	--clr-neutral-main: var(--olive-9);
+
+	--clr-theme-primary: var(--grass-12);
+	--clr-theme-secondary: var(--grass-11);
+	--clr-theme-border: var(--grass-9);
+	--clr-theme-background: var(--grass-3);
+	--clr-theme-surface: var(--grass-2);
+	--clr-theme-main: var(--grass-9);
+
+	--clr-primary: var(--clr-neutral-primary);
+	--clr-secondary: var(--clr-neutral-secondary);
+	--clr-border: var(--clr-neutral-border);
+	--clr-background: color-mix(
+		in oklch,
+		var(--clr-neutral-background) 95%,
+		var(--clr-theme-background)
+	);
+	--clr-surface: var(--clr-neutral-surface);
+	--clr-main: var(--clr-theme-main);
+	--clr-link: color-mix(in oklch, var(--clr-theme-secondary) 50%, var(--clr-theme-primary));
+}
+
+.light {
+	color-scheme: light;
+}
+
+.dark {
+	color-scheme: dark;
+}
+
+.themed {
+	--clr-primary: var(--clr-theme-primary);
+	--clr-secondary: var(--clr-theme-secondary);
+	--clr-border: var(--clr-theme-border);
+	--clr-background: var(--clr-theme-background);
+	--clr-surface: var(--clr-theme-surface);
+}

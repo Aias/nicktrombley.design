@@ -11,8 +11,8 @@
 	<div class="content">
 		<section class="bio">
 			<header class="header">
-				<h1>Nicholas Trombley</h1>
-				<p><em>Digital designer-builder.</em></p>
+				<h1 class="name">Nicholas Trombley</h1>
+				<p class="tagline">Digital designer-builder.</p>
 			</header>
 			<nav class="links">
 				<ul>
@@ -24,9 +24,9 @@
 		</section>
 
 		<section class="manifesto">
-			<p class="line two">Make things.</p>
-			<p class="line four">Not too many.</p>
-			<p class="line six">Mostly free.</p>
+			<p class="line two"><em>Make things.</em></p>
+			<p class="line four"><em>Not too many.</em></p>
+			<p class="line six"><em>Mostly free.</em></p>
 			<p class="line symbol one" aria-hidden="true" role="presentation">Grow things</p>
 			<p class="line symbol three" aria-hidden="true" role="presentation">All you can</p>
 			<p class="line symbol five" aria-hidden="true" role="presentation">Mostly trees</p>
@@ -45,9 +45,10 @@
 	.content {
 		display: flex;
 		justify-content: center;
-		gap: 6rem;
-		padding: 3rem;
-		border: 3px double oklch(from var(--clr-text-primary) l c h / 0.75);
+		gap: 8rem;
+		padding-block: 3rem;
+		padding-inline: 3.5rem;
+		border: 3px double var(--clr-border);
 		border-style: double;
 	}
 	.bio {
@@ -57,8 +58,11 @@
 		gap: 2rem;
 		flex: 0 0 auto;
 	}
+	.bio .tagline {
+		color: var(--clr-secondary);
+	}
 	.manifesto {
-		text-align: right;
+		text-align: center;
 		display: flex;
 		gap: calc(2em / 3);
 		flex-direction: column;
@@ -66,7 +70,7 @@
 		flex: 0 0 auto;
 	}
 
-	@media (max-width: 660px) {
+	@media (max-width: 720px) {
 		main {
 			text-align: center;
 			padding-block-end: 2rem;
@@ -99,6 +103,10 @@
 
 	.line {
 		margin: 0;
+	}
+
+	.symbol {
+		color: var(--clr-secondary);
 	}
 
 	.one {
