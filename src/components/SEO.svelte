@@ -17,7 +17,7 @@
 	let {
 		title = 'Nick Trombley',
 		description = 'Digital designer-builder.',
-		image = '/logo-512.png',
+		image = '/android-chrome-512x512.png',
 		siteName = 'Nick Trombley',
 		type = 'website',
 		subject,
