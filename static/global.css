@@ -76,9 +76,7 @@ dd {
 }
 
 /* Natural flow and rhythm in articles/sections by default */
-article > * + *,
-section > * + *,
-.flow > * + * {
+.prose > * + * {
 	margin-top: var(--flow);
 	/* margin-top: calc(1em * var(--line-height)); */
 }
@@ -178,8 +176,7 @@ html {
 }
 
 html,
-body,
-main {
+body {
 	height: 100%;
 }
 
