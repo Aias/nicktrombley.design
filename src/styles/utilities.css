@@ -16,3 +16,7 @@
 	justify-self: center;
 	text-align: center;
 }
+
+.secondary {
+	color: var(--clr-secondary);
+}

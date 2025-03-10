@@ -17,14 +17,14 @@
 	--clr-neutral-secondary: color-mix(in oklch, var(--olive-11) 50%, var(--olive-12));
 	--clr-neutral-border: var(--olive-10);
 	--clr-neutral-background: var(--olive-3);
-	--clr-neutral-surface: var(--olive-3);
+	--clr-neutral-surface: var(--olive-4);
 	--clr-neutral-main: var(--olive-9);
 
 	--clr-theme-primary: var(--grass-12);
 	--clr-theme-secondary: var(--grass-11);
 	--clr-theme-border: var(--grass-9);
 	--clr-theme-background: var(--grass-3);
-	--clr-theme-surface: var(--grass-2);
+	--clr-theme-surface: var(--grass-4);
 	--clr-theme-main: var(--grass-9);
 
 	--clr-primary: var(--clr-neutral-primary);

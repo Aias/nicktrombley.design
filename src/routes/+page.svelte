@@ -8,11 +8,12 @@
 </script>
 
 <main>
+	<p class="trees" aria-hidden="true" role="presentation">Hello</p>
 	<div class="content">
 		<section class="bio">
 			<header class="header">
 				<h1 class="name">Nicholas Trombley</h1>
-				<p class="tagline">Digital designer-builder.</p>
+				<p class="tagline"><em>Digital designer-builder.</em></p>
 			</header>
 			<nav class="links">
 				<ul>
@@ -24,14 +25,19 @@
 		</section>
 
 		<section class="manifesto">
-			<p class="line two"><em>Make things.</em></p>
-			<p class="line four"><em>Not too many.</em></p>
-			<p class="line six"><em>Mostly free.</em></p>
-			<p class="line symbol one" aria-hidden="true" role="presentation">Grow things</p>
-			<p class="line symbol three" aria-hidden="true" role="presentation">All you can</p>
-			<p class="line symbol five" aria-hidden="true" role="presentation">Mostly trees</p>
+			<p>
+				<strong>
+					Craft-oriented creator of digital tools with an eye towards simplicity, fine detail, and
+					information density.</strong
+				>
+			</p>
+			<p>
+				Over a decade of experience building useful software at all scales, from complex enterprise
+				solutions to bespoke artifacts of the small, personal web.
+			</p>
 		</section>
 	</div>
+	<p class="trees secondary" aria-hidden="true" role="presentation">Goodbye</p>
 </main>
 
 <style>
@@ -41,11 +47,12 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		gap: 0.25rem;
 	}
 	.content {
 		display: flex;
 		justify-content: center;
-		gap: 8rem;
+		gap: 6rem;
 		padding-block: 3rem;
 		padding-inline: 3.5rem;
 		border: 3px double var(--clr-border);
@@ -55,22 +62,29 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		gap: 2rem;
+		gap: 1rem;
 		flex: 0 0 auto;
 	}
 	.bio .tagline {
 		color: var(--clr-secondary);
 	}
 	.manifesto {
-		text-align: center;
 		display: flex;
 		gap: calc(2em / 3);
 		flex-direction: column;
 		justify-content: center;
 		flex: 0 0 auto;
+		max-width: 36ch;
+		text-align: justify;
+		text-align-last: left;
+		text-wrap: pretty;
 	}
 
-	@media (max-width: 720px) {
+	.trees {
+		color: var(--clr-secondary);
+	}
+
+	@media (max-width: 820px) {
 		main {
 			text-align: center;
 			padding-block-end: 2rem;
@@ -99,32 +113,5 @@
 			justify-content: center;
 			gap: 1rem;
 		}
-	}
-
-	.line {
-		margin: 0;
-	}
-
-	.symbol {
-		color: var(--clr-secondary);
-	}
-
-	.one {
-		order: 1;
-	}
-	.two {
-		order: 2;
-	}
-	.three {
-		order: 3;
-	}
-	.four {
-		order: 4;
-	}
-	.five {
-		order: 5;
-	}
-	.six {
-		order: 6;
 	}
 </style>
