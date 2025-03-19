@@ -1,6 +1,6 @@
 <script lang="ts">
 	const links = [
-		{ href: 'https://barnsworthburning.net/creators/rec97tRUYZBhAs6rZ', label: 'Portfolio' },
+		{ href: 'https://barnsworthburning.net/creators/rec97tRUYZBhAs6rZ', label: 'Commonplace' },
 		{ href: 'https://github.com/Aias', label: 'Github' },
 		{ href: 'https://www.linkedin.com/in/nick-trombley/', label: 'LinkedIn' },
 		{ href: 'https://glass.photo/barnsworthburning', label: 'Photography' },
@@ -27,13 +27,13 @@
 		<section class="manifesto">
 			<p>
 				<strong>
-					Craft-oriented creator of digital tools with an eye towards simplicity, fine detail, and
-					information density.</strong
+					Craft-oriented creator of digital tools with a mind for information design, knowledge
+					management, and systems thinking.</strong
 				>
 			</p>
 			<p>
-				Over a decade of experience building useful software at all scales, from complex enterprise
-				solutions to bespoke artifacts of the small, personal web.
+				Over a decade of experience building thoughtful software at all scales, from complex
+				enterprise solutions to bespoke artifacts of the small, personal web.
 			</p>
 		</section>
 	</div>
@@ -74,7 +74,7 @@
 		flex-direction: column;
 		justify-content: center;
 		flex: 0 0 auto;
-		max-width: 36ch;
+		max-width: 37ch;
 		text-align: justify;
 		text-align-last: left;
 		text-wrap: pretty;
