@@ -1,0 +1,22 @@
+﻿title,summary,widget,x,y,width,height
+Threat Analysis,,access-flow,1696,864,608,320
+Activity Timeline,,activity-timeline,0,1152,608,384
+Birthday Agenda,,agenda,1056,0,256,224
+Association Analysis,,big-button,640,0,384,128
+Analyte Viewer,,distribution-table,1344,0,608,224
+Bookmarks List,,extract-list,1696,576,384,416
+Ingress Path,,hierarchy,320,384,288,416
+Customer Icons,,icons,1696,1184,192,352
+Impact Analysis,,impact-analysis,640,1312,640,224
+Journey Map,,journey-map,0,0,608,352
+Metadata Viewer,,metadata,0,384,288,736
+Quality Measure Tracking,,multi-measure,1568,256,384,288
+Pattern Languages,,pattern,2112,576,192,256
+Patient Population Builder,,rule-builder,1312,960,352,576
+Metric Trending Widget,,single-metric,320,832,288,288
+Upgrade Task List,,task-list,1984,0,320,546
+Case Timeline,,timeline,640,960,288,320
+Ingest Treemap,,treemap,1920,1216,384,320
+User Details Panel,,user-details,640,160,384,384
+Controlled Analysis,,variable-analysis,1056,256,480,288
+Variable Comparisons,,variable-selection,960,960,320,320

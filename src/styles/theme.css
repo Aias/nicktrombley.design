@@ -55,3 +55,108 @@
 	--clr-background: var(--clr-theme-background);
 	--clr-surface: var(--clr-theme-surface);
 }
+
+.portfolio-widget {
+	.fill-primary {
+		fill: var(--widget-primary);
+	}
+	.fill-secondary {
+		fill: var(--widget-secondary);
+	}
+	.fill-hint {
+		fill: var(--widget-hint);
+	}
+	.fill-ghost {
+		fill: var(--widget-ghost);
+	}
+	.fill-accent {
+		fill: var(--widget-accent);
+	}
+	.fill-symbol {
+		fill: var(--widget-symbol);
+	}
+	.fill-background {
+		fill: var(--widget-background);
+	}
+	.fill-container {
+		fill: var(--widget-container);
+	}
+	.fill-component {
+		fill: var(--widget-component);
+	}
+	.fill-tint {
+		fill: var(--widget-tint);
+	}
+	.fill-tone {
+		fill: var(--widget-tone);
+	}
+	.fill-paint {
+		fill: var(--widget-paint);
+	}
+	.fill-darken {
+		fill: var(--widget-darken);
+	}
+	.fill-transparent {
+		fill: var(--widget-transparent);
+	}
+	.stroke-shadow {
+		stroke: var(--widget-shadow);
+	}
+	.stroke-divider {
+		stroke: var(--widget-divider);
+	}
+	.fill-divider {
+		fill: var(--widget-divider);
+	}
+	.stroke-divider-subtle {
+		stroke: var(--widget-divider-subtle);
+	}
+	.fill-divider-subtle {
+		fill: var(--widget-divider-subtle);
+	}
+	.stroke-border {
+		stroke: var(--widget-border);
+	}
+	.fill-border {
+		fill: var(--widget-border);
+	}
+	.stroke-border-active {
+		stroke: var(--widget-border-active);
+	}
+	.fill-border-active {
+		fill: var(--widget-border-active);
+	}
+	.stroke-border-shadow {
+		stroke: var(--widget-border-shadow);
+	}
+	.stroke-ring {
+		stroke: var(--widget-ring);
+	}
+	.fill-ring {
+		fill: var(--widget-ring);
+	}
+	.stroke-main {
+		stroke: var(--widget-main);
+	}
+	.fill-main {
+		fill: var(--widget-main);
+	}
+	.stroke-main-contrast {
+		stroke: var(--widget-main-contrast);
+	}
+	.fill-main-contrast {
+		fill: var(--widget-main-contrast);
+	}
+	.stroke-theme {
+		stroke: var(--widget-theme);
+	}
+	.fill-theme {
+		fill: var(--widget-theme);
+	}
+	.stroke-theme-text {
+		stroke: var(--widget-theme-text);
+	}
+	.fill-theme-text {
+		fill: var(--widget-theme-text);
+	}
+}

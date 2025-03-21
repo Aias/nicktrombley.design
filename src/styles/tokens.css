@@ -54,6 +54,32 @@
 	--olive-a10: light-dark(#040e0082, #f0fdec74);
 	--olive-a11: light-dark(#020a00a0, #f6fef4b0);
 	--olive-a12: light-dark(#010600e3, #fdfffded);
+
+	/* Portfolio widget colors */
+	--widget-primary: light-dark(#1d211c, #eef0ee);
+	--widget-secondary: light-dark(#686e67, #a9ada8);
+	--widget-hint: light-dark(#8d918c, #767d74);
+	--widget-ghost: light-dark(#b0b3af, #5c625b);
+	--widget-accent: light-dark(#464d45, #cad4c7);
+	--widget-symbol: light-dark(#717a6d, #899187);
+	--widget-background: light-dark(#f8faf8, #111210);
+	--widget-container: light-dark(#fcfdfc, #181917);
+	--widget-component: light-dark(#f5f7f5, #212220);
+	--widget-tint: light-dark(hsla(120, 100%, 14%, 0.0275), hsla(90, 7%, 95%, 0.0314));
+	--widget-tone: light-dark(hsla(120, 100%, 6%, 0.0627), hsla(90, 9%, 96%, 0.0706));
+	--widget-paint: light-dark(hsla(120, 100%, 5%, 0.1255), hsla(114, 56%, 96%, 0.1333));
+	--widget-darken: light-dark(hsla(0, 0%, 0%, 0.04), hsla(0, 0%, 0%, 0.5));
+	--widget-transparent: light-dark(hsla(0, 0%, 100%, 0), hsla(0, 0%, 0%, 0));
+	--widget-divider: light-dark(#d7dad7, #333632);
+	--widget-divider-subtle: light-dark(#e7ebe7, #272926);
+	--widget-border: light-dark(#cccfcc, #383a36);
+	--widget-border-active: light-dark(#babdba, #474a45);
+	--widget-border-shadow: light-dark(hsla(0, 0%, 0%, 0.12), hsla(0, 0%, 0%, 0.5));
+	--widget-ring: light-dark(#a5a8a3, #5c625b);
+	--widget-main: light-dark(#898e87, #4c524a);
+	--widget-main-contrast: light-dark(#fff, #ffffff);
+	--widget-theme: light-dark(#46a758, #46a758);
+	--widget-theme-text: light-dark(#2a7e3b, #87e098);
 }
 
 @supports (color: color(display-p3 1 1 1)) {
