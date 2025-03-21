@@ -12,28 +12,33 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"process-svgs": "bun scripts/process-svgs.ts"
 	},
 	"dependencies": {
 		"remarkable": "^2.0.1",
 		"remarkable-meta": "^1.0.1"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^4.0.0",
-		"@sveltejs/kit": "^2.20.1",
+		"@sveltejs/adapter-auto": "^5.0.0",
+		"@sveltejs/kit": "^2.20.2",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@types/eslint": "^9.6.1",
+		"@types/glob": "^8.1.0",
 		"@types/remarkable": "^2.0.8",
+		"@types/svgo": "^3.0.0",
 		"eslint": "^9.22.0",
 		"eslint-config-prettier": "^10.1.1",
-		"eslint-plugin-svelte": "^3.3.2",
+		"eslint-plugin-svelte": "^3.3.3",
+		"glob": "^11.0.1",
 		"globals": "^16.0.0",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.3.3",
 		"svelte": "^5.23.2",
 		"svelte-check": "^4.1.5",
+		"svgo": "^3.3.2",
 		"typescript": "^5.8.2",
-		"typescript-eslint": "^8.26.1",
+		"typescript-eslint": "^8.27.0",
 		"vite": "^6.2.2"
 	}
 }
