@@ -1,9 +1,7 @@
 <script lang="ts">
 	import SEO from '../components/SEO.svelte';
 	import '../styles/app.css';
-	let { data, children } = $props();
-
-	console.log(data);
+	let { children } = $props();
 </script>
 
 <SEO />

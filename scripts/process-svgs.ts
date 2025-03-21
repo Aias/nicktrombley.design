@@ -164,7 +164,12 @@ const globPromise = (pattern: string): Promise<string[]> => {
 };
 
 // Main processing function
-async function processSvgFiles(): Promise<void> {
+async function processSvgFiles(
+	options: { optimizeSvgs?: boolean; processColors?: boolean } = {},
+): Promise<void> {
+	// Set default options
+	const { optimizeSvgs = true, processColors: shouldProcessColors = true } = options;
+
 	try {
 		const files = await globPromise(path.join(inputDir, '**/*.svg'));
 
@@ -173,14 +178,22 @@ async function processSvgFiles(): Promise<void> {
 			const filename = path.basename(file);
 
 			try {
-				// First optimize the SVG
-				const result = optimize(svg, {
-					path: file,
-					...svgoConfig,
-				});
+				// Apply transformations based on options
+				let processed = svg;
 
-				// Then process the colors
-				const processed = processColors(result.data);
+				// First optimize the SVG if enabled
+				if (optimizeSvgs) {
+					const result = optimize(svg, {
+						path: file,
+						...svgoConfig,
+					});
+					processed = result.data;
+				}
+
+				// Then process the colors if enabled
+				if (shouldProcessColors) {
+					processed = processColors(processed);
+				}
 
 				const outputPath = path.join(outputDir, filename);
 				fs.writeFileSync(outputPath, processed);

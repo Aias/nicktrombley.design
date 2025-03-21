@@ -1,4 +1,24 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { SvelteMap } from 'svelte/reactivity';
+
+	const { data } = $props();
+	const { widgets } = data;
+
+	const svgContents = new SvelteMap();
+
+	onMount(async () => {
+		for (const widget of widgets) {
+			try {
+				const response = await fetch(`/widgets/${widget.widget}.svg`);
+				const svgText = await response.text();
+				svgContents.set(widget.widget, svgText);
+			} catch (error) {
+				console.error(`Error loading SVG for ${widget.widget}:`, error);
+			}
+		}
+	});
+
 	const links = [
 		{ href: 'https://barnsworthburning.net/creators/rec97tRUYZBhAs6rZ', label: 'Commonplace' },
 		{ href: 'https://github.com/Aias', label: 'Github' },
@@ -7,111 +27,31 @@
 	];
 </script>
 
-<main>
-	<p class="trees" aria-hidden="true" role="presentation">Hello</p>
-	<div class="content">
-		<section class="bio">
-			<header class="header">
-				<h1 class="name">Nicholas Trombley</h1>
-				<p class="tagline"><em>Digital designer-builder.</em></p>
-			</header>
-			<nav class="links">
-				<ul>
-					{#each links as link}
-						<li><a href={link.href} target="_blank">{link.label}</a></li>
-					{/each}
-				</ul>
-			</nav>
-		</section>
-
-		<section class="manifesto">
-			<p>
-				<strong>
-					Craft-oriented creator of digital tools with a mind for information design, knowledge
-					management, and systems thinking.</strong
-				>
-			</p>
-			<p>
-				Over a decade of experience building thoughtful software at all scales, from complex
-				enterprise solutions to bespoke artifacts of the small, personal web.
-			</p>
-		</section>
-	</div>
-	<p class="trees secondary" aria-hidden="true" role="presentation">Goodbye</p>
-</main>
+<div class="widgets-container">
+	{#each widgets as widget}
+		<div
+			class="widget"
+			style={`left: ${widget.x}px; top: ${widget.y}px; width: ${widget.width}px; height: ${widget.height}px;`}
+		>
+			<div class="widget-svg portfolio-widget">
+				{#if svgContents.has(widget.widget)}
+					{@html svgContents.get(widget.widget)}
+				{:else}
+					<div class="loading-svg">Loading...</div>
+				{/if}
+			</div>
+		</div>
+	{/each}
+</div>
 
 <style>
-	main {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 0.25rem;
+	.widgets-container {
+		position: relative;
 	}
-	.content {
-		display: flex;
-		justify-content: center;
-		gap: 6rem;
-		padding-block: 3rem;
-		padding-inline: 3.5rem;
-		border: 3px double var(--clr-border);
-		border-style: double;
+	.widget {
+		position: absolute;
 	}
-	.bio {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		gap: 1rem;
-		flex: 0 0 auto;
-	}
-	.bio .tagline {
-		color: var(--clr-secondary);
-	}
-	.manifesto {
-		display: flex;
-		gap: calc(2em / 3);
-		flex-direction: column;
-		justify-content: center;
-		flex: 0 0 auto;
-		max-width: 37ch;
-		text-align: justify;
-		text-align-last: left;
-		text-wrap: pretty;
-	}
-
-	.trees {
-		color: var(--clr-secondary);
-	}
-
-	@media (max-width: 820px) {
-		main {
-			text-align: center;
-			padding-block-end: 2rem;
-		}
-		.content,
-		.bio {
-			display: contents;
-		}
-		.header,
-		.links,
-		.manifesto {
-			text-align: inherit;
-		}
-
-		.header {
-			margin-bottom: 4rem;
-		}
-
-		.links {
-			position: fixed;
-			inset-inline: 1rem;
-			inset-block-end: 2rem;
-		}
-		.links ul {
-			display: flex;
-			justify-content: center;
-			gap: 1rem;
-		}
+	.widget :global(svg) {
+		fill: transparent;
 	}
 </style>
