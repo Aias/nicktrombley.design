@@ -12,7 +12,7 @@
 <g clip-path="url(#clip1_8395_48099)">
 <path d="M16 64C16 52.9543 24.9543 44 36 44C47.0457 44 56 52.9543 56 64C56 75.0457 47.0457 84 36 84C24.9543 84 16 75.0457 16 64Z" fill="url(#pattern0_8395_48099)"/>
 <g style="mix-blend-mode:saturation">
-<rect width="40" height="40" transform="translate(16 44)" fill="black"/>
+<rect width="40" height="40" transform="translate(16 44)" fill="#F8FAF8"/>
 </g>
 </g>
 <path d="M16.5 64C16.5 53.2304 25.2304 44.5 36 44.5C46.7696 44.5 55.5 53.2304 55.5 64C55.5 74.7696 46.7696 83.5 36 83.5C25.2304 83.5 16.5 74.7696 16.5 64Z" stroke="#D7DAD7"/>
