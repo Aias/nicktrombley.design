@@ -16,8 +16,8 @@
 	--clr-neutral-primary: var(--olive-12);
 	--clr-neutral-secondary: color-mix(in oklch, var(--olive-11) 50%, var(--olive-12));
 	--clr-neutral-border: var(--olive-10);
-	--clr-neutral-background: var(--olive-3);
-	--clr-neutral-surface: var(--olive-4);
+	--clr-neutral-background: var(--olive-1);
+	--clr-neutral-surface: var(--olive-2);
 	--clr-neutral-main: var(--olive-9);
 
 	--clr-theme-primary: var(--grass-12);

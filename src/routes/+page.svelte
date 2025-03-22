@@ -33,13 +33,11 @@
 			class="widget"
 			style={`left: ${widget.x}px; top: ${widget.y}px; width: ${widget.width}px; height: ${widget.height}px;`}
 		>
-			<div class="widget-svg portfolio-widget">
-				{#if svgContents.has(widget.widget)}
-					{@html svgContents.get(widget.widget)}
-				{:else}
-					<div class="loading-svg">Loading...</div>
-				{/if}
-			</div>
+			{#if svgContents.has(widget.widget)}
+				{@html svgContents.get(widget.widget)}
+			{:else}
+				<div class="loading-svg">Loading...</div>
+			{/if}
 		</div>
 	{/each}
 </div>

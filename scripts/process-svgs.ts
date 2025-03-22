@@ -115,8 +115,9 @@ const svgoConfig: Config = {
 						floatPrecision: 3,
 					},
 					convertTransform: {
-						transformPrecision: 3,
+						transformPrecision: 5,
 					},
+					cleanupIds: false,
 					removeViewBox: false,
 					convertColors: {
 						shorthex: false,
@@ -125,17 +126,7 @@ const svgoConfig: Config = {
 						names2hex: true,
 						currentColor: false,
 					},
-					convertPathData: {
-						noSpaceAfterFlags: true,
-					},
 				},
-			},
-		},
-		{
-			name: 'prefixIds',
-			params: {
-				prefix: 'widget-',
-				prefixClassNames: false,
 			},
 		},
 		{
@@ -212,4 +203,7 @@ async function processSvgFiles(
 }
 
 // Run the script
-processSvgFiles();
+processSvgFiles({
+	optimizeSvgs: true,
+	processColors: true,
+});
