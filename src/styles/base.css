@@ -1,41 +1,27 @@
-@font-face {
-	font-family: 'ETBembo';
-	font-style: normal;
-	font-weight: normal;
-	src: url('/fonts/ETBembo-Roman.woff2') format('woff2');
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'ETBembo';
-	font-style: normal;
-	font-weight: bold;
-	src: url('/fonts/ETBembo-Bold.woff2') format('woff2');
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'ETBembo';
-	font-style: italic;
-	font-weight: normal;
-	src: url('/fonts/ETBembo-Italic.woff2') format('woff2');
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Trees';
-	src: url('/fonts/trees.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-	font-display: block;
-}
-
 /* ---------------------------------------- */
 /* Layout */
 /* ---------------------------------------- */
 
+:root {
+	--max-grid-size: 32px;
+	--min-grid-size: 24px;
+	--max-font-size: 20px;
+	--min-font-size: 10px;
+	--small-scale: 0.75;
+	/* Standard width is 2368px, at 75% scale will be 1776px */
+	--app-full-width: calc(2304px + 2 * var(--max-grid-size));
+	--app-small-width: calc(var(--app-full-width) * var(--small-scale));
+
+	--fluid-width: clamp(var(--min-font-size), 0px + 0.6757vw, var(--max-font-size));
+	/* Standard height is 1604px, at 75% scale will be 1203px */
+	--app-full-height: calc(1540px + 2 * var(--max-grid-size));
+	--app-small-height: calc(var(--app-full-height) * var(--small-scale));
+	--fluid-height: clamp(var(--min-font-size), 0px + 0.9975vh, var(--max-font-size));
+}
+
 html {
 	background-color: var(--clr-background);
+	font-size: max(var(--fluid-width), var(--fluid-height));
 }
 
 @media print {
@@ -55,7 +41,6 @@ body {
 /* ---------------------------------------- */
 
 body {
-	padding: 2rem;
 	line-height: var(--line-height);
 	font-family: var(--font-stack-serif);
 	font-weight: var(--font-weight-normal);
@@ -65,7 +50,7 @@ body {
 
 h1 {
 	font-size: 2.1em;
-	line-height: 1.4;
+	line-height: 1.3;
 	font-weight: var(--font-weight-normal);
 }
 
@@ -137,4 +122,11 @@ small,
 a {
 	color: var(--clr-link);
 	fill: currentColor;
+}
+
+.icon {
+	aspect-ratio: 1;
+	display: inline-block;
+	width: 1.2cap;
+	height: 1.2cap;
 }

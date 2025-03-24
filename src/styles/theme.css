@@ -2,11 +2,11 @@
 
 :root {
 	--font-stack-serif:
-		ETBembo, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times,
+		Cardo, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times,
 		Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 	--font-stack-glyph: Trees, Wingdings, Webdings, Symbol, monospace;
-	--font-weight-normal: normal;
-	--font-weight-bold: bold;
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
 	--font-size-smaller: 0.875em;
 
 	--line-height: 1.6;
@@ -38,6 +38,9 @@
 	--clr-surface: var(--clr-neutral-surface);
 	--clr-main: var(--clr-theme-main);
 	--clr-link: color-mix(in oklch, var(--clr-theme-secondary) 50%, var(--clr-theme-primary));
+
+	--major-gridline-color: color-mix(in srgb, var(--widget-divider) 33%, transparent);
+	--minor-gridline-color: color-mix(in srgb, var(--widget-divider-subtle) 33%, transparent);
 }
 
 .light {

@@ -1,100 +1,157 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { SvelteMap } from 'svelte/reactivity';
+	import PortfolioWidget from '$components/PortfolioWidget.svelte';
+	import BackgroundGrid from '$components/BackgroundGrid.svelte';
+	import Camera from '$components/icons/Camera.svelte';
+	import Github from '$components/icons/Github.svelte';
+	import LinkedIn from '$components/icons/LinkedIn.svelte';
+	import Archive from '$components/icons/Archive.svelte';
 
 	const { data } = $props();
 	const { widgets } = data;
 
-	const svgContents = new SvelteMap();
+	const contentWidthRems = $derived(Math.max(...widgets.map((w) => w.x + w.width)));
+	const contentHeightRems = $derived(Math.max(...widgets.map((w) => w.y + w.height)));
+
+	let rootNode: HTMLElement;
+	let profileNode: HTMLElement;
 
 	onMount(async () => {
-		for (const widget of widgets) {
-			try {
-				const response = await fetch(`/widgets/${widget.widget}.svg`);
-				const svgText = await response.text();
-				svgContents.set(widget.widget, svgText);
-			} catch (error) {
-				console.error(`Error loading SVG for ${widget.widget}:`, error);
-			}
-		}
+		profileNode.scrollIntoView({
+			behavior: 'instant',
+			block: 'center',
+			inline: 'center',
+		});
 	});
 
 	const links = [
-		{ href: 'https://barnsworthburning.net/creators/rec97tRUYZBhAs6rZ', label: 'Commonplace' },
-		{ href: 'https://github.com/Aias', label: 'Github' },
-		{ href: 'https://www.linkedin.com/in/nick-trombley/', label: 'LinkedIn' },
-		{ href: 'https://glass.photo/barnsworthburning', label: 'Photography' },
+		{
+			href: 'https://barnsworthburning.net/creators/rec97tRUYZBhAs6rZ',
+			label: 'Commonplace',
+			icon: Archive,
+		},
+		{ href: 'https://github.com/Aias', label: 'Github', icon: Github },
+		{ href: 'https://www.linkedin.com/in/nick-trombley/', label: 'LinkedIn', icon: LinkedIn },
+		{ href: 'https://glass.photo/barnsworthburning', label: 'Photography', icon: Camera },
 	];
 </script>
 
-<div class="widgets-container grid-background">
-	{#each widgets as widget}
-		<div
-			class="widget"
-			style={`left: ${widget.x}px; top: ${widget.y}px; width: ${widget.width}px; height: ${widget.height}px;`}
-		>
-			{#if svgContents.has(widget.widget)}
-				{@html svgContents.get(widget.widget)}
-			{:else}
-				<div class="loading-svg">Loading...</div>
-			{/if}
+<main class="root" bind:this={rootNode}>
+	<div
+		class="widgets-background"
+		style={`--content-width: ${contentWidthRems}rem; --content-height: ${contentHeightRems}rem;`}
+	>
+		<BackgroundGrid
+			width={contentWidthRems / 2 + 2}
+			height={contentHeightRems / 2 + 2}
+			subdivisions={4}
+		/>
+		<div class="widgets-container">
+			<div
+				class="profile-node"
+				bind:this={profileNode}
+				style:left="40rem"
+				style:top="36rem"
+				style:width="64rem"
+				style:height="22rem"
+			>
+				<section class="info">
+					<header>
+						<h1>Nicholas Trombley</h1>
+						<p class="secondary">
+							<em>Digital designer-builder.</em>
+						</p>
+					</header>
+					<nav>
+						<ul>
+							{#each links as link}
+								{@const IconComponent = link.icon}
+								<li>
+									<a class="link" href={link.href} target="_blank">
+										<IconComponent />
+										{link.label}
+									</a>
+								</li>
+							{/each}
+						</ul>
+					</nav>
+				</section>
+				<section class="personal-statement">
+					<p>
+						<strong>
+							Craft-driven creator of digital tools with a mind for information design, knowledge
+							management, and systems thinking.
+						</strong>
+					</p>
+					<p>
+						Over a decade of experience building useful software at all scales, from
+						enterprise-grade solutions to bespoke artifacts of the small, personal web.
+					</p>
+				</section>
+			</div>
+			{#each widgets as widget}
+				<PortfolioWidget {widget} />
+			{/each}
 		</div>
-	{/each}
-</div>
+	</div>
+</main>
 
 <style>
-	.widgets-container {
-		position: relative;
-		width: 2304px;
-		height: 1536px;
+	.root {
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		inset: 0;
+		overflow: auto;
 	}
-	.widget {
-		position: absolute;
-		opacity: 0.64;
-		transition: opacity 0.3s ease;
+	.widgets-background {
+		position: relative;
+		padding: 2rem;
+		width: calc(var(--content-width, 144rem) + 4rem);
+		height: calc(var(--content-height, 96rem) + 4rem);
 
-		&:hover {
-			opacity: 1;
+		& > :global(.background-grid) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 		}
 	}
-	.widget :global(svg) {
-		fill: transparent;
+	.widgets-container {
+		position: relative;
+		width: var(--content-width, 144rem);
+		height: var(--content-height, 96rem);
 	}
-
-	.grid-background {
-		background-color: transparent;
-		background-image:
-    /* Larger gridlines every 32px with 33% opacity */
-			linear-gradient(
-				color-mix(in srgb, var(--widget-divider) 33%, transparent) 1px,
-				transparent 1px
-			),
-			linear-gradient(
-				90deg,
-				color-mix(in srgb, var(--widget-divider) 33%, transparent) 1px,
-				transparent 1px
-			),
-			/* Smaller gridlines every 8px with 33% opacity */
-				linear-gradient(
-					color-mix(in srgb, var(--widget-divider-subtle) 33%, transparent) 1px,
-					transparent 1px
-				),
-			linear-gradient(
-				90deg,
-				color-mix(in srgb, var(--widget-divider-subtle) 33%, transparent) 1px,
-				transparent 1px
-			);
-
-		background-size:
-			32px 32px,
-			/* Larger vertical and horizontal grid size */ 32px 32px,
-			/* Larger vertical and horizontal grid size */ 8px 8px,
-			/* Smaller vertical and horizontal grid size */ 8px 8px; /* Smaller vertical and horizontal grid size */
-
-		background-position:
-			0 0,
-			/* Larger vertical gridlines position */ 0 0,
-			/* Larger horizontal gridlines position */ 0 0,
-			/* Smaller vertical gridlines position */ 0 0; /* Smaller horizontal gridlines position */
+	.profile-node {
+		position: absolute;
+		background-color: var(--widget-container);
+		border: 3px double var(--widget-border);
+		padding: 3.5rem 4rem;
+		font-size: 1.25em;
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+		gap: 1rem;
+	}
+	.info {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 1em;
+	}
+	.link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.33em;
+	}
+	.personal-statement {
+		flex: 0 0 25rem;
+		text-align: justify;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 1em;
 	}
 </style>

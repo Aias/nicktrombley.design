@@ -2,23 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { parse } from 'csv-parse/sync';
-import { z } from 'zod';
-
-const WidgetsSchema = z.object({
-	title: z.string(),
-	summary: z
-		.string()
-		.optional()
-		.transform((val) => val || undefined),
-	widget: z.string(),
-	x: z.coerce.number(),
-	y: z.coerce.number(),
-	width: z.coerce.number(),
-	height: z.coerce.number(),
-});
-
-// Create a type from the Zod schema
-type Widget = z.infer<typeof WidgetsSchema>;
+import { type Widget, WidgetsSchema } from '$types/portfolio';
 
 // Get directory path for the current module
 const __filename = fileURLToPath(import.meta.url);
