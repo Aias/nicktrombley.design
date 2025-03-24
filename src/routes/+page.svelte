@@ -62,8 +62,8 @@
 							<em>Digital designer-builder.</em>
 						</p>
 					</header>
-					<nav>
-						<ul>
+					<nav class="site-nav">
+						<ul class="external-links">
 							{#each links as link}
 								{@const IconComponent = link.icon}
 								<li>
