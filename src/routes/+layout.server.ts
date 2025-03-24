@@ -1,17 +1,16 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { parse } from 'csv-parse/sync';
 import { type Widget, WidgetsSchema } from '$types/portfolio';
 
-// Get directory path for the current module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+export const prerender = true;
 
-export const load = async () => {
-	// Read the widgets CSV file
-	const csvFilePath = path.resolve(__dirname, '../data/portfolio-widgets.csv');
-	const fileContent = fs.readFileSync(csvFilePath, 'utf8');
+export const load = async ({ fetch }) => {
+	// Fetch the CSV file from the static data directory
+	const response = await fetch('/data/portfolio-widgets.csv');
+	if (!response.ok) {
+		throw new Error(`Failed to load widgets data: ${response.statusText}`);
+	}
+
+	const fileContent = await response.text();
 
 	// Parse the CSV content with bom option to handle Byte Order Mark
 	const csvData = parse(fileContent, {
