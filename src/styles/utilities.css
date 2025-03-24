@@ -20,3 +20,22 @@
 .secondary {
 	color: var(--clr-secondary);
 }
+
+.background-grid-quarters {
+	background-color: transparent;
+	background-image:
+    /* Larger gridlines every 32px with 33% opacity */
+		linear-gradient(var(--large-gridline-color) 1px, transparent 1px),
+		linear-gradient(90deg, var(--large-gridline-color) 1px, transparent 1px),
+		/* Smaller gridlines every 8px with 33% opacity */
+			linear-gradient(var(--small-gridline-color) 1px, transparent 1px),
+		linear-gradient(90deg, var(--small-gridline-color) 1px, transparent 1px);
+
+	background-size:
+		2rem 2rem,
+		2rem 2rem,
+		0.5rem 0.5rem,
+		0.5rem 0.5rem;
+
+	background-position: -0.5px -0.5px;
+}
