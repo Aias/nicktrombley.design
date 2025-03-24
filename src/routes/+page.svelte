@@ -6,6 +6,8 @@
 	import Github from '$components/icons/Github.svelte';
 	import LinkedIn from '$components/icons/LinkedIn.svelte';
 	import Archive from '$components/icons/Archive.svelte';
+	import Moon from '$components/icons/Moon.svelte';
+	import Sun from '$components/icons/Sun.svelte';
 
 	const { data } = $props();
 	const { widgets } = data;
@@ -25,6 +27,22 @@
 		});
 		loaded = true;
 	});
+
+	function handleThemeChange() {
+		const htmlNode = document.documentElement;
+		if (htmlNode.classList.contains('light')) {
+			htmlNode.classList.remove('light');
+			htmlNode.classList.add('dark');
+		} else if (htmlNode.classList.contains('dark')) {
+			htmlNode.classList.remove('dark');
+			htmlNode.classList.add('light');
+		} else {
+			const userPreference = window.matchMedia('(prefers-color-scheme: dark)').matches
+				? 'light'
+				: 'dark';
+			htmlNode.classList.add(userPreference);
+		}
+	}
 
 	const links = [
 		{
@@ -77,6 +95,13 @@
 							{/each}
 						</ul>
 					</nav>
+					<button
+						type="button"
+						aria-label="Toggle theme"
+						title="Toggle theme"
+						class="theme-toggle"
+						onclick={handleThemeChange}><Moon /><Sun /></button
+					>
 				</section>
 				<section class="personal-statement">
 					<p>
@@ -142,6 +167,25 @@
 		align-items: stretch;
 		justify-content: center;
 		gap: 1rem;
+	}
+	.theme-toggle {
+		transition: background-color 0.15s ease-in-out;
+		position: absolute;
+		inset-inline-end: 0.5em;
+		inset-block-end: 0.5em;
+		padding: 0;
+		background-color: var(--widget-tint);
+		border: 1px solid var(--widget-border);
+		border-radius: 0.125em;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5em;
+		padding: 0.25em;
+		cursor: pointer;
+		&:hover {
+			background-color: var(--widget-tone);
+		}
 	}
 	.info {
 		flex: 1;
