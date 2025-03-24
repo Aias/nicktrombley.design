@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { slide } from 'svelte/transition';
+	import { blur } from 'svelte/transition';
 	import type { Widget } from '$types/portfolio';
 
-	const { widget }: { widget: Widget } = $props();
+	const { widget, delay = 250 }: { widget: Widget; delay?: number } = $props();
 
 	let svgContents: string | undefined = $state(undefined);
 
@@ -21,6 +21,7 @@
 		style:top={`${widget.y}rem`}
 		style:width={`${widget.width}rem`}
 		style:height={`${widget.height}rem`}
+		in:blur={{ delay, duration: 2000 }}
 	>
 		{@html svgContents}
 	</div>

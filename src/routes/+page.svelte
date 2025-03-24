@@ -10,10 +10,11 @@
 	const { data } = $props();
 	const { widgets } = data;
 
+	let loaded = $state(false);
+
 	const contentWidthRems = $derived(Math.max(...widgets.map((w) => w.x + w.width)));
 	const contentHeightRems = $derived(Math.max(...widgets.map((w) => w.y + w.height)));
 
-	let rootNode: HTMLElement;
 	let profileNode: HTMLElement;
 
 	onMount(async () => {
@@ -22,6 +23,7 @@
 			block: 'center',
 			inline: 'center',
 		});
+		loaded = true;
 	});
 
 	const links = [
@@ -36,7 +38,7 @@
 	];
 </script>
 
-<main class="root" bind:this={rootNode}>
+<main class="root" class:loaded>
 	<div
 		class="widgets-background"
 		style={`--content-width: ${contentWidthRems}rem; --content-height: ${contentHeightRems}rem;`}
@@ -89,8 +91,8 @@
 					</p>
 				</section>
 			</div>
-			{#each widgets as widget}
-				<PortfolioWidget {widget} />
+			{#each widgets as widget, index (widget.widget)}
+				<PortfolioWidget {widget} delay={index * 100} />
 			{/each}
 		</div>
 	</div>
@@ -103,6 +105,13 @@
 		position: fixed;
 		inset: 0;
 		overflow: auto;
+
+		transition: opacity 1s ease-in-out;
+		opacity: 0;
+
+		&.loaded {
+			opacity: 1;
+		}
 	}
 	.widgets-background {
 		position: relative;
