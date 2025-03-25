@@ -43,22 +43,32 @@
 	--minor-gridline-color: color-mix(in srgb, var(--widget-divider-subtle) 33%, transparent);
 }
 
-.light {
+.light,
+html:not(:is(.light, .dark)):has(head > meta.light) {
 	color-scheme: light;
 	.icon-moon {
 		display: none !important;
 	}
 }
 
-.dark {
+.dark,
+html:not(:is(.light, .dark)):has(head > meta.dark) {
 	color-scheme: dark;
 	.icon-sun {
 		display: none !important;
 	}
 }
 
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+	html:not(:is(.light, .dark)) {
+		& .icon-moon {
+			display: none !important;
+		}
+	}
+}
+
 @media (prefers-color-scheme: dark) {
-	html:not(.light) {
+	html:not(:is(.light, .dark)) {
 		& .icon-sun {
 			display: none !important;
 		}

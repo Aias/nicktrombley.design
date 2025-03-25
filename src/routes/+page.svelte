@@ -30,18 +30,26 @@
 
 	function handleThemeChange() {
 		const htmlNode = document.documentElement;
+		let theme: 'light' | 'dark';
+
 		if (htmlNode.classList.contains('light')) {
 			htmlNode.classList.remove('light');
 			htmlNode.classList.add('dark');
+			theme = 'dark';
 		} else if (htmlNode.classList.contains('dark')) {
 			htmlNode.classList.remove('dark');
 			htmlNode.classList.add('light');
+			theme = 'light';
 		} else {
 			const userPreference = window.matchMedia('(prefers-color-scheme: dark)').matches
 				? 'light'
 				: 'dark';
 			htmlNode.classList.add(userPreference);
+			theme = userPreference;
 		}
+
+		// Set the theme cookie with a long expiration (1 year)
+		document.cookie = `theme=${theme};path=/;max-age=31536000;SameSite=Lax`;
 	}
 
 	const links = [
@@ -173,7 +181,6 @@
 		position: absolute;
 		inset-inline-end: 0.5em;
 		inset-block-end: 0.5em;
-		padding: 0;
 		background-color: var(--widget-tint);
 		border: 1px solid var(--widget-border);
 		border-radius: 0.125em;
