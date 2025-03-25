@@ -1,9 +1,12 @@
 import { parse } from 'csv-parse/sync';
 import { type Widget, WidgetsSchema } from '$types/portfolio';
+import { ThemeSchema } from '$types/theme';
 
 export const prerender = true;
+export const ssr = true;
 
-export const load = async ({ fetch }) => {
+export const load = async ({ fetch, cookies }) => {
+	const theme = ThemeSchema.parse(cookies.get('theme'));
 	// Fetch the CSV file from the static data directory
 	const response = await fetch('/data/portfolio-widgets.csv');
 	if (!response.ok) {
@@ -26,5 +29,6 @@ export const load = async ({ fetch }) => {
 
 	return {
 		widgets,
+		theme,
 	};
 };
