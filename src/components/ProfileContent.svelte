@@ -82,8 +82,8 @@
 
 		& :global(.theme-toggle) {
 			position: absolute;
-			inset-inline-end: 0.5em;
-			inset-block-end: 0.5em;
+			inset-inline-end: 1rem;
+			inset-block-end: 1rem;
 		}
 	}
 
@@ -102,6 +102,13 @@
 	}
 
 	@container root (width <= 64rem) {
+		/* TODO: Change this to fixed, currently broken in Safari. 
+		   https://frontendmasters.com/blog/containers-context/ */
+		/* .info :global(.theme-toggle) {
+			position: fixed;
+			font-size: 1.75rem;
+		} */
+
 		@container profile (width <= 58rem) {
 			.profile {
 				display: grid;

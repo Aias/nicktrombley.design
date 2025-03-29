@@ -26,18 +26,19 @@
 	}
 </script>
 
-<button
-	type="button"
-	aria-label="Toggle theme"
-	title="Toggle theme"
-	class="theme-toggle"
-	onclick={handleThemeChange}><Moon /><Sun /></button
->
+<div class="theme-toggle">
+	<button type="button" aria-label="Toggle theme" title="Toggle theme" onclick={handleThemeChange}
+		><Moon /><Sun /></button
+	>
+</div>
 
 <style>
 	.theme-toggle {
-		transition: background-color 0.15s ease-in-out;
-		background-color: var(--widget-tint);
+		border-radius: 0.125em;
+		display: inline-flex;
+		background-color: var(--widget-container);
+	}
+	button {
 		border: 1px solid var(--widget-border);
 		border-radius: 0.125em;
 		display: inline-flex;
@@ -46,6 +47,8 @@
 		gap: 0.5em;
 		padding: 0.25em;
 		cursor: pointer;
+		transition: background-color 0.15s ease-in-out;
+		background-color: var(--widget-tint);
 		&:hover {
 			background-color: var(--widget-tone);
 		}

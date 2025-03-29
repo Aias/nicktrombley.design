@@ -167,6 +167,7 @@ html:not(:is(.light, .dark)):has(head > meta.dark) {
 	.widgets-container-wrapper {
 		display: block;
 		flex: 0 1 auto;
+		min-height: calc(100dvh * 2 / 3);
 		overflow: auto;
 		border: 1px solid var(--widget-divider);
 		border-radius: 0.25rem;
