@@ -5,18 +5,18 @@
 :root {
 	--max-grid-size: 32px;
 	--min-grid-size: 24px;
-	--max-font-size: 16px;
+	--max-font-size: 20px;
 	--min-font-size: 12px;
 	--small-scale: 0.75;
 	/* Standard width is 2368px, at 75% scale will be 1776px */
 	--app-full-width: calc(2304px + 2 * var(--max-grid-size));
 	--app-small-width: calc(var(--app-full-width) * var(--small-scale));
 
-	--fluid-width: clamp(12px, 0px + 0.6757dvw, 16px);
+	--fluid-width: clamp(var(--min-font-size), 0px + 0.6757dvw, var(--max-font-size));
 	/* Standard height is 1604px, at 75% scale will be 1203px */
 	--app-full-height: calc(1540px + 2 * var(--max-grid-size));
 	--app-small-height: calc(var(--app-full-height) * var(--small-scale));
-	--fluid-height: clamp(12px, 0px + 1dvh, 16px);
+	--fluid-height: clamp(var(--min-font-size), 0px + 1dvh, var(--max-font-size));
 }
 
 html {
