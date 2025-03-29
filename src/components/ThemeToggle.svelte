@@ -39,6 +39,7 @@
 		background-color: var(--widget-container);
 	}
 	button {
+		color: var(--widget-accent);
 		border: 1px solid var(--widget-border);
 		border-radius: 0.125em;
 		display: inline-flex;
