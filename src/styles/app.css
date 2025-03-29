@@ -4,3 +4,172 @@
 @import './theme.css' layer(theme);
 @import './base.css' layer(base);
 @import './utilities.css' layer(utilities);
+
+.light,
+html:not(:is(.light, .dark)):has(head > meta.light) {
+	color-scheme: light;
+	.icon-moon {
+		display: none;
+	}
+}
+
+.dark,
+html:not(:is(.light, .dark)):has(head > meta.dark) {
+	color-scheme: dark;
+	.icon-sun {
+		display: none;
+	}
+}
+
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+	html:not(:is(.light, .dark)) {
+		& .icon-moon {
+			display: none;
+		}
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not(:is(.light, .dark)) {
+		& .icon-sun {
+			display: none;
+		}
+	}
+}
+
+.node--widget svg {
+	fill: transparent;
+	width: 100%;
+	height: 100%;
+}
+
+.background-grid {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.root {
+	position: fixed;
+	inset: 0;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	container-type: inline-size;
+	container-name: root;
+
+	transition: opacity 1s ease-in-out;
+	opacity: 0;
+
+	&.loaded {
+		opacity: 1;
+	}
+}
+
+.profile-container {
+	container-type: inline-size;
+	container-name: profile;
+}
+
+@container root (width > 64rem) {
+	.small-only {
+		display: none;
+	}
+
+	.node--widget {
+		opacity: 0.75;
+		transition: opacity 0.3s ease;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	.layout-canvas {
+		position: absolute;
+		width: calc(var(--content-width-lg) + 4rem);
+		height: calc(var(--content-height-lg) + 4rem);
+	}
+
+	.widgets-container-wrapper {
+		display: contents;
+	}
+
+	.widgets-container,
+	.profile-container {
+		position: absolute;
+		inset-inline-start: 2rem;
+		inset-block-start: 2rem;
+		width: var(--content-width-lg);
+		height: var(--content-height-lg);
+	}
+
+	.node,
+	.profile-node {
+		position: absolute;
+		inset-inline-start: var(--node-x-lg, 0);
+		inset-block-start: var(--node-y-lg, 0);
+		width: var(--node-width, 100%);
+		height: var(--node-height, 100%);
+	}
+}
+
+@container root (width <= 64rem) {
+	.large-only {
+		display: none;
+	}
+
+	.root {
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+	.profile {
+		padding: 3rem;
+		border-inline: none;
+		border-block-start: none;
+	}
+
+	.layout-canvas:has(.profile) {
+		display: block;
+		width: 100%;
+		flex: 0 0 auto;
+		height: auto;
+	}
+
+	.node {
+		position: absolute;
+		inset-inline-start: var(--node-x-sm, 0);
+		inset-block-start: var(--node-y-sm, 0);
+		width: var(--node-width, 100%);
+		height: var(--node-height, 100%);
+	}
+
+	.layout-canvas:has(.widgets-container) {
+		position: relative;
+		width: calc(var(--content-width-sm) + 4rem);
+		height: calc(var(--content-height-sm) + 4rem);
+
+		& .widgets-container {
+			position: absolute;
+			inset-inline-start: 2rem;
+			inset-block-start: 2rem;
+			width: var(--content-width-sm);
+			height: var(--content-height-sm);
+		}
+	}
+
+	.widgets-container-wrapper {
+		display: block;
+		flex: 0 1 auto;
+		min-height: calc(100dvh * 2 / 3);
+		overflow: auto;
+		border: 1px solid var(--widget-divider);
+		border-radius: 0.25rem;
+	}
+}

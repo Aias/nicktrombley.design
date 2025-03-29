@@ -2,13 +2,14 @@
 	import { onMount } from 'svelte';
 	import { blur } from 'svelte/transition';
 	import type { Widget } from '$types/portfolio';
+	import { REMS_PER_CELL } from '$types/portfolio';
 
 	const { widget, delay = 250 }: { widget: Widget; delay?: number } = $props();
 
 	let svgContents: string | undefined = $state(undefined);
 
 	onMount(async () => {
-		const response = await fetch(`/widgets/${widget.widget}.svg`);
+		const response = await fetch(`/widgets/${widget.id}.svg`);
 		const svgText = await response.text();
 		svgContents = svgText;
 	});
@@ -16,30 +17,17 @@
 
 {#if svgContents}
 	<div
-		class="widget"
-		style:left={`${widget.x}rem`}
-		style:top={`${widget.y}rem`}
-		style:width={`${widget.width}rem`}
-		style:height={`${widget.height}rem`}
+		class="node node--widget"
+		class:large-only={widget.screens === 'large'}
+		class:small-only={widget.screens === 'small'}
+		style:--node-x-lg={`${widget.xLgCells * REMS_PER_CELL}rem`}
+		style:--node-y-lg={`${widget.yLgCells * REMS_PER_CELL}rem`}
+		style:--node-x-sm={`${widget.xSmCells * REMS_PER_CELL}rem`}
+		style:--node-y-sm={`${widget.ySmCells * REMS_PER_CELL}rem`}
+		style:--node-width={`${widget.widthCells * REMS_PER_CELL}rem`}
+		style:--node-height={`${widget.heightCells * REMS_PER_CELL}rem`}
 		in:blur={{ delay, duration: 2000 }}
 	>
 		{@html svgContents}
 	</div>
 {/if}
-
-<style>
-	.widget {
-		position: absolute;
-		opacity: 0.75;
-		transition: opacity 0.3s ease;
-
-		&:hover {
-			opacity: 1;
-		}
-	}
-	.widget :global(svg) {
-		fill: transparent;
-		width: 100%;
-		height: 100%;
-	}
-</style>

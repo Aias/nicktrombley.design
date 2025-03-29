@@ -1,22 +1,23 @@
-﻿title,summary,widget,x,y,width,height
-Threat Analysis,,access-flow,106,54,38,20
-Activity Timeline,,activity-timeline,0,72,38,24
-Birthday Agenda,,agenda,66,0,16,14
-Association Analysis,,big-button,40,0,24,8
-Analyte Viewer,,distribution-table,84,0,38,14
-Bookmarks List,,extract-list,106,36,24,26
-Ingress Path,,hierarchy,20,24,18,26
-Customer Icons,,icons,106,74,12,22
-Impact Analysis,,impact-analysis,40,82,40,14
-Journey Map,,journey-map,0,0,38,22
-Metadata Viewer,,metadata,0,24,18,46
-Quality Measure Tracking,,multi-measure,98,16,24,18
-Pattern Languages,,pattern,132,36,12,16
-Patient Population Builder,,rule-builder,82,60,22,36
-Metric Trending Widget,,single-metric,20,52,18,18
-Upgrade Task List,,task-list,124,0,20,34
-Case Timeline,,timeline,40,60,18,20
-Ingest Treemap,,treemap,120,76,24,20
-User Details Panel,,user-details,40,10,24,24
-Controlled Analysis,,variable-analysis,66,16,30,18
-Variable Comparisons,,variable-selection,60,60,20,20
+﻿id,xLg,yLg,xSm,ySm,width,height,screens,xLgCells,yLgCells,xSmCells,ySmCells,widthCells,heightCells
+access-flow,1696,864,,,608,320,large,53,27,0,0,19,10
+access-flow--alt,,,640,864,608,288,small,0,0,20,27,19,9
+activity-timeline,0,1152,0,0,608,384,all,0,36,0,0,19,12
+agenda,1056,0,1696,320,256,224,all,33,0,53,10,8,7
+big-button,640,0,640,864,384,128,all,20,0,20,27,12,4
+distribution-table,1344,0,1056,320,608,224,all,42,0,33,10,19,7
+extract-list,1696,576,640,0,384,416,all,53,18,20,0,12,13
+hierarchy,320,384,320,736,288,416,all,10,12,10,23,9,13
+icons,1696,1184,,,192,352,large,53,37,0,0,6,11
+impact-analysis,640,1312,1664,576,640,224,all,20,41,52,18,20,7
+journey-map,0,0,,,608,352,large,0,0,0,0,19,11
+metadata,0,384,0,416,288,736,all,0,12,0,13,9,23
+multi-measure,1568,256,1056,0,384,288,all,49,8,33,0,12,9
+pattern,2112,576,1056,576,192,256,all,66,18,33,18,6,8
+rule-builder,1312,960,1280,576,352,576,all,41,30,40,18,11,18
+single-metric,320,832,320,416,288,288,all,10,26,10,13,9,9
+task-list,1984,0,1984,0,320,546,all,62,0,62,0,10,17
+timeline,640,960,2016,832,288,320,all,20,30,63,26,9,10
+treemap,1920,1216,,,384,320,large,60,38,0,0,12,10
+user-details,640,160,640,448,384,384,all,20,5,20,14,12,12
+variable-analysis,1056,256,1472,0,480,288,all,33,8,46,0,15,9
+variable-selection,960,960,1664,832,320,320,all,30,30,52,26,10,10
