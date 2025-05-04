@@ -49,9 +49,7 @@
 		</p>
 		<p>
 			Over a decade of experience building useful software at all scales, from enterprise-grade
-			solutions to bespoke artifacts of the small, personal web. <a
-				href="mailto:trombley.nick@gmail.com">Let's build together.</a
-			>
+			solutions to bespoke artifacts of the small, personal web.
 		</p>
 	</section>
 </div>
