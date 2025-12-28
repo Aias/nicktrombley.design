@@ -49,7 +49,11 @@
 		</p>
 		<p>
 			Over a decade of experience building useful software at all scales, from enterprise-grade
-			solutions to bespoke artifacts of the small, personal web.
+			solutions to bespoke artifacts of the small, personal web. Currently at <a
+				href="https://withremark.com"
+				target="_blank"
+				rel="noopener noreferrer">Remark</a
+			>.
 		</p>
 	</section>
 </div>
