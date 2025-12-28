@@ -1,5 +1,4 @@
 node_modules
-.yarn
 .svelte-kit
 build
 .DS_Store
