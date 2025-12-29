@@ -1,0 +1,21 @@
+{
+	"eslint.probe": [
+		"astro",
+		"civet",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"mdx",
+		"vue",
+		"markdown",
+		"json",
+		"jsonc",
+		"css",
+		"glimmer-js",
+		"glimmer-ts",
+		"svelte"
+	],
+	"eslint.validate": ["svelte", "javascript", "typescript"]
+}

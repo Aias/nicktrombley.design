@@ -7,7 +7,7 @@
 	import { REMS_PER_CELL, type Widget } from '$types/portfolio';
 
 	const { data } = $props();
-	const { widgets } = data;
+	const widgets = $derived(data.widgets);
 
 	let loaded = $state(false);
 

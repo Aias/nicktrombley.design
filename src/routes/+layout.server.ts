@@ -23,9 +23,7 @@ export const load = async ({ fetch, cookies }) => {
 	});
 
 	// Validate and transform the data with Zod schema
-	const widgets: Widget[] = csvData.map((row: Record<string, string | number>) =>
-		WidgetsSchema.parse(row),
-	);
+	const widgets: Widget[] = csvData.map((row) => WidgetsSchema.parse(row));
 
 	return {
 		widgets,

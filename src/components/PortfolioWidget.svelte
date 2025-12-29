@@ -28,6 +28,7 @@
 		style:--node-height={`${widget.heightCells * REMS_PER_CELL}rem`}
 		in:blur={{ delay, duration: 2000 }}
 	>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted SVG from own server -->
 		{@html svgContents}
 	</div>
 {/if}

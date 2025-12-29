@@ -27,9 +27,10 @@
 		</header>
 		<nav class="site-nav">
 			<ul class="external-links">
-				{#each links as link}
+				{#each links as link (link.href)}
 					{@const IconComponent = link.icon}
 					<li>
+						<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- external link -->
 						<a class="link" href={link.href} target="_blank">
 							<IconComponent />
 							<span class="label">{link.label}</span>

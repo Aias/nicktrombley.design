@@ -7,15 +7,13 @@
 	}: { widthCells: number; heightCells: number; subdivisions?: number; class?: string } = $props();
 
 	// Create arrays for the gridlines
-	const majorVerticals = Array.from({ length: widthCells + 1 }, (_, i) => i);
-	const majorHorizontals = Array.from({ length: heightCells + 1 }, (_, i) => i);
-	const minorVerticals = Array.from(
-		{ length: widthCells * subdivisions + 1 },
-		(_, i) => i / subdivisions,
+	const majorVerticals = $derived(Array.from({ length: widthCells + 1 }, (_, i) => i));
+	const majorHorizontals = $derived(Array.from({ length: heightCells + 1 }, (_, i) => i));
+	const minorVerticals = $derived(
+		Array.from({ length: widthCells * subdivisions + 1 }, (_, i) => i / subdivisions),
 	);
-	const minorHorizontals = Array.from(
-		{ length: heightCells * subdivisions + 1 },
-		(_, i) => i / subdivisions,
+	const minorHorizontals = $derived(
+		Array.from({ length: heightCells * subdivisions + 1 }, (_, i) => i / subdivisions),
 	);
 
 	const verticalPath = (x: number) => `M ${x} 0 L ${x} ${heightCells}`;
@@ -31,20 +29,20 @@
 	class="background-grid node {className}"
 >
 	<!-- Minor gridlines -->
-	{#each minorVerticals as x}
+	{#each minorVerticals as x (x)}
 		<path class="minor-gridline" d={verticalPath(x)} vector-effect="non-scaling-stroke" />
 	{/each}
 
-	{#each minorHorizontals as y}
+	{#each minorHorizontals as y (y)}
 		<path class="minor-gridline" d={horizontalPath(y)} vector-effect="non-scaling-stroke" />
 	{/each}
 
 	<!-- Major gridlines -->
-	{#each majorVerticals as x}
+	{#each majorVerticals as x (x)}
 		<path class="major-gridline" d={verticalPath(x)} vector-effect="non-scaling-stroke" />
 	{/each}
 
-	{#each majorHorizontals as y}
+	{#each majorHorizontals as y (y)}
 		<path class="major-gridline" d={horizontalPath(y)} vector-effect="non-scaling-stroke" />
 	{/each}
 </svg>
