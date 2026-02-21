@@ -26,7 +26,7 @@
 		robots = 'index, follow',
 		themeColor = '#1f0066',
 		keywords = 'Nick Trombley, portfolio, software design, design-build, barnsworthburning',
-		author = 'Nick Trombley',
+		author = 'Nick Trombley'
 	}: SEOProps = $props();
 </script>
 

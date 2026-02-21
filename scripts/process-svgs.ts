@@ -58,7 +58,7 @@ const colorMatchers: ColorMatch[] = [
 
 	// Theme colors
 	{ attrs: { fill: '#46A758' }, className: 'fill-theme' },
-	{ attrs: { fill: '#2A7E3B' }, className: 'fill-theme-text' },
+	{ attrs: { fill: '#2A7E3B' }, className: 'fill-theme-text' }
 ];
 
 // Helper function to check if an element matches a color matcher
@@ -112,10 +112,10 @@ const svgoConfig: Config = {
 			params: {
 				overrides: {
 					cleanupNumericValues: {
-						floatPrecision: 3,
+						floatPrecision: 3
 					},
 					convertTransform: {
-						transformPrecision: 5,
+						transformPrecision: 5
 					},
 					cleanupIds: false,
 					removeViewBox: false,
@@ -124,18 +124,18 @@ const svgoConfig: Config = {
 						shortname: false,
 						rgb2hex: true,
 						names2hex: true,
-						currentColor: false,
-					},
-				},
-			},
+						currentColor: false
+					}
+				}
+			}
 		},
 		{
 			name: 'addClassesToSVGElement',
 			params: {
-				classNames: ['portfolio-widget'],
-			},
-		},
-	],
+				classNames: ['portfolio-widget']
+			}
+		}
+	]
 };
 
 // Create output directory if it doesn't exist
@@ -156,7 +156,7 @@ const globPromise = (pattern: string): Promise<string[]> => {
 
 // Main processing function
 async function processSvgFiles(
-	options: { optimizeSvgs?: boolean; processColors?: boolean } = {},
+	options: { optimizeSvgs?: boolean; processColors?: boolean } = {}
 ): Promise<void> {
 	// Set default options
 	const { optimizeSvgs = true, processColors: shouldProcessColors = true } = options;
@@ -176,7 +176,7 @@ async function processSvgFiles(
 				if (optimizeSvgs) {
 					const result = optimize(svg, {
 						path: file,
-						...svgoConfig,
+						...svgoConfig
 					});
 					processed = result.data;
 				}
@@ -192,7 +192,7 @@ async function processSvgFiles(
 			} catch (error) {
 				console.error(
 					`Error processing ${filename}:`,
-					error instanceof Error ? error.message : error,
+					error instanceof Error ? error.message : error
 				);
 			}
 		}
@@ -205,5 +205,5 @@ async function processSvgFiles(
 // Run the script
 processSvgFiles({
 	optimizeSvgs: true,
-	processColors: true,
+	processColors: true
 });

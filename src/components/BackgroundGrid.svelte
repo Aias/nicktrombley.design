@@ -3,17 +3,17 @@
 		widthCells,
 		heightCells,
 		subdivisions = 4,
-		class: className,
+		class: className
 	}: { widthCells: number; heightCells: number; subdivisions?: number; class?: string } = $props();
 
 	// Create arrays for the gridlines
 	const majorVerticals = $derived(Array.from({ length: widthCells + 1 }, (_, i) => i));
 	const majorHorizontals = $derived(Array.from({ length: heightCells + 1 }, (_, i) => i));
 	const minorVerticals = $derived(
-		Array.from({ length: widthCells * subdivisions + 1 }, (_, i) => i / subdivisions),
+		Array.from({ length: widthCells * subdivisions + 1 }, (_, i) => i / subdivisions)
 	);
 	const minorHorizontals = $derived(
-		Array.from({ length: heightCells * subdivisions + 1 }, (_, i) => i / subdivisions),
+		Array.from({ length: heightCells * subdivisions + 1 }, (_, i) => i / subdivisions)
 	);
 
 	const verticalPath = (x: number) => `M ${x} 0 L ${x} ${heightCells}`;

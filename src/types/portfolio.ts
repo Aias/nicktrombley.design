@@ -14,7 +14,7 @@ export const WidgetsSchema = z.object({
 	xSmCells: z.coerce.number(),
 	ySmCells: z.coerce.number(),
 	widthCells: z.coerce.number(),
-	heightCells: z.coerce.number(),
+	heightCells: z.coerce.number()
 });
 // Create a type from the Zod schema
 export type Widget = z.infer<typeof WidgetsSchema>;

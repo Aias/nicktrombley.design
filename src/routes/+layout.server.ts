@@ -6,7 +6,8 @@ export const prerender = true;
 export const ssr = true;
 
 export const load = async ({ fetch, cookies }) => {
-	const theme = ThemeSchema.parse(cookies.get('theme'));
+	const themeResult = ThemeSchema.safeParse(cookies.get('theme'));
+	const theme = themeResult.success ? themeResult.data : undefined;
 	// Fetch the CSV file from the static data directory
 	const response = await fetch('/data/portfolio-widgets.csv');
 	if (!response.ok) {
@@ -19,7 +20,7 @@ export const load = async ({ fetch, cookies }) => {
 	const csvData = parse(fileContent, {
 		columns: true,
 		skip_empty_lines: true,
-		bom: true, // This removes the BOM character from column headers
+		bom: true // This removes the BOM character from column headers
 	});
 
 	// Validate and transform the data with Zod schema
@@ -27,6 +28,6 @@ export const load = async ({ fetch, cookies }) => {
 
 	return {
 		widgets,
-		theme,
+		theme
 	};
 };

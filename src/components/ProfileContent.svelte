@@ -9,11 +9,11 @@
 		{
 			href: 'https://barnsworthburning.net/creators/rec97tRUYZBhAs6rZ',
 			label: 'Commonplace',
-			icon: Archive,
+			icon: Archive
 		},
 		{ href: 'https://github.com/Aias', label: 'Github', icon: Github },
 		{ href: 'https://www.linkedin.com/in/nick-trombley/', label: 'LinkedIn', icon: LinkedIn },
-		{ href: 'https://glass.photo/barnsworthburning', label: 'Photography', icon: Camera },
+		{ href: 'https://glass.photo/barnsworthburning', label: 'Photography', icon: Camera }
 	];
 </script>
 
@@ -31,7 +31,7 @@
 					{@const IconComponent = link.icon}
 					<li>
 						<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- external link -->
-						<a class="link" href={link.href} target="_blank">
+						<a class="link" href={link.href} target="_blank" rel="noopener noreferrer">
 							<IconComponent />
 							<span class="label">{link.label}</span>
 						</a>

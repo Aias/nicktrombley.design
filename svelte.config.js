@@ -10,12 +10,12 @@ const config = {
 			$components: 'src/components',
 			$helpers: 'src/helpers',
 			$styles: 'src/styles',
-			$types: 'src/types',
-		},
+			$types: 'src/types'
+		}
 	},
 	compilerOptions: {
-		runes: true,
-	},
+		runes: true
+	}
 };
 
 export default config;
