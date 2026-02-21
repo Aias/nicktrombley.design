@@ -31,7 +31,7 @@
 					{@const IconComponent = link.icon}
 					<li>
 						<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- external link -->
-						<a class="link" href={link.href} target="_blank">
+						<a class="link" href={link.href} target="_blank" rel="noopener noreferrer">
 							<IconComponent />
 							<span class="label">{link.label}</span>
 						</a>

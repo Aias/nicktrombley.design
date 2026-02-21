@@ -6,7 +6,8 @@ export const prerender = true;
 export const ssr = true;
 
 export const load = async ({ fetch, cookies }) => {
-	const theme = ThemeSchema.parse(cookies.get('theme'));
+	const themeResult = ThemeSchema.safeParse(cookies.get('theme'));
+	const theme = themeResult.success ? themeResult.data : undefined;
 	// Fetch the CSV file from the static data directory
 	const response = await fetch('/data/portfolio-widgets.csv');
 	if (!response.ok) {
