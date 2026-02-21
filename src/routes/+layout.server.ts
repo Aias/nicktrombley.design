@@ -20,7 +20,7 @@ export const load = async ({ fetch, cookies }) => {
 	const csvData = parse(fileContent, {
 		columns: true,
 		skip_empty_lines: true,
-		bom: true, // This removes the BOM character from column headers
+		bom: true // This removes the BOM character from column headers
 	});
 
 	// Validate and transform the data with Zod schema
@@ -28,6 +28,6 @@ export const load = async ({ fetch, cookies }) => {
 
 	return {
 		widgets,
-		theme,
+		theme
 	};
 };

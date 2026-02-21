@@ -9,11 +9,11 @@
 		{
 			href: 'https://barnsworthburning.net/creators/rec97tRUYZBhAs6rZ',
 			label: 'Commonplace',
-			icon: Archive,
+			icon: Archive
 		},
 		{ href: 'https://github.com/Aias', label: 'Github', icon: Github },
 		{ href: 'https://www.linkedin.com/in/nick-trombley/', label: 'LinkedIn', icon: LinkedIn },
-		{ href: 'https://glass.photo/barnsworthburning', label: 'Photography', icon: Camera },
+		{ href: 'https://glass.photo/barnsworthburning', label: 'Photography', icon: Camera }
 	];
 </script>
 

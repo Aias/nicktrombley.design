@@ -12,17 +12,17 @@
 	let loaded = $state(false);
 
 	const contentLargeWidthRems = $derived(
-		Math.max(...widgets.map((w) => (w.xLgCells + w.widthCells) * REMS_PER_CELL)),
+		Math.max(...widgets.map((w) => (w.xLgCells + w.widthCells) * REMS_PER_CELL))
 	);
 	const contentLargeHeightRems = $derived(
-		Math.max(...widgets.map((w) => (w.yLgCells + w.heightCells) * REMS_PER_CELL)),
+		Math.max(...widgets.map((w) => (w.yLgCells + w.heightCells) * REMS_PER_CELL))
 	);
 
 	const contentSmallWidthRems = $derived(
-		Math.max(...widgets.map((w) => (w.xSmCells + w.widthCells) * REMS_PER_CELL)),
+		Math.max(...widgets.map((w) => (w.xSmCells + w.widthCells) * REMS_PER_CELL))
 	);
 	const contentSmallHeightRems = $derived(
-		Math.max(...widgets.map((w) => (w.ySmCells + w.heightCells) * REMS_PER_CELL)),
+		Math.max(...widgets.map((w) => (w.ySmCells + w.heightCells) * REMS_PER_CELL))
 	);
 
 	let profileNode: HTMLElement;
@@ -37,14 +37,14 @@
 		width: 32 * 32,
 		height: 11 * 32,
 		widthCells: 32,
-		heightCells: 11,
+		heightCells: 11
 	};
 
 	onMount(async () => {
 		profileNode.scrollIntoView({
 			behavior: 'instant',
 			block: 'center',
-			inline: 'center',
+			inline: 'center'
 		});
 		loaded = true;
 	});
