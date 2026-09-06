@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Left Icon" clip-path="url(#clip0_0_523)">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M7.2 2.90881C7.2 2.20835 7.39366 1.68969 7.71323 1.34898C8.02928 1.01202 8.51456 0.8 9.20112 0.8C9.9588 0.8 10.4671 1.04442 10.7778 1.44509C11.0425 1.7865 11.2 2.2745 11.2 2.9066H12C12 2.14594 11.8101 1.47085 11.41 0.954888C10.9111 0.311544 10.1394 0 9.20112 0C8.34352 0 7.62818 0.270297 7.12974 0.80168C6.63481 1.32934 6.4 2.06508 6.4 2.90881V4.8H0.8C0.358172 4.8 0 5.15818 0 5.6V10.4C0 10.8418 0.358172 11.2 0.8 11.2H8C8.44184 11.2 8.8 10.8418 8.8 10.4V5.6C8.8 5.15818 8.44184 4.8 8 4.8H7.2V2.90881ZM0.8 5.6H8V10.4H0.8V5.6Z" fill="var(--icon-hint)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_523">
+<rect width="12" height="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>

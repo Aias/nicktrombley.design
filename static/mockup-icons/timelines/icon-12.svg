@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="88.0 130.0 16 16" fill="none">
+<path d="M91 130V140H100V146H103V130H91ZM100 136H98V138H96V136H94V134H96V132H98V134H100V136Z" fill="var(--icon-ghost)"/>
+<path d="M89 141V146H91V143H97V146H99V141H89Z" fill="var(--icon-accent)"/>
+<path d="M102 130H91V140H92V131H102V146H103V130H102Z" fill="var(--icon-accent)"/>
+</svg>
