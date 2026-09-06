@@ -82,14 +82,14 @@ const styles = stylex.create({
 		display: 'flex',
 		flexDirection: 'column',
 		gap: space[8],
-		paddingBlock: space[8],
-		paddingInline: space[12]
+		padding: space[16]
 	},
 	header: { flexShrink: 0 },
 	owner: { flex: '1' },
 	metricControl: {
 		position: 'relative',
 		display: 'flex',
+		flexShrink: 0,
 		width: '100%',
 		height: '1.625rem',
 		minWidth: 0,

@@ -92,18 +92,36 @@ const styles = stylex.create({
 		display: 'flex',
 		flexDirection: 'column',
 		gap: space[4],
-		marginLeft: '1.1875rem',
-		paddingLeft: '1.8125rem',
-		borderLeftWidth: 2,
-		borderLeftStyle: 'solid',
-		borderLeftColor: colors.paint,
+		marginTop: space[4],
+		marginLeft: space[48],
+		padding: 0,
 		listStyle: 'none'
 	},
-	node: { display: 'flex', minWidth: 0, alignItems: 'center', gap: space[8] },
+	diagram: { position: 'relative' },
+	connections: (width: number, height: number) => ({
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		width: `${width / 16}rem`,
+		height: `${height / 16}rem`,
+		fill: 'none',
+		stroke: colors.paint,
+		strokeWidth: 2,
+		pointerEvents: 'none'
+	}),
+	node: {
+		height: space[32],
+		position: 'relative',
+		zIndex: 1,
+		display: 'flex',
+		minWidth: 0,
+		alignItems: 'center',
+		gap: space[8]
+	},
 	score: {
 		display: 'flex',
 		width: '2.5rem',
-		height: '1.875rem',
+		height: space[20],
 		flexShrink: 0,
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -178,11 +196,12 @@ export function Hierarchy({
 		return (
 			<ul {...stylex.props(nested ? styles.children : styles.tree)} hidden={hidden}>
 				{items.map((node) => {
+					const children = node.children ?? [];
 					const expanded = !collapsedIds.includes(node.id);
 					return (
 						<li key={node.id}>
 							<div {...stylex.props(styles.node)}>
-								{node.children ? (
+								{children.length > 0 ? (
 									<button
 										type="button"
 										{...stylex.props(
@@ -232,8 +251,8 @@ export function Hierarchy({
 									/>
 								) : null}
 							</div>
-							{node.children
-								? renderNodes(node.children, true, [...ancestorIds, node.id], !expanded)
+							{children.length > 0
+								? renderNodes(children, true, [...ancestorIds, node.id], !expanded)
 								: null}
 						</li>
 					);
@@ -267,6 +286,25 @@ export function Hierarchy({
 		);
 	}
 
+	const segments: string[] = [];
+	let rowCount = 0;
+	let diagramWidth = 40;
+	function connectNodes(items: HierarchyNode[], parent?: { x: number; y: number }) {
+		const x = parent ? parent.x + 48 : 0;
+		let previousY: number | undefined;
+		for (const node of items) {
+			const y = rowCount * 36;
+			rowCount += 1;
+			diagramWidth = Math.max(diagramWidth, x + 40);
+			if (parent) segments.push(`M ${parent.x + 20} ${parent.y + 26} V ${y + 16} H ${x}`);
+			if (previousY !== undefined) segments.push(`M ${x + 20} ${previousY + 26} V ${y + 6}`);
+			if (node.children && !collapsedIds.includes(node.id)) connectNodes(node.children, { x, y });
+			previousY = y;
+		}
+	}
+	connectNodes(nodes);
+	const diagramHeight = Math.max(0, rowCount * 36 - 4);
+
 	return (
 		<form {...stylex.props(ui.mockup, ui.panel, styles.root)} onSubmit={submitTimings}>
 			<header {...stylex.props(styles.header)}>
@@ -286,7 +324,20 @@ export function Hierarchy({
 					<FormsIcon name="Hierarchy-imgCross2" />
 				</button>
 			</header>
-			<div {...stylex.props(styles.content)}>{renderNodes(nodes, false)}</div>
+			<div {...stylex.props(styles.content, ui.scrollFade)}>
+				<div {...stylex.props(styles.diagram)}>
+					{segments.length > 0 ? (
+						<svg
+							{...stylex.props(styles.connections(diagramWidth, diagramHeight))}
+							viewBox={`0 0 ${diagramWidth} ${diagramHeight}`}
+							aria-hidden="true"
+						>
+							<path d={segments.join(' ')} />
+						</svg>
+					) : null}
+					{renderNodes(nodes, false)}
+				</div>
+			</div>
 			<button type="submit" {...stylex.props(ui.button, ui.tiny, styles.calculate)}>
 				<FormsIcon name="Hierarchy-imgLeftIcon" size={12} />
 				{editingTimings

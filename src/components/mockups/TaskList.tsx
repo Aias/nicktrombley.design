@@ -138,6 +138,8 @@ const styles = stylex.create({
 	},
 	titleIcon: { width: space[16], height: space[16], flexShrink: 0 },
 	monthInput: {
+		marginInlineStart: 'auto',
+		flexShrink: 0,
 		width: '5.5rem',
 		height: space[20],
 		paddingInline: space[6],
@@ -463,6 +465,7 @@ export function TaskList({
 					aria-label="Upgrade month"
 					type="month"
 					value={selectedMonth}
+					onClick={(event) => event.currentTarget.showPicker()}
 					onChange={(event) => {
 						setSelectedMonth(event.target.value);
 						onMonthChange?.(event.target.value);
@@ -490,7 +493,7 @@ export function TaskList({
 					iconStyle={styles.roleCaret}
 				/>
 			</div>
-			<div {...stylex.props(styles.content)}>
+			<div {...stylex.props(ui.scrollFade, styles.content)}>
 				{owners.map((owner, ownerIndex) => (
 					<div
 						{...stylex.props(styles.owner, ownerIndex === 0 && styles.ownerFirst)}

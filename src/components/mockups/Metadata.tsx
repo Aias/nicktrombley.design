@@ -8,6 +8,8 @@ export type MetadataField = {
 	id: string;
 	label: string;
 	value?: string;
+	detail?: string;
+	expanded?: boolean;
 	icon?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 	children?: MetadataField[];
 };
@@ -16,6 +18,7 @@ export type MetadataSection = {
 	id: string;
 	title: string;
 	pinned?: boolean;
+	expanded?: boolean;
 	fields: MetadataField[];
 };
 
@@ -32,6 +35,7 @@ const defaultSections: MetadataSection[] = [
 		id: 'pinned',
 		title: 'Pinned',
 		pinned: true,
+		expanded: true,
 		fields: [
 			{ id: 'events', label: 'Common Events', value: 'Login Success, Authentication', icon: 0 },
 			{ id: 'user', label: 'User', value: 'Nick Trombley (nick.trombley)', icon: 1 },
@@ -44,49 +48,76 @@ const defaultSections: MetadataSection[] = [
 	{
 		id: 'action',
 		title: 'Action',
+		expanded: true,
 		fields: [
 			{ id: 'type', label: 'Type', value: 'Apache Tomcat', icon: 4 },
 			{ id: 'start', label: 'Start Time', value: '5/8/2023 2:32:01 PM', icon: 5 },
 			{ id: 'end', label: 'End Time', value: '5/8/2023 2:32:15 PM', icon: 5 },
-			{ id: 'duration', label: 'Duration', value: '00:00:14', icon: 6 }
-		]
-	},
-	{ id: 'authentication', title: 'Authentication', fields: [] },
-	{
-		id: 'network',
-		title: 'Network',
-		fields: [
-			{ id: 'method', label: 'HTTP Method', value: 'GET', icon: 4 },
+			{ id: 'duration', label: 'Duration', value: '00:00:14', icon: 6 },
 			{
-				id: 'agent',
-				label: 'User Agent String',
-				icon: 3,
+				id: 'authentication',
+				label: 'Authentication',
+				icon: 7,
+				expanded: false,
+				children: []
+			},
+			{
+				id: 'network',
+				label: 'Network',
+				icon: 7,
+				expanded: true,
 				children: [
-					{ id: 'protocol', label: 'Protocol | Name', value: 'HTTP/1.1', icon: 10 },
+					{ id: 'method', label: 'HTTP Method', value: 'GET', icon: 4 },
+					{
+						id: 'agent',
+						label: 'User Agent String',
+						value: '${${::-j}${::-n}${::-d}${::-i}${::-}${::-d}$',
+						detail:
+							'bunnies.threatblue.ninja:1389/Mozilla/5.0 (Windows NT 10.0; Win64; x64) Apple WebKit / 537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36',
+						icon: 3
+					},
+					{
+						id: 'protocol',
+						label: 'Protocol | Name',
+						value: 'HTTP/1.1',
+						icon: 7,
+						expanded: false,
+						children: []
+					},
 					{
 						id: 'packets',
 						label: 'Packet Information',
 						icon: 7,
+						expanded: true,
 						children: [
 							{ id: 'total', label: 'Total', value: '1,098', icon: 8 },
 							{ id: 'sent', label: 'Sent', value: '942', icon: 8 },
 							{ id: 'received', label: 'Received', value: '156', icon: 8 }
 						]
 					},
-					{ id: 'process', label: 'Process | Name', value: 'Login Success', icon: 9 }
+					{
+						id: 'process',
+						label: 'Process | Name',
+						value: 'Login Success',
+						icon: 7,
+						expanded: false,
+						children: []
+					}
 				]
 			}
 		]
 	},
-	{ id: 'event', title: 'Event', fields: [] },
+	{ id: 'event', title: 'Event', expanded: false, fields: [] },
 	{
 		id: 'source',
 		title: 'Source',
+		expanded: true,
 		fields: [
 			{
 				id: 'server',
 				label: 'Server',
 				icon: 7,
+				expanded: true,
 				children: [
 					{ id: 'server-type', label: 'Type', value: 'Ping', icon: 4 },
 					{ id: 'server-origin', label: 'Origin', value: 'New York, NY', icon: 10 },
@@ -97,6 +128,7 @@ const defaultSections: MetadataSection[] = [
 				id: 'client',
 				label: 'Client',
 				icon: 7,
+				expanded: true,
 				children: [
 					{ id: 'client-type', label: 'Type', value: 'Page Request', icon: 4 },
 					{ id: 'client-origin', label: 'Origin', value: 'Boston, MA', icon: 10 },
@@ -138,7 +170,7 @@ const styles = stylex.create({
 		margin: 'auto',
 		width: 'min(40rem, calc(100dvw - 4rem))',
 		maxHeight: '80dvh',
-		overflow: 'auto',
+		overflow: 'hidden',
 		padding: space[16],
 		backgroundColor: colors.background,
 		color: colors.primary
@@ -149,6 +181,7 @@ const styles = stylex.create({
 		gap: space[16],
 		marginBottom: space[16]
 	},
+	dialogContent: { maxHeight: 'calc(80dvh - 5rem)', overflowY: 'auto' },
 	body: {
 		display: 'flex',
 		minHeight: 0,
@@ -208,10 +241,10 @@ const styles = stylex.create({
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
+	fieldContent: { display: 'flex', minWidth: 0, flex: '1', flexDirection: 'column' },
 	fieldCopy: {
 		display: 'flex',
 		minWidth: 0,
-		flex: '1',
 		alignItems: 'center',
 		gap: space[4],
 		color: colors.primary
@@ -220,6 +253,12 @@ const styles = stylex.create({
 	parentLabel: { color: colors.accent, fontWeight: 575 },
 	colon: { color: colors.ghost },
 	fieldValue: { minWidth: 0, flex: '1' },
+	fieldDetail: {
+		display: '-webkit-box',
+		overflow: 'hidden',
+		WebkitBoxOrient: 'vertical',
+		WebkitLineClamp: 3
+	},
 	empty: { paddingBlock: space[8], textAlign: 'center', color: colors.hint }
 });
 
@@ -232,11 +271,20 @@ function iconName(icon: MetadataField['icon']) {
 function filterFields(fields: MetadataField[], query: string): MetadataField[] {
 	return fields.flatMap((field) => {
 		const children = field.children ? filterFields(field.children, query) : [];
-		const matches = `${field.label} ${field.value ?? ''}`.toLocaleLowerCase().includes(query);
+		const matches = `${field.label} ${field.value ?? ''} ${field.detail ?? ''}`
+			.toLocaleLowerCase()
+			.includes(query);
 		if (!matches && children.length === 0) return [];
 		if (matches) return [field];
 		return [{ ...field, children }];
 	});
+}
+
+function initiallyCollapsedFields(fields: MetadataField[]): string[] {
+	return fields.flatMap((field) => [
+		...(field.children !== undefined && field.expanded === false ? [field.id] : []),
+		...initiallyCollapsedFields(field.children ?? [])
+	]);
 }
 
 export function Metadata({
@@ -247,9 +295,11 @@ export function Metadata({
 	onPinChange
 }: MetadataProps) {
 	const [collapsedSectionIds, setCollapsedSectionIds] = useState<string[]>(
-		sections.filter((section) => section.fields.length === 0).map((section) => section.id)
+		sections.filter((section) => section.expanded === false).map((section) => section.id)
 	);
-	const [collapsedFieldIds, setCollapsedFieldIds] = useState<string[]>([]);
+	const [collapsedFieldIds, setCollapsedFieldIds] = useState<string[]>(
+		sections.flatMap((section) => initiallyCollapsedFields(section.fields))
+	);
 	const [pinOverrides, setPinOverrides] = useState<Record<string, boolean>>({});
 	const [searching, setSearching] = useState(false);
 	const [query, setQuery] = useState('');
@@ -293,7 +343,7 @@ export function Metadata({
 			return (
 				<div key={field.id}>
 					<div {...stylex.props(styles.field)}>
-						{field.children ? (
+						{field.children !== undefined ? (
 							<button
 								type="button"
 								{...stylex.props(styles.expansion)}
@@ -311,26 +361,37 @@ export function Metadata({
 						<span {...stylex.props(styles.fieldIcon)}>
 							<FormsIcon name={iconName(field.icon)} size={12} />
 						</span>
-						<span {...stylex.props(ui.caption, styles.fieldCopy)}>
-							<span
-								{...stylex.props(
-									ui.truncate,
-									styles.fieldLabel,
-									field.children && styles.parentLabel
-								)}
-							>
-								{field.label}
+						<span {...stylex.props(styles.fieldContent)}>
+							<span {...stylex.props(ui.caption, styles.fieldCopy)}>
+								<span
+									{...stylex.props(
+										ui.truncate,
+										styles.fieldLabel,
+										field.children !== undefined && styles.parentLabel
+									)}
+								>
+									{field.label}
+								</span>
+								{field.value ? (
+									<>
+										<span {...stylex.props(styles.colon)}>:</span>
+										<span {...stylex.props(ui.truncate, styles.fieldValue)}>{field.value}</span>
+									</>
+								) : null}
 							</span>
-							{field.value ? (
-								<>
-									<span {...stylex.props(styles.colon)}>:</span>
-									<span {...stylex.props(ui.truncate, styles.fieldValue)}>{field.value}</span>
-								</>
+							{field.detail ? (
+								<span {...stylex.props(ui.caption, styles.fieldDetail)}>{field.detail}</span>
 							) : null}
 						</span>
 					</div>
-					{field.children && expanded ? (
-						<div {...stylex.props(styles.nestedFields)}>{renderFields(field.children)}</div>
+					{field.children !== undefined && expanded ? (
+						<div {...stylex.props(styles.nestedFields)}>
+							{field.children.length > 0 ? (
+								renderFields(field.children)
+							) : (
+								<p {...stylex.props(ui.tiny, ui.hint)}>No fields</p>
+							)}
+						</div>
 					) : null}
 				</div>
 			);
@@ -388,7 +449,7 @@ export function Metadata({
 					</button>
 				</div>
 			</header>
-			<div {...stylex.props(styles.body)}>
+			<div {...stylex.props(styles.body, ui.scrollFade)}>
 				{visibleSections.length === 0 ? (
 					<p {...stylex.props(ui.caption, styles.empty)}>No matching metadata</p>
 				) : (
@@ -450,12 +511,14 @@ export function Metadata({
 						<button {...stylex.props(ui.button)}>Close</button>
 					</form>
 				</header>
-				{sections.map((section) => (
-					<section key={section.id} {...stylex.props(styles.section)}>
-						<h3 {...stylex.props(ui.title)}>{section.title}</h3>
-						{renderFields(section.fields)}
-					</section>
-				))}
+				<div {...stylex.props(styles.dialogContent, ui.scrollFade)}>
+					{sections.map((section) => (
+						<section key={section.id} {...stylex.props(styles.section)}>
+							<h3 {...stylex.props(ui.title)}>{section.title}</h3>
+							{renderFields(section.fields)}
+						</section>
+					))}
+				</div>
 			</dialog>
 		</section>
 	);

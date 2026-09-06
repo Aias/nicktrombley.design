@@ -209,9 +209,8 @@ const styles = stylex.create({
 		cursor: 'pointer'
 	},
 	checkboxActive: {
-		backgroundColor: colors.accent,
-		borderColor: colors.accent,
-		boxShadow: `inset 0 0 0 ${space[3]} ${colors.container}`
+		backgroundColor: colors.component,
+		borderColor: colors.accent
 	},
 	entityLabel: {
 		flex: '1',
@@ -388,7 +387,7 @@ export function ActivityTimeline({
 					</div>
 				</div>
 			</div>
-			<div {...stylex.props(styles.body)}>
+			<div {...stylex.props(ui.scrollFade, styles.body)}>
 				<div {...stylex.props(styles.rows)} ref={contentRef}>
 					<div>
 						{groups.map((group) => {

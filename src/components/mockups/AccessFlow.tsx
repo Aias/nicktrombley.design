@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import { area, curveBasis } from 'd3-shape';
 import { ui } from '../../styles/primitives';
 import { colors, radius, space, typeScale } from '../../styles/tokens.stylex';
 import { MockupIcon } from './MockupIcon';
@@ -73,9 +74,14 @@ const defaultNodes: AccessFlowNode[] = [
 	}
 ];
 
-const activity = [
-	0.2, 0.8, 0.48, 0.12, 0.64, 0.27, 0.9, 0.35, 0.18, 0.72, 0.45, 0.13, 0.61, 0.29, 0.84, 0.19, 0.52,
-	0.33, 0.1, 0.7, 0.41, 0.16, 0.58, 0.26
+const financeActivity = [
+	0.18, 0.24, 0.37, 0.68, 0.91, 0.74, 0.42, 0.31, 0.28, 0.36, 0.58, 0.79, 0.83, 0.61, 0.34, 0.22,
+	0.27, 0.49, 0.71, 0.64, 0.38, 0.29, 0.33, 0.21
+];
+
+const devopsActivity = [
+	0.31, 0.27, 0.34, 0.48, 0.44, 0.39, 0.56, 0.72, 0.63, 0.47, 0.41, 0.53, 0.76, 0.88, 0.69, 0.45,
+	0.32, 0.38, 0.51, 0.43, 0.29, 0.25, 0.35, 0.3
 ];
 
 const defaultEdges: AccessFlowEdge[] = [
@@ -84,7 +90,7 @@ const defaultEdges: AccessFlowEdge[] = [
 		source: 'portal',
 		target: 'finance',
 		label: 'REMOTE ACCESS',
-		activity,
+		activity: financeActivity,
 		offset: -6
 	},
 	{
@@ -92,7 +98,7 @@ const defaultEdges: AccessFlowEdge[] = [
 		source: 'portal',
 		target: 'devops',
 		label: 'REMOTE ACCESS',
-		activity,
+		activity: devopsActivity,
 		offset: 36
 	}
 ];
@@ -114,9 +120,9 @@ const styles = stylex.create({
 	root: {
 		position: 'relative',
 		backgroundColor: 'transparent',
-		overflow: 'auto',
 		pointerEvents: 'none'
 	},
+	viewport: { width: '100%', height: '100%', minWidth: 0, minHeight: 0, overflow: 'auto' },
 	canvas: (width: string, height: string) => ({
 		position: 'relative',
 		width,
@@ -307,10 +313,9 @@ const styles = stylex.create({
 		fontSize: typeScale.tiny,
 		lineHeight: typeScale.tinyLine
 	},
-	sparkline: {
-		display: 'flex',
-		alignItems: 'flex-end',
-		gap: 1,
+	horizon: {
+		display: 'block',
+		width: '100%',
 		height: space[24],
 		paddingInline: space[4],
 		overflow: 'hidden',
@@ -320,19 +325,51 @@ const styles = stylex.create({
 		borderRadius: radius.small,
 		backgroundColor: colors.background
 	},
-	sparkBar: (height: string, opacity: number) => ({
-		flex: '1',
-		minWidth: 1,
-		height,
-		backgroundColor: colors.main,
-		opacity
-	}),
+	horizonBand: (opacity: number) => ({ fill: colors.main, opacity }),
 	empty: { display: 'grid', placeItems: 'center', height: '100%' }
 });
 
 type PositionedNode = { node: AccessFlowNode; x: number; y: number };
 
 type Layout = { width: number; height: number; positions: PositionedNode[] };
+
+const horizonWidth = 128;
+const horizonHeight = 24;
+const horizonBands = [0.18, 0.36, 0.62];
+
+function HorizonChart({ values }: { values: number[] }) {
+	const clipId = useId();
+	const path = area<number>()
+		.x((_, index) => (index * horizonWidth) / Math.max(1, values.length - 1))
+		.y0(0)
+		.y1((value) => -Math.max(0, Math.min(1, value)) * horizonBands.length * horizonHeight)
+		.curve(curveBasis)(values);
+	if (path === null) return null;
+	return (
+		<svg
+			{...stylex.props(styles.horizon)}
+			viewBox={`0 0 ${horizonWidth} ${horizonHeight}`}
+			preserveAspectRatio="none"
+			aria-hidden="true"
+		>
+			<defs>
+				<clipPath id={clipId}>
+					<rect width={horizonWidth} height={horizonHeight} />
+				</clipPath>
+			</defs>
+			<g clipPath={`url(#${clipId})`}>
+				{horizonBands.map((opacity, band) => (
+					<path
+						{...stylex.props(styles.horizonBand(opacity))}
+						key={opacity}
+						d={path}
+						transform={`translate(0 ${(band + 1) * horizonHeight})`}
+					/>
+				))}
+			</g>
+		</svg>
+	);
+}
 
 function rankClearance(rank: number, ranks: Map<string, number>, edges: AccessFlowEdge[]): number {
 	const hasLabel = edges.some((edge) => {
@@ -530,165 +567,154 @@ export function AccessFlowGraph({
 		);
 	return (
 		<section {...stylex.props(ui.mockup, styles.root)} ref={rootRef}>
-			<div {...stylex.props(styles.canvas(`${width}rem`, `${height}rem`))}>
-				<svg
-					{...stylex.props(styles.connections)}
-					viewBox={`0 0 ${width * pixelsPerRem} ${height * pixelsPerRem}`}
-					preserveAspectRatio="none"
-					aria-hidden="true"
-				>
-					<defs>
-						<marker
-							id={markerId}
-							markerWidth="8"
-							markerHeight="8"
-							refX="5"
-							refY="4"
-							orient="auto"
-							markerUnits="userSpaceOnUse"
+			<div {...stylex.props(ui.scrollFade, styles.viewport)}>
+				<div {...stylex.props(styles.canvas(`${width}rem`, `${height}rem`))}>
+					<svg
+						{...stylex.props(styles.connections)}
+						viewBox={`0 0 ${width * pixelsPerRem} ${height * pixelsPerRem}`}
+						preserveAspectRatio="none"
+						aria-hidden="true"
+					>
+						<defs>
+							<marker
+								id={markerId}
+								markerWidth="8"
+								markerHeight="8"
+								refX="5"
+								refY="4"
+								orient="auto"
+								markerUnits="userSpaceOnUse"
+							>
+								<path {...stylex.props(styles.connection)} d="M1 1L5 4L1 7" />
+							</marker>
+						</defs>
+						{edges.map((edge) => {
+							const source = byId.get(edge.source);
+							const target = byId.get(edge.target);
+							if (source === undefined || target === undefined) return null;
+							return (
+								<path
+									{...stylex.props(styles.connection)}
+									key={edge.id}
+									d={connectionGeometry(source, target, edge).path}
+									markerEnd={`url(#${markerId})`}
+								/>
+							);
+						})}
+					</svg>
+					{positions.map((position) => (
+						<button
+							{...stylex.props(
+								ui.panel,
+								styles.node(`${position.x}rem`, `${position.y}rem`),
+								selectedNode === position.node.id && styles.nodeSelected
+							)}
+							key={position.node.id}
+							aria-pressed={selectedNode === position.node.id}
+							onClick={() => {
+								setSelectedNode(position.node.id);
+								onNodeSelect?.(position.node);
+							}}
 						>
-							<path {...stylex.props(styles.connection)} d="M1 1L5 4L1 7" />
-						</marker>
-					</defs>
+							<span {...stylex.props(styles.nodeHeader)}>
+								<MockupIcon iconStyle={styles.nodeIcon} src={nodeIcon(position.node.kind)} />
+								<span {...stylex.props(styles.nodeKind, ui.truncate)}>
+									{nodeKind(position.node.kind)}
+								</span>
+								<MockupIcon
+									iconStyle={styles.nodeIcon}
+									src="/mockup-icons/timelines/AccessFlow-imgInstance1.svg"
+								/>
+							</span>
+							<span {...stylex.props(styles.nodeBody)}>
+								<span {...stylex.props(styles.nodeDetails)}>
+									<span {...stylex.props(styles.nodeName, ui.truncate)}>{position.node.name}</span>
+									<span {...stylex.props(styles.metadata)}>
+										<span {...stylex.props(styles.metaItem)}>
+											<span {...stylex.props(styles.metaLabel)}>Location</span>
+											<span {...stylex.props(styles.metaValue, ui.truncate)}>
+												{position.node.location}
+											</span>
+										</span>
+										<span {...stylex.props(styles.metaItem)}>
+											<span {...stylex.props(styles.metaLabel)}>Priority</span>
+											<span {...stylex.props(styles.metaValue, ui.truncate)}>
+												{position.node.priority}
+											</span>
+										</span>
+									</span>
+								</span>
+								<span {...stylex.props(styles.finding)}>
+									<span {...stylex.props(styles.findingHeading)}>
+										<span
+											{...stylex.props(styles.score, position.node.score >= 90 && styles.scoreHigh)}
+										>
+											{position.node.score}
+										</span>
+										<span {...stylex.props(styles.reference, ui.truncate)}>
+											{position.node.reference}
+										</span>
+									</span>
+									<span {...stylex.props(styles.description, ui.truncate)}>
+										{position.node.description}
+									</span>
+								</span>
+							</span>
+						</button>
+					))}
 					{edges.map((edge) => {
 						const source = byId.get(edge.source);
 						const target = byId.get(edge.target);
-						if (source === undefined || target === undefined) return null;
+						if (source === undefined || target === undefined || edge.label === undefined)
+							return null;
+						const { x, y } = connectionGeometry(source, target, edge);
+						const parallel = edge.activity
+							? edges.find(
+									(candidate) =>
+										candidate.id !== edge.id &&
+										candidate.source === edge.source &&
+										candidate.target === edge.target &&
+										candidate.label
+								)
+							: undefined;
+						const gap = parallel
+							? Math.max(8, (connectionGeometry(source, target, parallel).y - y) / 2 - 24)
+							: 8;
 						return (
-							<path
-								{...stylex.props(styles.connection)}
+							<button
+								{...stylex.props(
+									styles.edgeControl(`${x / pixelsPerRem}rem`, `${y / pixelsPerRem}rem`),
+									styles.activitySpacing(gap)
+								)}
 								key={edge.id}
-								d={connectionGeometry(source, target, edge).path}
-								markerEnd={`url(#${markerId})`}
-							/>
+								aria-pressed={selectedEdge === edge.id}
+								onClick={() => {
+									setSelectedEdge(edge.id);
+									onEdgeSelect?.(edge);
+								}}
+							>
+								<span
+									{...stylex.props(
+										styles.relation,
+										selectedEdge === edge.id && styles.relationSelected
+									)}
+								>
+									<MockupIcon
+										iconStyle={styles.relationIcon}
+										src="/mockup-icons/timelines/AccessFlow-imgLeftIcon.svg"
+									/>
+									<span {...stylex.props(ui.truncate)}>{edge.label}</span>
+								</span>
+								{selectedEdge === edge.id ? (
+									<span {...stylex.props(styles.edgeDetail, ui.truncate)}>
+										{source.node.name} → {target.node.name}
+									</span>
+								) : null}
+								{edge.activity === undefined ? null : <HorizonChart values={edge.activity} />}
+							</button>
 						);
 					})}
-				</svg>
-				{positions.map((position) => (
-					<button
-						{...stylex.props(
-							ui.panel,
-							styles.node(`${position.x}rem`, `${position.y}rem`),
-							selectedNode === position.node.id && styles.nodeSelected
-						)}
-						key={position.node.id}
-						aria-pressed={selectedNode === position.node.id}
-						onClick={() => {
-							setSelectedNode(position.node.id);
-							onNodeSelect?.(position.node);
-						}}
-					>
-						<span {...stylex.props(styles.nodeHeader)}>
-							<MockupIcon iconStyle={styles.nodeIcon} src={nodeIcon(position.node.kind)} />
-							<span {...stylex.props(styles.nodeKind, ui.truncate)}>
-								{nodeKind(position.node.kind)}
-							</span>
-							<MockupIcon
-								iconStyle={styles.nodeIcon}
-								src="/mockup-icons/timelines/AccessFlow-imgInstance1.svg"
-							/>
-						</span>
-						<span {...stylex.props(styles.nodeBody)}>
-							<span {...stylex.props(styles.nodeDetails)}>
-								<span {...stylex.props(styles.nodeName, ui.truncate)}>{position.node.name}</span>
-								<span {...stylex.props(styles.metadata)}>
-									<span {...stylex.props(styles.metaItem)}>
-										<span {...stylex.props(styles.metaLabel)}>Location</span>
-										<span {...stylex.props(styles.metaValue, ui.truncate)}>
-											{position.node.location}
-										</span>
-									</span>
-									<span {...stylex.props(styles.metaItem)}>
-										<span {...stylex.props(styles.metaLabel)}>Priority</span>
-										<span {...stylex.props(styles.metaValue, ui.truncate)}>
-											{position.node.priority}
-										</span>
-									</span>
-								</span>
-							</span>
-							<span {...stylex.props(styles.finding)}>
-								<span {...stylex.props(styles.findingHeading)}>
-									<span
-										{...stylex.props(styles.score, position.node.score >= 90 && styles.scoreHigh)}
-									>
-										{position.node.score}
-									</span>
-									<span {...stylex.props(styles.reference, ui.truncate)}>
-										{position.node.reference}
-									</span>
-								</span>
-								<span {...stylex.props(styles.description, ui.truncate)}>
-									{position.node.description}
-								</span>
-							</span>
-						</span>
-					</button>
-				))}
-				{edges.map((edge) => {
-					const source = byId.get(edge.source);
-					const target = byId.get(edge.target);
-					if (source === undefined || target === undefined || edge.label === undefined) return null;
-					const { x, y } = connectionGeometry(source, target, edge);
-					const parallel = edge.activity
-						? edges.find(
-								(candidate) =>
-									candidate.id !== edge.id &&
-									candidate.source === edge.source &&
-									candidate.target === edge.target &&
-									candidate.label
-							)
-						: undefined;
-					const gap = parallel
-						? Math.max(8, (connectionGeometry(source, target, parallel).y - y) / 2 - 24)
-						: 8;
-					return (
-						<button
-							{...stylex.props(
-								styles.edgeControl(`${x / pixelsPerRem}rem`, `${y / pixelsPerRem}rem`),
-								styles.activitySpacing(gap)
-							)}
-							key={edge.id}
-							aria-pressed={selectedEdge === edge.id}
-							onClick={() => {
-								setSelectedEdge(edge.id);
-								onEdgeSelect?.(edge);
-							}}
-						>
-							<span
-								{...stylex.props(
-									styles.relation,
-									selectedEdge === edge.id && styles.relationSelected
-								)}
-							>
-								<MockupIcon
-									iconStyle={styles.relationIcon}
-									src="/mockup-icons/timelines/AccessFlow-imgLeftIcon.svg"
-								/>
-								<span {...stylex.props(ui.truncate)}>{edge.label}</span>
-							</span>
-							{selectedEdge === edge.id ? (
-								<span {...stylex.props(styles.edgeDetail, ui.truncate)}>
-									{source.node.name} → {target.node.name}
-								</span>
-							) : null}
-							{edge.activity === undefined ? null : (
-								<span {...stylex.props(styles.sparkline)}>
-									{edge.activity.map((value, index) => (
-										<span
-											{...stylex.props(
-												styles.sparkBar(
-													`${Math.max(8, Math.min(100, value * 100))}%`,
-													Math.max(0.15, Math.min(0.75, value))
-												)
-											)}
-											key={index}
-										/>
-									))}
-								</span>
-							)}
-						</button>
-					);
-				})}
+				</div>
 			</div>
 		</section>
 	);

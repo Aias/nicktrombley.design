@@ -133,56 +133,55 @@ export function DistributionTable({
 	};
 
 	return (
-		<div
-			{...stylex.props(ui.mockup, ui.panel, styles.root)}
-			aria-label="Analyte concentration distributions"
-		>
-			<div {...stylex.props(styles.content)}>
-				<div {...stylex.props(styles.header)}>
-					<button
-						{...stylex.props(styles.heading, styles.analyteHeading)}
-						onClick={() => setSorting('analyte')}
-					>
-						Analyte {sort === 'analyte' ? (descending ? '↓' : '↑') : ''}
-					</button>
-					<button {...stylex.props(styles.heading)} onClick={() => setSorting('formula')}>
-						Formula {sort === 'formula' ? (descending ? '↓' : '↑') : ''}
-					</button>
-					<button {...stylex.props(styles.heading)} onClick={() => setSorting('median')}>
-						Concentrations <span {...stylex.props(ui.hint)}>({unitLabel})</span>{' '}
-						{sort === 'median' ? (descending ? '↓' : '↑') : ''}
-					</button>
-				</div>
-				<div {...stylex.props(styles.body)}>
-					{sorted.map((row) => (
+		<div {...stylex.props(ui.mockup, ui.panel)} aria-label="Analyte concentration distributions">
+			<div {...stylex.props(ui.scrollFade, styles.viewport)}>
+				<div {...stylex.props(styles.content)}>
+					<div {...stylex.props(styles.header)}>
 						<button
-							key={row.id}
-							{...stylex.props(styles.row, selectedId === row.id && styles.selected)}
-							onClick={() => {
-								setSelectedId(row.id);
-								onRowSelect?.(row);
-							}}
-							aria-pressed={selectedId === row.id}
+							{...stylex.props(styles.heading, styles.analyteHeading)}
+							onClick={() => setSorting('analyte')}
 						>
-							<span {...stylex.props(styles.analyte)}>
-								<span {...stylex.props(styles.chemicalImage)}>
-									{row.imageSrc ? (
-										<img {...stylex.props(styles.chemicalImageAsset)} src={row.imageSrc} alt="" />
-									) : null}
-								</span>
-								<span {...stylex.props(styles.copy, ui.truncate)}>
-									<strong {...stylex.props(ui.caption, ui.truncate)}>{row.analyte}</strong>
-									{row.catalogId ? (
-										<small {...stylex.props(ui.tiny, ui.hint)}>#{row.catalogId}</small>
-									) : null}
-								</span>
-							</span>
-							<span {...stylex.props(styles.formula, styles.formulaValue)}>{row.formula}</span>
-							<span {...stylex.props(styles.concentrations)}>
-								<Scatter values={row.values} label={row.analyte} />
-							</span>
+							Analyte {sort === 'analyte' ? (descending ? '↓' : '↑') : ''}
 						</button>
-					))}
+						<button {...stylex.props(styles.heading)} onClick={() => setSorting('formula')}>
+							Formula {sort === 'formula' ? (descending ? '↓' : '↑') : ''}
+						</button>
+						<button {...stylex.props(styles.heading)} onClick={() => setSorting('median')}>
+							Concentrations <span {...stylex.props(ui.hint)}>({unitLabel})</span>{' '}
+							{sort === 'median' ? (descending ? '↓' : '↑') : ''}
+						</button>
+					</div>
+					<div {...stylex.props(ui.scrollFade, styles.body)}>
+						{sorted.map((row) => (
+							<button
+								key={row.id}
+								{...stylex.props(styles.row, selectedId === row.id && styles.selected)}
+								onClick={() => {
+									setSelectedId(row.id);
+									onRowSelect?.(row);
+								}}
+								aria-pressed={selectedId === row.id}
+							>
+								<span {...stylex.props(styles.analyte)}>
+									<span {...stylex.props(styles.chemicalImage)}>
+										{row.imageSrc ? (
+											<img {...stylex.props(styles.chemicalImageAsset)} src={row.imageSrc} alt="" />
+										) : null}
+									</span>
+									<span {...stylex.props(styles.copy, ui.truncate)}>
+										<strong {...stylex.props(ui.caption, ui.truncate)}>{row.analyte}</strong>
+										{row.catalogId ? (
+											<small {...stylex.props(ui.tiny, ui.hint)}>#{row.catalogId}</small>
+										) : null}
+									</span>
+								</span>
+								<span {...stylex.props(styles.formula, styles.formulaValue)}>{row.formula}</span>
+								<span {...stylex.props(styles.concentrations)}>
+									<Scatter values={row.values} label={row.analyte} />
+								</span>
+							</button>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -190,7 +189,14 @@ export function DistributionTable({
 }
 
 const styles = stylex.create({
-	root: { overflowX: 'auto', overflowY: 'hidden' },
+	viewport: {
+		width: '100%',
+		height: '100%',
+		minWidth: 0,
+		minHeight: 0,
+		overflowX: 'auto',
+		overflowY: 'hidden'
+	},
 	content: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -234,7 +240,7 @@ const styles = stylex.create({
 		minHeight: space[48],
 		paddingInline: space[8],
 		borderWidth: 0,
-		borderBottomWidth: 1,
+		borderBottomWidth: { 'default': 1, ':last-child': 0 },
 		borderBottomStyle: 'solid',
 		borderBottomColor: colors.divider,
 		backgroundColor: { 'default': 'transparent', ':hover': colors.tint },

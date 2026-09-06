@@ -75,8 +75,7 @@ const defaultExtracts: Extract[] = [
 ];
 
 const styles = stylex.create({
-	root: { overflowY: 'auto' },
-	list: { width: '100%', listStyle: 'none', padding: 0 },
+	list: { width: '100%', height: '100%', overflowY: 'auto', listStyle: 'none', padding: 0 },
 	listItem: { borderBottomWidth: 1, borderBottomStyle: 'solid', borderBottomColor: colors.divider },
 	item: {
 		display: 'flex',
@@ -115,7 +114,8 @@ const styles = stylex.create({
 	image: { width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(1)' },
 	detail: {
 		display: 'flex',
-		minHeight: '100%',
+		height: '100%',
+		minHeight: 0,
 		flexDirection: 'column',
 		gap: space[12],
 		padding: space[12]
@@ -129,7 +129,7 @@ const styles = stylex.create({
 		filter: 'grayscale(1)',
 		borderRadius: radius.small
 	},
-	detailDescription: { overflowY: 'auto' },
+	detailDescription: { minHeight: 0, overflowY: 'auto' },
 	detailActions: {
 		display: 'flex',
 		alignItems: 'center',
@@ -145,7 +145,7 @@ export function ExtractList({ items = defaultExtracts, onSelect }: ExtractListPr
 
 	if (selected) {
 		return (
-			<section {...stylex.props(ui.mockup, ui.panel, styles.root)} aria-label="Extract details">
+			<section {...stylex.props(ui.mockup, ui.panel)} aria-label="Extract details">
 				<article {...stylex.props(styles.detail)}>
 					<div {...stylex.props(styles.detailActions)}>
 						<button
@@ -168,15 +168,15 @@ export function ExtractList({ items = defaultExtracts, onSelect }: ExtractListPr
 					{selected.image ? (
 						<img {...stylex.props(styles.detailImage)} src={selected.image} alt={selected.title} />
 					) : null}
-					<p {...stylex.props(styles.detailDescription)}>{selected.description}</p>
+					<p {...stylex.props(ui.scrollFade, styles.detailDescription)}>{selected.description}</p>
 				</article>
 			</section>
 		);
 	}
 
 	return (
-		<section {...stylex.props(ui.mockup, ui.panel, styles.root)} aria-label="Extracts">
-			<ul {...stylex.props(styles.list)}>
+		<section {...stylex.props(ui.mockup, ui.panel)} aria-label="Extracts">
+			<ul {...stylex.props(ui.scrollFade, styles.list)}>
 				{items.map((item) => (
 					<li key={item.id} {...stylex.props(styles.listItem)}>
 						<button

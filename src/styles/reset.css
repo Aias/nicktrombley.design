@@ -115,6 +115,7 @@
 		appearance: none;
 	}
 
+	input[type='month']::-webkit-calendar-picker-indicator,
 	summary::-webkit-details-marker {
 		display: none;
 	}

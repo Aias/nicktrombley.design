@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import * as stylex from '@stylexjs/stylex';
 import { ui } from '../../styles/primitives';
 import { colors, radius, space } from '../../styles/tokens.stylex';
 import { FormsIcon } from './FormsIcon';
+import { MockupIcon } from './MockupIcon';
 
 export type RuleCondition = {
 	kind: 'rule';
@@ -184,19 +185,15 @@ const styles = stylex.create({
 		color: colors.primary,
 		cursor: 'pointer'
 	},
-	booleanSymbol: { position: 'relative', width: space[24], height: space[16], flexShrink: 0 },
-	booleanCircle: {
-		position: 'absolute',
-		top: '0.0625rem',
-		width: '0.875rem',
-		height: '0.875rem',
-		borderWidth: 1,
-		borderStyle: 'solid',
-		borderColor: colors.accent,
-		borderRadius: radius.full
+	booleanSymbol: {
+		display: 'flex',
+		width: space[24],
+		height: space[16],
+		flexShrink: 0,
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
-	booleanLeft: { left: 0 },
-	booleanRight: { right: 0, backgroundColor: colors.paint },
+	booleanIcon: { width: '1.1rem', height: '0.7rem' },
 	operatorLabel: { minWidth: 0, flex: '1', fontWeight: 575 },
 	calendar: {
 		height: space[24],
@@ -238,13 +235,14 @@ const styles = stylex.create({
 	body: {
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '0.625rem',
+		gap: space[8],
 		paddingBlock: space[6],
 		paddingInline: space[12]
 	},
 	rootBody: { minHeight: 0, overflowY: 'auto' },
 	nameRow: { display: 'flex', minWidth: 0, alignItems: 'center', gap: space[6] },
-	name: { minWidth: 0, flex: '1', color: colors.ghost },
+	name: { minWidth: 0, color: colors.ghost },
+	collapse: { marginInlineStart: 'auto' },
 	nestedName: { color: colors.primary, fontWeight: 575 },
 	nameInput: { flex: '1' },
 	summary: {
@@ -256,7 +254,7 @@ const styles = stylex.create({
 		color: colors.secondary,
 		textAlign: 'center'
 	},
-	items: { display: 'flex', flexDirection: 'column', gap: '0.625rem' },
+	items: { display: 'flex', flexDirection: 'column', gap: space[8] },
 	rule: { display: 'flex', minWidth: 0, alignItems: 'flex-start', gap: space[12] },
 	ruleCopy: { display: 'flex', minWidth: 0, flex: '1', flexDirection: 'column' },
 	ruleEditor: {
@@ -311,8 +309,7 @@ const styles = stylex.create({
 		backgroundColor: colors.tint,
 		fontWeight: 575
 	},
-	andBadge: { borderColor: 'transparent', backgroundColor: colors.paint },
-	childGroup: { marginTop: space[2] }
+	andBadge: { borderColor: 'transparent', backgroundColor: colors.paint }
 });
 
 function countRules(group: RuleGroupData): number {
@@ -386,13 +383,7 @@ function RuleGroup({
 
 	return (
 		<section
-			{...stylex.props(
-				root && ui.mockup,
-				root && ui.panel,
-				styles.group,
-				root && styles.rootGroup,
-				!root && styles.childGroup
-			)}
+			{...stylex.props(root && ui.mockup, root && ui.panel, styles.group, root && styles.rootGroup)}
 		>
 			<header {...stylex.props(styles.toolbar)}>
 				<div {...stylex.props(styles.toolbarLeft)}>
@@ -405,8 +396,10 @@ function RuleGroup({
 						}
 					>
 						<span {...stylex.props(styles.booleanSymbol)}>
-							<span {...stylex.props(styles.booleanCircle, styles.booleanLeft)} />
-							<span {...stylex.props(styles.booleanCircle, styles.booleanRight)} />
+							<MockupIcon
+								src={`/mockup-icons/forms/RuleBuilder-imgBoolean${group.operator === 'AND' ? 'Intersection' : 'Union'}.svg`}
+								iconStyle={styles.booleanIcon}
+							/>
 						</span>
 						<span {...stylex.props(ui.truncate, styles.operatorLabel)}>
 							{group.operator === 'AND' ? 'ALL OF' : 'ANY OF'}
@@ -447,18 +440,6 @@ function RuleGroup({
 							<FormsIcon name="RuleBuilder-imgDragHandleDots2" size={12} />
 						</button>
 					) : null}
-					<button
-						type="button"
-						{...stylex.props(styles.iconButton)}
-						aria-label={`${collapsed ? 'Expand' : 'Collapse'} ${group.name}`}
-						aria-expanded={!collapsed}
-						onClick={() => setCollapsed((current) => !current)}
-					>
-						<FormsIcon
-							name={collapsed ? 'RuleBuilder-imgCaretDown' : 'RuleBuilder-imgCaretUp'}
-							size={16}
-						/>
-					</button>
 				</div>
 			</header>
 			{showDate ? (
@@ -487,39 +468,50 @@ function RuleGroup({
 					) : null}
 				</div>
 			) : null}
-			{collapsed ? null : (
-				<div {...stylex.props(styles.body, root && styles.rootBody)}>
-					<div {...stylex.props(styles.nameRow)}>
-						{editingName ? (
-							<input
-								{...stylex.props(ui.input, styles.nameInput)}
-								aria-label="Group name"
-								value={group.name}
-								onChange={(event) => onChange({ ...group, name: event.target.value })}
-								onBlur={() => setEditingName(false)}
-							/>
-						) : (
-							<p {...stylex.props(ui.tiny, ui.truncate, styles.name, !root && styles.nestedName)}>
-								{group.name}
-							</p>
-						)}
-						<button
-							type="button"
-							{...stylex.props(styles.iconButton)}
-							aria-label={`Edit ${group.name}`}
-							onClick={() => setEditingName(true)}
-						>
-							<FormsIcon name="RuleBuilder-imgPencil1" size={12} />
-						</button>
-					</div>
-					{root ? null : (
-						<p {...stylex.props(ui.caption, styles.summary)}>
-							{countGroups(group)} Subgroups, {countRules(group)} Rules
+			<div {...stylex.props(styles.body, root && styles.rootBody, root && ui.scrollFade)}>
+				<div {...stylex.props(styles.nameRow)}>
+					{editingName ? (
+						<input
+							{...stylex.props(ui.input, styles.nameInput)}
+							aria-label="Group name"
+							value={group.name}
+							onChange={(event) => onChange({ ...group, name: event.target.value })}
+							onBlur={() => setEditingName(false)}
+						/>
+					) : (
+						<p {...stylex.props(ui.tiny, ui.truncate, styles.name, !root && styles.nestedName)}>
+							{group.name}
 						</p>
 					)}
+					<button
+						type="button"
+						{...stylex.props(styles.iconButton)}
+						aria-label={`Edit ${group.name}`}
+						onClick={() => setEditingName(true)}
+					>
+						<FormsIcon name="RuleBuilder-imgPencil1" size={12} />
+					</button>
+					<button
+						type="button"
+						{...stylex.props(styles.iconButton, styles.collapse)}
+						aria-label={`${collapsed ? 'Expand' : 'Collapse'} ${group.name}`}
+						aria-expanded={!collapsed}
+						onClick={() => setCollapsed((current) => !current)}
+					>
+						<FormsIcon
+							name={collapsed ? 'RuleBuilder-imgCaretDown' : 'RuleBuilder-imgCaretUp'}
+							size={16}
+						/>
+					</button>
+				</div>
+				{collapsed ? (
+					<p {...stylex.props(ui.caption, styles.summary)}>
+						{countGroups(group)} Subgroups, {countRules(group)} Rules
+					</p>
+				) : (
 					<div {...stylex.props(styles.items)}>
 						{group.items.map((item, index) => (
-							<div key={item.id}>
+							<Fragment key={item.id}>
 								{item.kind === 'rule' ? (
 									<div {...stylex.props(styles.rule)}>
 										{editingRuleId === item.id ? (
@@ -630,11 +622,11 @@ function RuleGroup({
 										{group.operator}
 									</span>
 								) : null}
-							</div>
+							</Fragment>
 						))}
 					</div>
-				</div>
-			)}
+				)}
+			</div>
 		</section>
 	);
 }

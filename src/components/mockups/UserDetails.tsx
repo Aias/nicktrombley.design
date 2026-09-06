@@ -141,13 +141,14 @@ const styles = stylex.create({
 	},
 	tableFrame: {
 		minWidth: 0,
-		overflowX: 'auto',
+		overflow: 'hidden',
 		borderWidth: 1,
 		borderStyle: 'solid',
 		borderColor: colors.divider,
 		borderRadius: radius.small,
 		backgroundColor: colors.background
 	},
+	tableViewport: { minWidth: 0, overflowX: 'auto', overflowY: 'hidden' },
 	table: { width: '100%', minWidth: '20rem', borderCollapse: 'collapse', tableLayout: 'fixed' },
 	tableRow: {
 		height: space[24],
@@ -295,7 +296,7 @@ export function UserDetails({
 					<FormsIcon name="UserDetails-imgDotsVertical" size={16} />
 				</button>
 			</header>
-			<div {...stylex.props(styles.scroll)}>
+			<div {...stylex.props(ui.scrollFade, styles.scroll)}>
 				<div {...stylex.props(styles.profile)}>
 					<div {...stylex.props(styles.identity)}>
 						<img {...stylex.props(styles.avatar)} src={profile.avatar} alt="" />
@@ -439,123 +440,129 @@ export function UserDetails({
 						</form>
 					) : null}
 					<div {...stylex.props(styles.tableFrame)}>
-						<table {...stylex.props(ui.caption, styles.table)}>
-							<thead>
-								<tr {...stylex.props(styles.tableRow, styles.tableHeader)}>
-									<th {...stylex.props(styles.selectCell)}>
-										<SelectionBox
-											checked={
-												profile.accounts.length > 0 &&
-												selectedIds.length === profile.accounts.length
-											}
-											label="Select all accounts"
-											onChange={(checked) =>
-												setSelectedIds(checked ? profile.accounts.map((account) => account.id) : [])
-											}
-										/>
-									</th>
-									<th {...stylex.props(styles.primaryCell)}>
-										<FormsIcon name="UserDetails-imgStar" />
-									</th>
-									<th
-										{...stylex.props(styles.identifierCell)}
-										aria-sort={sortDirection === 'original' ? 'none' : sortDirection}
-									>
-										<button
-											type="button"
-											{...stylex.props(styles.cellButton)}
-											onClick={() =>
-												setSortDirection(sortDirection === 'ascending' ? 'descending' : 'ascending')
-											}
-										>
-											Identifier
-											<span
-												{...stylex.props(
-													styles.sortIcon,
-													sortDirection === 'ascending' && styles.sortIconAscending
-												)}
-											>
-												<FormsIcon name="UserDetails-imgArrowDown" size={12} />
-											</span>
-										</button>
-									</th>
-									<th {...stylex.props(styles.typeCell)}>Type</th>
-									<th {...stylex.props(styles.sourceCell)}>Source</th>
-								</tr>
-							</thead>
-							<tbody>
-								{accounts.map((account) => (
-									<tr key={account.id} {...stylex.props(styles.tableRow, styles.accountRow)}>
-										<td {...stylex.props(styles.selectCell)}>
+						<div {...stylex.props(ui.scrollFade, styles.tableViewport)}>
+							<table {...stylex.props(ui.caption, styles.table)}>
+								<thead>
+									<tr {...stylex.props(styles.tableRow, styles.tableHeader)}>
+										<th {...stylex.props(styles.selectCell)}>
 											<SelectionBox
-												checked={selectedIds.includes(account.id)}
-												label={`Select ${account.identifier}`}
+												checked={
+													profile.accounts.length > 0 &&
+													selectedIds.length === profile.accounts.length
+												}
+												label="Select all accounts"
 												onChange={(checked) =>
 													setSelectedIds(
-														checked
-															? [...selectedIds, account.id]
-															: selectedIds.filter((id) => id !== account.id)
+														checked ? profile.accounts.map((account) => account.id) : []
 													)
 												}
 											/>
-										</td>
-										<td {...stylex.props(styles.primaryCell)}>
+										</th>
+										<th {...stylex.props(styles.primaryCell)}>
+											<FormsIcon name="UserDetails-imgStar" />
+										</th>
+										<th
+											{...stylex.props(styles.identifierCell)}
+											aria-sort={sortDirection === 'original' ? 'none' : sortDirection}
+										>
 											<button
 												type="button"
-												{...stylex.props(styles.iconButton)}
-												aria-label={`Set ${account.identifier} as primary`}
-												aria-pressed={Boolean(account.primary)}
+												{...stylex.props(styles.cellButton)}
 												onClick={() =>
-													update({
-														...profile,
-														accounts: profile.accounts.map((item) => ({
-															...item,
-															primary: item.id === account.id
-														}))
-													})
+													setSortDirection(
+														sortDirection === 'ascending' ? 'descending' : 'ascending'
+													)
 												}
 											>
-												<FormsIcon
-													name={
-														account.primary ? 'UserDetails-imgStarfilled' : 'UserDetails-imgIcon'
+												Identifier
+												<span
+													{...stylex.props(
+														styles.sortIcon,
+														sortDirection === 'ascending' && styles.sortIconAscending
+													)}
+												>
+													<FormsIcon name="UserDetails-imgArrowDown" size={12} />
+												</span>
+											</button>
+										</th>
+										<th {...stylex.props(styles.typeCell)}>Type</th>
+										<th {...stylex.props(styles.sourceCell)}>Source</th>
+									</tr>
+								</thead>
+								<tbody>
+									{accounts.map((account) => (
+										<tr key={account.id} {...stylex.props(styles.tableRow, styles.accountRow)}>
+											<td {...stylex.props(styles.selectCell)}>
+												<SelectionBox
+													checked={selectedIds.includes(account.id)}
+													label={`Select ${account.identifier}`}
+													onChange={(checked) =>
+														setSelectedIds(
+															checked
+																? [...selectedIds, account.id]
+																: selectedIds.filter((id) => id !== account.id)
+														)
 													}
 												/>
-											</button>
-										</td>
-										<td
-											{...stylex.props(
-												ui.truncate,
-												styles.identifierCell,
-												account.primary && styles.primary
-											)}
-										>
-											{account.identifier}
-											{account.primary ? (
-												<span {...stylex.props(styles.primaryMeta)}>Primary</span>
-											) : null}
-										</td>
-										<td
-											{...stylex.props(
-												ui.truncate,
-												styles.typeCell,
-												account.primary && styles.primary
-											)}
-										>
-											{account.type}
-										</td>
-										<td
-											{...stylex.props(
-												ui.truncate,
-												styles.sourceCell,
-												account.primary && styles.primary
-											)}
-										>
-											{account.source}
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
+											</td>
+											<td {...stylex.props(styles.primaryCell)}>
+												<button
+													type="button"
+													{...stylex.props(styles.iconButton)}
+													aria-label={`Set ${account.identifier} as primary`}
+													aria-pressed={Boolean(account.primary)}
+													onClick={() =>
+														update({
+															...profile,
+															accounts: profile.accounts.map((item) => ({
+																...item,
+																primary: item.id === account.id
+															}))
+														})
+													}
+												>
+													<FormsIcon
+														name={
+															account.primary ? 'UserDetails-imgStarfilled' : 'UserDetails-imgIcon'
+														}
+													/>
+												</button>
+											</td>
+											<td
+												{...stylex.props(
+													ui.truncate,
+													styles.identifierCell,
+													account.primary && styles.primary
+												)}
+											>
+												{account.identifier}
+												{account.primary ? (
+													<span {...stylex.props(styles.primaryMeta)}>Primary</span>
+												) : null}
+											</td>
+											<td
+												{...stylex.props(
+													ui.truncate,
+													styles.typeCell,
+													account.primary && styles.primary
+												)}
+											>
+												{account.type}
+											</td>
+											<td
+												{...stylex.props(
+													ui.truncate,
+													styles.sourceCell,
+													account.primary && styles.primary
+												)}
+											>
+												{account.source}
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

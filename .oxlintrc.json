@@ -10,7 +10,17 @@
 		"suspicious": "error"
 	},
 	"rules": {
-		"@stylexjs/valid-styles": "error",
+		"@stylexjs/valid-styles": [
+			"error",
+			{
+				"propLimits": {
+					"animationRange": {
+						"limit": "string",
+						"reason": "Scroll-driven animations use CSS animation ranges."
+					}
+				}
+			}
+		],
 		"@stylexjs/valid-shorthands": "error",
 		"@stylexjs/no-unused": "error",
 		"typescript/no-explicit-any": "error",

@@ -24,7 +24,7 @@ const styles = stylex.create({
 		paddingInline: space[24],
 		textAlign: 'center'
 	},
-	editing: { justifyContent: 'flex-start', paddingBlock: space[8], overflowY: 'auto' },
+	editing: { justifyContent: 'flex-start', paddingBlock: space[8] },
 	copy: {
 		display: 'flex',
 		width: '100%',
@@ -40,7 +40,14 @@ const styles = stylex.create({
 		gap: space[8],
 		backgroundColor: { 'default': colors.component, ':hover': colors.tone }
 	},
-	form: { display: 'grid', width: '100%', gap: space[8] },
+	form: {
+		display: 'grid',
+		width: '100%',
+		minHeight: 0,
+		maxHeight: '100%',
+		gap: space[8],
+		overflowY: 'auto'
+	},
 	fields: { display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: space[8] },
 	actions: { display: 'flex', justifyContent: 'center', gap: space[8] },
 	submit: { backgroundColor: { 'default': colors.component, ':hover': colors.tone } }
@@ -68,7 +75,7 @@ export function BigButton({
 	return (
 		<section {...stylex.props(ui.mockup, ui.panel, styles.root, editing && styles.editing)}>
 			{editing ? (
-				<form {...stylex.props(styles.form)} onSubmit={submitComparison}>
+				<form {...stylex.props(ui.scrollFade, styles.form)} onSubmit={submitComparison}>
 					<div {...stylex.props(styles.copy)}>
 						<h2 {...stylex.props(ui.heading, ui.truncate, styles.text)}>{title}</h2>
 						<p {...stylex.props(ui.secondary, ui.truncate, styles.text)}>{description}</p>

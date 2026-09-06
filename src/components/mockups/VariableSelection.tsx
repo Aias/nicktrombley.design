@@ -39,8 +39,7 @@ const defaultVariables: ComparisonVariable[] = [
 ];
 
 const styles = stylex.create({
-	root: { overflowY: 'auto' },
-	list: { width: '100%', listStyle: 'none', padding: 0 },
+	list: { width: '100%', height: '100%', overflowY: 'auto', listStyle: 'none', padding: 0 },
 	item: { borderBottomWidth: 1, borderBottomStyle: 'solid', borderBottomColor: colors.divider },
 	row: {
 		display: 'flex',
@@ -138,8 +137,8 @@ export function VariableSelection({
 	}
 
 	return (
-		<section {...stylex.props(ui.mockup, ui.panel, styles.root)} aria-label="Comparison variables">
-			<ul {...stylex.props(styles.list)}>
+		<section {...stylex.props(ui.mockup, ui.panel)} aria-label="Comparison variables">
+			<ul {...stylex.props(ui.scrollFade, styles.list)}>
 				{visibleItems.map((item) => {
 					const isSelected = selection === item.id;
 					const isCollapsed = collapsedIds.includes(item.id);

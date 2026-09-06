@@ -252,7 +252,7 @@ export function Timeline({
 					onChange={(event) => updateDate(event.target.value)}
 				/>
 			</label>
-			<div {...stylex.props(styles.events)}>
+			<div {...stylex.props(ui.scrollFade, styles.events)}>
 				{orderedEvents.map((event, index) => (
 					<article
 						{...stylex.props(

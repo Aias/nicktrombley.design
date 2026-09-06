@@ -164,7 +164,7 @@ export function MultiMeasure({
 						{selectedIds.includes(candidateId) ? 'View Measure' : 'Add to List'}
 					</button>
 				</div>
-				<div {...stylex.props(styles.heatmap)}>
+				<div {...stylex.props(ui.scrollFade, styles.heatmap)}>
 					{selected.map((measure) => (
 						<button
 							key={measure.id}

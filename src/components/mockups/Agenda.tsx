@@ -64,6 +64,7 @@ const styles = stylex.create({
 		flexShrink: 0
 	},
 	datePicker: {
+		marginInlineStart: 'auto',
 		display: 'flex',
 		alignItems: 'center',
 		flexShrink: 0,
@@ -219,7 +220,7 @@ export function Agenda({
 					</button>
 				</div>
 			</header>
-			<div {...stylex.props(styles.events)}>
+			<div {...stylex.props(ui.scrollFade, styles.events)}>
 				{visibleEvents.map((event) => (
 					<article {...stylex.props(styles.event)} key={event.id}>
 						<div {...stylex.props(styles.eventHeading)}>

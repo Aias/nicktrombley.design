@@ -196,7 +196,7 @@ export function Icons({
 					src="/mockup-icons/timelines/Icons-imgMagnifyingGlass.svg"
 				/>
 			</label>
-			<div {...stylex.props(styles.grid)}>
+			<div {...stylex.props(ui.scrollFade, styles.grid)}>
 				{filteredIcons.map((icon) => (
 					<button
 						{...stylex.props(

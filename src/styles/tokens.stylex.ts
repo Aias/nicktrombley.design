@@ -1,5 +1,9 @@
 import * as stylex from '@stylexjs/stylex';
 
+export const widgetChroma = stylex.defineVars({
+	'--portfolio-widget-chroma': stylex.types.percentage('0%')
+});
+
 export const colors = stylex.defineVars({
 	primary: 'light-dark(#1d211c, #eef0ee)',
 	secondary: 'light-dark(#686e67, #a9ada8)',

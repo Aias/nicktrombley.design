@@ -115,53 +115,55 @@ export function ImpactAnalysis({ factors = defaultFactors, onFactorSelect }: Imp
 		...factors.flatMap((factor) => [factor.decrease, factor.increase])
 	);
 	return (
-		<div {...stylex.props(ui.mockup, ui.panel, styles.root)} aria-label="Impact analysis">
-			<div {...stylex.props(styles.content)}>
-				<div {...stylex.props(styles.row, styles.header)}>
-					<span>Factor</span>
-					<span {...stylex.props(styles.value)}>Value</span>
-					<span {...stylex.props(styles.weightHeading)}>Weight vs. Reference</span>
-					<span>Impact</span>
-				</div>
-				<div {...stylex.props(styles.body)}>
-					{factors.map((factor) => {
-						const impact = impactLabel(factor);
-						return (
-							<button
-								key={factor.id}
-								{...stylex.props(
-									styles.row,
-									styles.dataRow,
-									selectedId === factor.id && styles.selected
-								)}
-								onClick={() => {
-									setSelectedId(factor.id);
-									onFactorSelect?.(factor);
-								}}
-								aria-pressed={selectedId === factor.id}
-							>
-								<span {...stylex.props(ui.truncate)}>{factor.label}</span>
-								<span {...stylex.props(styles.value)}>{factor.value}</span>
-								<WeightGraphic factor={factor} maximum={maximum} />
-								<span {...stylex.props(styles.impact, impact === 'None' && styles.none)}>
-									{impact === 'Increase' ? (
-										<MockupIcon
-											src="/mockup-icons/charts/ImpactAnalysis/imgArrowTopRight.svg"
-											iconStyle={styles.impactIcon}
-										/>
-									) : null}
-									{impact === 'Decrease' ? (
-										<MockupIcon
-											src="/mockup-icons/charts/ImpactAnalysis/imgArrowBottomRight.svg"
-											iconStyle={styles.impactIcon}
-										/>
-									) : null}
-									{impact === 'None' ? <span aria-hidden="true">−</span> : null}
-									{impact}
-								</span>
-							</button>
-						);
-					})}
+		<div {...stylex.props(ui.mockup, ui.panel)} aria-label="Impact analysis">
+			<div {...stylex.props(ui.scrollFade, styles.viewport)}>
+				<div {...stylex.props(styles.content)}>
+					<div {...stylex.props(styles.row, styles.header)}>
+						<span>Factor</span>
+						<span {...stylex.props(styles.value)}>Value</span>
+						<span {...stylex.props(styles.weightHeading)}>Weight vs. Reference</span>
+						<span>Impact</span>
+					</div>
+					<div {...stylex.props(ui.scrollFade, styles.body)}>
+						{factors.map((factor) => {
+							const impact = impactLabel(factor);
+							return (
+								<button
+									key={factor.id}
+									{...stylex.props(
+										styles.row,
+										styles.dataRow,
+										selectedId === factor.id && styles.selected
+									)}
+									onClick={() => {
+										setSelectedId(factor.id);
+										onFactorSelect?.(factor);
+									}}
+									aria-pressed={selectedId === factor.id}
+								>
+									<span {...stylex.props(ui.truncate)}>{factor.label}</span>
+									<span {...stylex.props(styles.value)}>{factor.value}</span>
+									<WeightGraphic factor={factor} maximum={maximum} />
+									<span {...stylex.props(styles.impact, impact === 'None' && styles.none)}>
+										{impact === 'Increase' ? (
+											<MockupIcon
+												src="/mockup-icons/charts/ImpactAnalysis/imgArrowTopRight.svg"
+												iconStyle={styles.impactIcon}
+											/>
+										) : null}
+										{impact === 'Decrease' ? (
+											<MockupIcon
+												src="/mockup-icons/charts/ImpactAnalysis/imgArrowBottomRight.svg"
+												iconStyle={styles.impactIcon}
+											/>
+										) : null}
+										{impact === 'None' ? <span aria-hidden="true">−</span> : null}
+										{impact}
+									</span>
+								</button>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -169,7 +171,14 @@ export function ImpactAnalysis({ factors = defaultFactors, onFactorSelect }: Imp
 }
 
 const styles = stylex.create({
-	root: { overflowX: 'auto', overflowY: 'hidden' },
+	viewport: {
+		width: '100%',
+		height: '100%',
+		minWidth: 0,
+		minHeight: 0,
+		overflowX: 'auto',
+		overflowY: 'hidden'
+	},
 	content: {
 		display: 'flex',
 		flexDirection: 'column',

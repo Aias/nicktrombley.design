@@ -189,7 +189,7 @@ export function VariableAnalysis(props: VariableAnalysisProps) {
 				</p>
 			</div>
 			<div {...stylex.props(styles.content)}>
-				<div {...stylex.props(styles.graphViewport)}>
+				<div {...stylex.props(ui.scrollFade, styles.graphViewport)}>
 					<div {...stylex.props(styles.graphCanvas)} ref={graphRef}>
 						<svg
 							{...stylex.props(styles.connectors)}
@@ -380,6 +380,7 @@ const styles = stylex.create({
 	},
 	connectors: {
 		position: 'absolute',
+		color: colors.borderActive,
 		zIndex: 0,
 		inset: 0,
 		width: '100%',
