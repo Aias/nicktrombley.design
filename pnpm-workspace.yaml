@@ -1,2 +1,5 @@
 onlyBuiltDependencies:
   - esbuild
+
+patchedDependencies:
+  '@rolldown/plugin-babel@0.2.3': patches/@rolldown__plugin-babel@0.2.3.patch

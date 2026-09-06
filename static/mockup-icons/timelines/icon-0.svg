@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="24.0 66.0 16 16" fill="none">
+<path d="M26 68L32 80H34L28 68H26Z" fill="var(--icon-accent)"/>
+<path d="M38 68H29L32 74L38 68Z" fill="var(--icon-ghost)"/>
+<path d="M29 68H38V69H29V68Z" fill="var(--icon-accent)"/>
+<path d="M29 69H30V70H29V69Z" fill="var(--icon-accent)"/>
+<path d="M30 70H31V72H30V70Z" fill="var(--icon-accent)"/>
+<path d="M31 72H32V74H31V72Z" fill="var(--icon-accent)"/>
+<path d="M32 73H33V74H32V73Z" fill="var(--icon-accent)"/>
+<path d="M33 72H34V73H33V72Z" fill="var(--icon-accent)"/>
+<path d="M34 71H35V72H34V71Z" fill="var(--icon-accent)"/>
+<path d="M35 70H36V71H35V70Z" fill="var(--icon-accent)"/>
+<path d="M36 69H37V70H36V69Z" fill="var(--icon-accent)"/>
+<path d="M26 68H27V69H26V68Z" fill="var(--icon-accent)"/>
+<path d="M26 69H27V70H26V69Z" fill="var(--icon-accent)"/>
+<path d="M27 70H28V71H27V70Z" fill="var(--icon-accent)"/>
+<path d="M27 71H28V72H27V71Z" fill="var(--icon-accent)"/>
+<path d="M28 72H29V73H28V72Z" fill="var(--icon-accent)"/>
+<path d="M28 73H29V74H28V73Z" fill="var(--icon-accent)"/>
+<path d="M29 74H30V75H29V74Z" fill="var(--icon-accent)"/>
+<path d="M29 75H30V76H29V75Z" fill="var(--icon-accent)"/>
+<path d="M30 76H31V77H30V76Z" fill="var(--icon-accent)"/>
+<path d="M30 77H31V78H30V77Z" fill="var(--icon-accent)"/>
+<path d="M31 78H32V79H31V78Z" fill="var(--icon-accent)"/>
+<path d="M31 79H32V80H31V79Z" fill="var(--icon-accent)"/>
+<path d="M33 79H34V80H33V79Z" fill="var(--icon-accent)"/>
+<path d="M33 78H34V79H33V78Z" fill="var(--icon-accent)"/>
+<path d="M32 77H33V78H32V77Z" fill="var(--icon-accent)"/>
+<path d="M32 76H33V77H32V76Z" fill="var(--icon-accent)"/>
+<path d="M31 75H32V76H31V75Z" fill="var(--icon-accent)"/>
+<path d="M31 74H32V75H31V74Z" fill="var(--icon-accent)"/>
+<path d="M30 73H31V74H30V73Z" fill="var(--icon-accent)"/>
+<path d="M30 72H31V73H30V72Z" fill="var(--icon-accent)"/>
+<path d="M29 71H30V72H29V71Z" fill="var(--icon-accent)"/>
+<path d="M29 70H30V71H29V70Z" fill="var(--icon-accent)"/>
+<path d="M28 69H29V70H28V69Z" fill="var(--icon-accent)"/>
+<path d="M28 68H29V69H28V68Z" fill="var(--icon-accent)"/>
+<path d="M27 68H28V69H27V68Z" fill="var(--icon-accent)"/>
+<path d="M32 79H33V80H32V79Z" fill="var(--icon-accent)"/>
+</svg>

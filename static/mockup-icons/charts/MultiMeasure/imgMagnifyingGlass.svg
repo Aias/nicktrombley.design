@@ -1,0 +1,5 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="magnifying-glass">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M8 5.2C8 6.7464 6.7464 8 5.2 8C3.6536 8 2.4 6.7464 2.4 5.2C2.4 3.6536 3.6536 2.4 5.2 2.4C6.7464 2.4 8 3.6536 8 5.2ZM7.44707 8.01272C6.83121 8.50544 6.05001 8.8 5.2 8.8C3.21178 8.8 1.6 7.18822 1.6 5.2C1.6 3.21178 3.21178 1.6 5.2 1.6C7.18822 1.6 8.8 3.21178 8.8 5.2C8.8 6.05001 8.50544 6.83121 8.01272 7.44707L10.2829 9.71712C10.439 9.87336 10.439 10.1266 10.2829 10.2829C10.1266 10.439 9.87336 10.439 9.71712 10.2829L7.44707 8.01272Z" fill="var(--icon-hint)"/>
+</g>
+</svg>

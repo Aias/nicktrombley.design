@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Data Type Icon" clip-path="url(#clip0_0_1064)">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M8.8 1.2C8.8 0.979088 8.62088 0.8 8.4 0.8C8.17912 0.8 8 0.979088 8 1.2V3.2H4V1.2C4 0.979088 3.82091 0.8 3.6 0.8C3.37909 0.8 3.2 0.979088 3.2 1.2V3.2H1.2C0.979088 3.2 0.8 3.37909 0.8 3.6C0.8 3.82091 0.979088 4 1.2 4H3.2V8H1.2C0.979088 8 0.8 8.17912 0.8 8.4C0.8 8.62088 0.979088 8.8 1.2 8.8H3.2V10.8C3.2 11.0209 3.37909 11.2 3.6 11.2C3.82091 11.2 4 11.0209 4 10.8V8.8H8V10.8C8 11.0209 8.17912 11.2 8.4 11.2C8.62088 11.2 8.8 11.0209 8.8 10.8V8.8H10.8C11.0209 8.8 11.2 8.62088 11.2 8.4C11.2 8.17912 11.0209 8 10.8 8H8.8V4H10.8C11.0209 4 11.2 3.82091 11.2 3.6C11.2 3.37909 11.0209 3.2 10.8 3.2H8.8V1.2ZM8 8V4H4V8H8Z" fill="var(--icon-hint)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_1064">
+<rect width="12" height="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>

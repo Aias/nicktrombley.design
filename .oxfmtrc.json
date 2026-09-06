@@ -1,0 +1,26 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"useTabs": true,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"quoteProps": "consistent",
+	"ignorePatterns": ["build", ".prerender", ".context", "pnpm-lock.yaml"],
+	"sortImports": {
+		"customGroups": [
+			{
+				"groupName": "react",
+				"elementNamePattern": ["react", "react/**", "react-dom", "react-dom/**"]
+			}
+		],
+		"groups": [
+			"react",
+			"builtin",
+			"external",
+			["internal", "subpath"],
+			["parent", "sibling", "index"],
+			"style",
+			"unknown"
+		],
+		"newlinesBetween": false
+	}
+}

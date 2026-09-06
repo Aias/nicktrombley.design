@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="120.0 66.0 16 16" fill="none">
+<path d="M122 79H130V76H132V79H134V74H130V69H122V79ZM123 72H125V70H127V72H129V74H127V76H125V74H123V72Z" fill="var(--icon-ghost)"/>
+<path d="M130 79H122V69H130L130.03 74H134V79H132V80H135V73H131V68H121V80H130V79Z" fill="var(--icon-accent)"/>
+</svg>

@@ -1,0 +1,24 @@
+diff --git a/dist/index.d.mts b/dist/index.d.mts
+index d13490258c61903ef8590a9ce488cc81e9340e09..f3716b922f3995d4d08421ce89b2276517fa5627 100644
+--- a/dist/index.d.mts
++++ b/dist/index.d.mts
+@@ -3,17 +3,8 @@ import { GeneralHookFilter, ModuleTypeFilter, Plugin } from "rolldown";
+ import { Plugin as Plugin$1, ResolvedConfig } from "vite";
+ 
+ //#region src/babelCompat.d.ts
+-type IsAny<T> = boolean extends (T extends never ? true : false) ? true : false;
+-/** **When using babel 7, install `@types/babel__core` to get proper types.** */
+-type InputOptionsFallback = {
+-  /** **When using babel 7, install `@types/babel__core` to get proper types.** */plugins?: unknown[]; /** **When using babel 7, install `@types/babel__core` to get proper types.** */
+-  presets?: unknown[];
+-};
+-type InputOptions8 = babel.InputOptions;
+-type PresetItem8 = babel.PresetItem;
+-type TransformOptions = babel.TransformOptions;
+-type InputOptions = IsAny<InputOptions8> extends false ? InputOptions8 : IsAny<TransformOptions> extends false ? TransformOptions : InputOptionsFallback;
+-type PresetItem = IsAny<PresetItem8> extends false ? PresetItem8 : babel.PluginItem;
++type InputOptions = babel.TransformOptions;
++type PresetItem = babel.PluginItem;
+ //#endregion
+ //#region src/rolldownPreset.d.ts
+ type PartialEnvironment = Parameters<NonNullable<Plugin$1['applyToEnvironment']>>[0];
