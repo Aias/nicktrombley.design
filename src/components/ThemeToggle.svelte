@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Moon from '$components/icons/Moon.svelte';
-	import Sun from '$components/icons/Sun.svelte';
+	import Moon from '#components/icons/Moon.svelte';
+	import Sun from '#components/icons/Sun.svelte';
 	function handleThemeChange() {
 		const htmlNode = document.documentElement;
 		let theme: 'light' | 'dark';

@@ -1,6 +1,6 @@
 import { parse } from 'csv-parse/sync';
-import { type Widget, WidgetsSchema } from '$types/portfolio';
-import { ThemeSchema } from '$types/theme';
+import { type Widget, WidgetsSchema } from '#types/portfolio.js';
+import { ThemeSchema } from '#types/theme.js';
 
 export const prerender = true;
 export const ssr = true;

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { blur } from 'svelte/transition';
-	import type { Widget } from '$types/portfolio';
-	import { REMS_PER_CELL } from '$types/portfolio';
+	import type { Widget } from '#types/portfolio.js';
+	import { REMS_PER_CELL } from '#types/portfolio.js';
 
 	const { widget, delay = 250 }: { widget: Widget; delay?: number } = $props();
 

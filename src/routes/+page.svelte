@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import PortfolioWidget from '$components/PortfolioWidget.svelte';
-	import BackgroundGrid from '$components/BackgroundGrid.svelte';
-	import ProfileContent from '$components/ProfileContent.svelte';
+	import PortfolioWidget from '#components/PortfolioWidget.svelte';
+	import BackgroundGrid from '#components/BackgroundGrid.svelte';
+	import ProfileContent from '#components/ProfileContent.svelte';
 
-	import { REMS_PER_CELL, type Widget } from '$types/portfolio';
+	import { REMS_PER_CELL, type Widget } from '#types/portfolio.js';
 
 	const { data } = $props();
 	const widgets = $derived(data.widgets);
