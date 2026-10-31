@@ -1,15 +1,13 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-
-	let { status, error } = $page;
+	import { page } from '$app/state';
 </script>
 
 <svelte:head>
-	<title>{status}</title>
+	<title>{page.status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<h1>{page.status}</h1>
 
-{#if error}
-	<p>{error.message}</p>
+{#if page.error}
+	<p>{page.error.message}</p>
 {/if}

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Camera from '$components/icons/Camera.svelte';
-	import Github from '$components/icons/Github.svelte';
-	import LinkedIn from '$components/icons/LinkedIn.svelte';
-	import Archive from '$components/icons/Archive.svelte';
-	import ThemeToggle from '$components/ThemeToggle.svelte';
+	import Camera from '#components/icons/Camera.svelte';
+	import Github from '#components/icons/Github.svelte';
+	import LinkedIn from '#components/icons/LinkedIn.svelte';
+	import Archive from '#components/icons/Archive.svelte';
+	import ThemeToggle from '#components/ThemeToggle.svelte';
 
 	const links = [
 		{
